@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Mozaiik</title>
+  <meta name="description" content="Get in touch with Mozaiik. We're building the operating system for complex family wealth — let's talk about what it can do for your firm.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%2313151f'/><stop offset='100%25' stop-color='%231a45d4'/></linearGradient></defs><rect width='512' height='512' rx='96' fill='url(%23g)'/><path d='M148 376V136L256 244L364 136V376' stroke='white' stroke-width='44' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+  <link rel="canonical" href="https://mozaiik.com/contact">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#13151f;--navy-mid:#1a1d2e;--navy-light:#252840;
+  --blue:#1a45d4;--blue-bright:#2357e8;--blue-soft:#4a8af5;--blue-pale:#a5b8ff;
+  --cream:#f4f1eb;--cream-dark:#e8e3d8;--warm-white:#fdfbf8;
+  --white:#ffffff;
+  --text-dark:#0d1117;--text-mid:#4a5568;--text-light:#8896a8;
+  --text-on-dark:#e8ecf2;--text-on-dark-mid:rgba(232,236,242,.55);--text-on-dark-dim:rgba(232,236,242,.28);
+  --border:#dedad2;--border-dark:rgba(255,255,255,.07);
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+::selection{background:rgba(26,69,212,.15);color:var(--text-dark)}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--white);color:var(--text-dark);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.65rem 0;background:rgba(253,251,248,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,0,0,.03);box-shadow:0 2px 20px rgba(0,0,0,.04)}
+nav .container{display:flex;align-items:center;justify-content:space-between}
+.container{max-width:1200px;margin:0 auto;padding:0 2.5rem}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-dark)}
+.nav-logo-img{height:38px;width:auto;display:block}
+.footer-logo{display:inline-flex;align-items:center;margin-bottom:14px}
+.footer-logo-img{display:none}
+.footer-wordmark{font-family:var(--sans);font-weight:700;font-size:1.55rem;letter-spacing:-.02em;line-height:1;color:#fff;user-select:none}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-weight:500;font-size:.84rem;letter-spacing:.02em;color:var(--text-mid);text-decoration:none;transition:color .3s}
+.nav-links a:hover{color:var(--text-dark)}
+.nav-cta{padding:9px 22px;background:var(--navy);color:#fff!important;border-radius:100px;font-weight:600!important;font-size:.82rem!important;letter-spacing:.02em;transition:all .35s var(--ease)!important;position:relative;overflow:hidden}
+.nav-cta::after{content:'';position:absolute;inset:0;border-radius:100px;background:linear-gradient(135deg,var(--blue),var(--blue-bright));opacity:0;transition:opacity .35s}
+.nav-cta:hover{transform:translateY(-1px)!important;box-shadow:0 6px 20px rgba(29,78,216,.25)}
+.nav-cta:hover::after{opacity:1}
+.nav-cta span{position:relative;z-index:1}
+
+.contact-page{padding:140px 0 80px}
+.contact-page .container{max-width:640px}
+.contact-header{text-align:center;margin-bottom:56px}
+.contact-header h1{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,2.6rem);line-height:1.15;color:var(--text-dark);margin-bottom:12px}
+.contact-header p{font-size:1.05rem;line-height:1.7;color:var(--text-mid);max-width:480px;margin:0 auto}
+
+.contact-form{background:var(--warm-white);border:1px solid var(--border);border-radius:16px;padding:40px;margin-bottom:64px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-group{display:flex;flex-direction:column;margin-bottom:0}
+.form-group.full{grid-column:1/-1;margin-bottom:0}
+.form-group-single{margin-bottom:16px}
+.form-group label{font-size:.82rem;font-weight:600;color:var(--text-dark);margin-bottom:6px;letter-spacing:.02em}
+.form-group input,.form-group textarea{font-family:var(--sans);font-size:.92rem;color:var(--text-dark);background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:12px 16px;transition:border-color .3s,box-shadow .3s;outline:none;width:100%}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--text-light)}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,69,212,.08)}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-submit{margin-top:24px;text-align:center}
+.form-submit button{display:inline-flex;align-items:center;gap:10px;padding:14px 36px;font-family:var(--sans);font-weight:600;font-size:.95rem;letter-spacing:.02em;color:#fff;background:var(--blue);border:none;border-radius:100px;cursor:pointer;transition:all .4s var(--ease);position:relative;overflow:hidden}
+.form-submit button::after{content:'';position:absolute;inset:0;border-radius:100px;background:linear-gradient(135deg,var(--blue),var(--blue-bright));opacity:0;transition:opacity .4s}
+.form-submit button:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(29,78,216,.25)}
+.form-submit button:hover::after{opacity:1}
+.form-submit button span{position:relative;z-index:1}
+
+.form-success{display:none;text-align:center;padding:48px 24px}
+.form-success svg{width:48px;height:48px;color:var(--blue);margin-bottom:16px}
+.form-success h3{font-family:var(--serif);font-weight:400;font-size:1.4rem;color:var(--text-dark);margin-bottom:8px}
+.form-success p{font-size:.92rem;color:var(--text-mid);line-height:1.7}
+
+.value-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:740px;margin:0 auto}
+.value-item{--vc:26,69,212;text-align:center}
+.value-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(var(--vc),.1),rgba(var(--vc),.04));display:flex;align-items:center;justify-content:center;margin:0 auto 14px;border:1.5px solid rgba(var(--vc),.12)}
+.value-icon svg{width:20px;height:20px;stroke:rgb(var(--vc));fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.vc-violet{--vc:124,58,237}
+.vc-teal{--vc:8,145,178}
+.vc-emerald{--vc:5,150,105}
+.value-item h3{font-family:var(--sans);font-weight:600;font-size:.88rem;color:var(--text-dark);margin-bottom:6px}
+.value-item p{font-size:.82rem;line-height:1.65;color:var(--text-mid)}
+
+footer{padding:56px 0 40px;background:var(--navy);border-top:1px solid var(--border-dark)}
+footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:32px;align-items:start}
+.footer-brand .footer-logo{display:inline-flex;align-items:center;margin-bottom:14px}
+.footer-tagline{font-size:.82rem;color:var(--text-on-dark-mid);line-height:1.6;margin-bottom:16px}
+.footer-copy{font-size:.72rem;color:var(--text-on-dark-dim);line-height:1.6}
+.footer-col h4{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--cream);margin-bottom:16px}
+.footer-links{display:flex;flex-direction:column;gap:10px;list-style:none}
+.footer-links a{font-size:.85rem;color:var(--text-on-dark-mid);text-decoration:none;transition:color .3s}
+.footer-links a:hover{color:var(--cream)}
+.footer-contact a{display:block;font-size:.85rem;color:var(--text-on-dark-mid);text-decoration:none;margin-bottom:10px;transition:color .3s}
+.footer-contact a:hover{color:var(--cream)}
+.footer-muted{color:var(--text-on-dark-dim)!important;cursor:default;pointer-events:none;font-size:.8rem!important}
+
+@media(max-width:768px){
+  .contact-page{padding:100px 0 60px}
+  .nav-links{display:none}
+  .contact-form{padding:28px 20px}
+  .form-row{grid-template-columns:1fr;gap:0}
+  .form-group{margin-bottom:16px}
+  .value-strip{grid-template-columns:1fr;gap:32px;max-width:320px}
+  footer .container{grid-template-columns:1fr 1fr;text-align:center}
+  .footer-brand{grid-column:1/-1}
+  .footer-brand .footer-logo{justify-content:center}
+  .footer-links{align-items:center}
+  .footer-contact{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="index.html" class="nav-logo" aria-label="Mozaiik - Home">
+      <img src="images/logo.png" alt="Mozaiik" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#problem">Problem</a></li>
+      <li><a href="index.html#platform">Platform</a></li>
+      <li><a href="index.html#preview">Preview</a></li>
+      <li><a href="contact.html" class="nav-cta"><span>Request Early Access</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="contact-page">
+  <div class="container">
+    <div class="contact-header">
+      <h1>Ready to rethink how you<br>manage family wealth?</h1>
+      <p>Tell us about your firm. We'll show you what Mozaiik can do.</p>
+    </div>
+
+    <div class="contact-form" id="contactFormWrap">
+      <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <p class="hidden" style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <input type="hidden" name="form-name" value="contact">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="John" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Smith" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firmName">Firm Name</label>
+            <input type="text" id="firmName" name="firmName" placeholder="Your advisory firm" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="john@firm.com" required>
+          </div>
+        </div>
+        <div class="form-group-single">
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us a bit about your firm and what you're looking for..."></textarea>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit"><span>Send Message</span></button>
+        </div>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <h3>Message sent.</h3>
+        <p>We'll be in touch within 24 hours.</p>
+      </div>
+    </div>
+
+    <div class="value-strip">
+      <div class="value-item vc-violet">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Purpose-built for Canadian private wealth</h3>
+        <p>Designed around CIRO, OSC, and multi-entity structures unique to Canada.</p>
+      </div>
+      <div class="value-item vc-teal">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><line x1="12" y1="8" x2="5" y2="15"/><line x1="12" y1="8" x2="19" y2="15"/></svg></div>
+        <h3>Multi-entity visibility from day one</h3>
+        <p>See trusts, holdcos, and beneficiaries in a single consolidated view.</p>
+      </div>
+      <div class="value-item vc-emerald">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Launching Fall 2026</h3>
+        <p>Early partners shape the roadmap. Get involved before general availability.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-brand">
+      <div class="footer-logo"><span class="footer-wordmark">mozaiik</span></div>
+      <p class="footer-tagline">The operating system for complex family wealth.</p>
+      <p class="footer-copy">&copy; <span id="footerYear"></span> Mozaiik Wealth Tech Inc. All rights reserved.</p>
+    </div>
+    <div class="footer-col"><h4>Navigation</h4><ul class="footer-links"><li><a href="index.html#platform">Platform</a></li><li><a href="index.html#how-it-works">How It Works</a></li><li><a href="index.html#ai">AI Intelligence</a></li><li><a href="index.html#cta">Early Access</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="manifesto.html">Manifesto</a></li><li><a href="#" class="footer-muted">Careers — Coming Soon</a></li><li><a href="#" class="footer-muted">Insights — Coming Soon</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><div class="footer-contact"><a href="contact.html">Contact Us &rarr;</a><a href="#" id="footerEmail">Loading...</a><a href="https://www.linkedin.com/company/mozaiik" target="_blank" rel="noopener noreferrer">LinkedIn &rarr;</a></div></div>
+    <div class="footer-col"><h4>Legal</h4><ul class="footer-links"><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var yEl=document.getElementById('footerYear');if(yEl)yEl.textContent=new Date().getFullYear();
+  var eu='info',ed='mozaiik.com',ef=eu+'@'+ed;
+  var fe=document.getElementById('footerEmail');if(fe){fe.href='mai'+'lto:'+ef;fe.textContent=ef}
+
+  var form=document.getElementById('contactForm');
+  var success=document.getElementById('formSuccess');
+  if(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var btn=form.querySelector('button[type="submit"] span');
+      if(btn)btn.textContent='Sending...';
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+      .then(function(res){
+        if(res.ok){form.style.display='none';success.style.display='block'}
+        else{if(btn)btn.textContent='Send Message';alert('Something went wrong. Please try again.')}
+      })
+      .catch(function(){if(btn)btn.textContent='Send Message';alert('Something went wrong. Please try again.')});
+    });
+  }
+})();
+</script>
+</body>
+</html>
