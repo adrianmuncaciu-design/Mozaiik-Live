@@ -328,7 +328,7 @@ document.documentElement.classList.add('js');
 
   /* Hamburger toggle */
   var tog=document.getElementById('navToggle'),links=document.getElementById('navLinks');
-  if(tog&&links){tog.addEventListener('click',function(){var o=tog.classList.toggle('active');links.classList.toggle('open');tog.setAttribute('aria-expanded',o)});links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){tog.classList.remove('active');links.classList.remove('open');tog.setAttribute('aria-expanded','false')}})}
+  if(tog&&links){tog.addEventListener('click',function(){var o=tog.classList.toggle('active');links.classList.toggle('open');tog.setAttribute('aria-expanded',o)});links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){tog.classList.remove('active');links.classList.remove('open');tog.setAttribute('aria-expanded','false')})})}
 
   /* Scroll reveal */
   var rm=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
