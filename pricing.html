@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — Mozaiik</title>
-  <meta name="description" content="Mozaiik Wealth Tech Inc. Privacy Policy. Learn how we collect, use, and protect your personal information.">
+  <title>Pricing — Mozaiik</title>
+  <meta name="description" content="Purpose-built pricing for Canadian advisory firms. Scales with your team, your clients, and your complexity.">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Privacy Policy — Mozaiik">
-  <meta property="og:description" content="Read how Mozaiik protects your data. Canadian data residency, enterprise-grade security, and full PIPEDA compliance.">
+  <meta property="og:title" content="Pricing — Mozaiik">
+  <meta property="og:description" content="Purpose-built pricing for Canadian advisory firms. Scales with your team, your clients, and your complexity.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mozaiik.com/privacy">
+  <meta property="og:url" content="https://mozaiik.com/pricing">
   <meta property="og:image" content="https://mozaiik.com/images/og-image.png">
   <meta property="og:locale" content="en_CA">
   <meta property="og:site_name" content="Mozaiik">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Privacy Policy — Mozaiik">
-  <meta name="twitter:description" content="Read how Mozaiik protects your data. Canadian data residency, enterprise-grade security, and full PIPEDA compliance.">
+  <meta name="twitter:title" content="Pricing — Mozaiik">
+  <meta name="twitter:description" content="Purpose-built pricing for Canadian advisory firms. Scales with your team, your clients, and your complexity.">
   <meta name="twitter:image" content="https://mozaiik.com/images/og-image.png">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%2313151f'/><stop offset='100%25' stop-color='%231a45d4'/></linearGradient></defs><rect width='512' height='512' rx='96' fill='url(%23g)'/><path d='M148 376V136L256 244L364 136V376' stroke='white' stroke-width='44' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
-  <link rel="canonical" href="https://mozaiik.com/privacy">
+  <link rel="canonical" href="https://mozaiik.com/pricing">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
@@ -40,14 +40,12 @@
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--white);color:var(--text-dark);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
+/* ── Nav ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.65rem 0;background:rgba(253,251,248,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,0,0,.03);box-shadow:0 2px 20px rgba(0,0,0,.04)}
 nav .container{display:flex;align-items:center;justify-content:space-between}
 .container{max-width:1200px;margin:0 auto;padding:0 2.5rem}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-dark)}
 .nav-logo-img{height:32px;width:auto;display:block}
-.footer-logo{display:inline-flex;align-items:center;margin-bottom:14px}
-.footer-logo-img{display:none}
-.footer-wordmark{font-family:var(--sans);font-weight:700;font-size:1.55rem;letter-spacing:-.02em;line-height:1;color:#fff;user-select:none}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .nav-links a{font-weight:500;font-size:.84rem;letter-spacing:.02em;color:var(--text-mid);text-decoration:none;transition:color .3s;position:relative}
 .nav-links a:not(.nav-cta)::after{content:'';position:absolute;bottom:-4px;left:0;width:100%;height:2px;background:var(--blue);border-radius:1px;transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
@@ -67,17 +65,57 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .nav-toggle.active span:nth-child(2){opacity:0;transform:scaleX(0)}
 .nav-toggle.active span:nth-child(3){top:19px;transform:rotate(-45deg)}
 
-.legal-page{padding:140px 0 80px}
-.legal-page .container{max-width:760px}
-.legal-page h1{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,2.6rem);line-height:1.15;color:var(--text-dark);margin-bottom:8px}
-.legal-meta{font-size:.85rem;color:var(--text-light);margin-bottom:48px}
-.legal-page h2{font-family:var(--sans);font-weight:700;font-size:1.1rem;color:var(--text-dark);margin-top:40px;margin-bottom:12px}
-.legal-page p{font-size:.92rem;line-height:1.75;color:var(--text-mid);margin-bottom:16px}
-.legal-page ul{list-style:disc;padding-left:24px;margin-bottom:16px}
-.legal-page ul li{font-size:.92rem;line-height:1.75;color:var(--text-mid);margin-bottom:6px}
-.legal-page a{color:var(--blue);text-decoration:none;transition:color .2s}
-.legal-page a:hover{color:var(--blue-bright)}
+/* ── Scroll Reveals ── */
+.js .rv{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.vis{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1!important;transform:none!important}}
 
+/* ── Hero ── */
+.pricing-hero{padding:150px 0 80px;text-align:center;background:var(--cream)}
+.pricing-hero .container{max-width:720px}
+.pricing-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,5vw,3rem);line-height:1.12;color:var(--text-dark);margin-bottom:20px}
+.pricing-hero .hero-sub{font-size:1rem;line-height:1.75;color:var(--text-mid);max-width:540px;margin:0 auto}
+
+/* ── How We Price ── */
+.how-we-price{padding:100px 0;background:var(--white);position:relative}
+.how-we-price::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 50% 20%,rgba(29,78,216,.03),transparent);pointer-events:none}
+.how-we-price .container{max-width:880px;position:relative;z-index:1}
+.how-header{text-align:center;margin-bottom:56px}
+.how-header h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,4vw,2.4rem);line-height:1.15;color:var(--text-dark);margin-bottom:12px}
+.how-header p{font-size:1rem;line-height:1.75;color:var(--text-mid);max-width:540px;margin:0 auto}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.how-item{text-align:center;padding:40px 28px;border-radius:16px;background:var(--cream);border:1px solid var(--border);transition:all .5s var(--ease)}
+.how-item:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.06);border-color:transparent}
+.how-icon{width:52px;height:52px;border-radius:14px;background:rgba(26,69,212,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;transition:all .5s var(--ease)}
+.how-item:hover .how-icon{background:rgba(26,69,212,.14);transform:scale(1.08)}
+.how-icon svg{width:24px;height:24px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.how-item h3{font-family:var(--sans);font-weight:600;font-size:1rem;color:var(--text-dark);margin-bottom:8px}
+.how-item p{font-size:.88rem;line-height:1.65;color:var(--text-mid)}
+
+/* ── CTA Section ── */
+.pricing-cta{padding:100px 0;text-align:center;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--white) 0%,rgba(245,243,255,.6) 40%,rgba(235,240,255,.5) 60%,var(--white) 100%);background-size:300% 300%;animation:cta-gradient 12s ease-in-out infinite}
+@keyframes cta-gradient{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.pricing-cta .cta-glow{position:absolute;width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(29,78,216,.06) 0%,transparent 70%);pointer-events:none}
+.pricing-cta h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;color:var(--text-dark);margin-bottom:12px;position:relative;z-index:1}
+.pricing-cta .cta-sub{font-size:1rem;line-height:1.75;color:var(--text-mid);max-width:480px;margin:0 auto 32px;position:relative;z-index:1}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;font-family:var(--sans);font-weight:600;font-size:.95rem;letter-spacing:.02em;text-decoration:none;border-radius:100px;border:none;cursor:pointer;transition:all .4s var(--ease);position:relative;overflow:hidden}
+.btn-glow{background:var(--navy);color:#fff;border-radius:100px;position:relative;overflow:hidden}
+.btn-glow::before{content:'';position:absolute;inset:0;border-radius:100px;background:linear-gradient(135deg,var(--blue),var(--blue-bright));opacity:0;transition:opacity .4s}
+.btn-glow:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(29,78,216,.3)}
+.btn-glow:hover::before{opacity:1}
+.btn-glow span{position:relative;z-index:1}
+
+/* ── Early Adopter Banner ── */
+.early-adopter{padding:48px 0;background:var(--navy);text-align:center;position:relative;overflow:hidden}
+.early-adopter::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 500px 300px at 50% 50%,rgba(29,78,216,.12),transparent);pointer-events:none}
+.early-adopter .container{position:relative;z-index:1}
+.early-badge{display:inline-block;padding:5px 16px;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-soft);background:rgba(29,78,216,.15);border:1px solid rgba(29,78,216,.3);border-radius:100px;margin-bottom:16px}
+.early-adopter p{font-size:.95rem;line-height:1.7;color:var(--text-on-dark-mid);max-width:560px;margin:0 auto}
+
+/* ── Footer ── */
+.footer-logo{display:inline-flex;align-items:center;margin-bottom:14px}
+.footer-logo-img{display:none}
+.footer-wordmark{font-family:var(--sans);font-weight:700;font-size:1.55rem;letter-spacing:-.02em;line-height:1;color:#fff;user-select:none}
 footer{padding:56px 0 40px;background:var(--navy);border-top:1px solid var(--border-dark)}
 footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;gap:32px;align-items:start}
 .footer-brand .footer-logo{display:inline-flex;align-items:center}
@@ -92,19 +130,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 .footer-contact a:hover{color:var(--cream)}
 .footer-muted{color:var(--text-on-dark-dim)!important;cursor:default;pointer-events:none;font-size:.8rem!important}
 
-@media(max-width:768px){
-  .legal-page{padding:100px 0 60px}
-  .nav-links{display:none;position:fixed;top:0;left:0;right:0;height:100vh;background:#fff;flex-direction:column;justify-content:center;align-items:center;padding:40px;gap:24px;z-index:999}
-  .nav-links.open{display:flex}
-  .nav-links .nav-cta{display:none}
-  .nav-toggle{display:block;position:relative;z-index:1000}
-  footer .container{grid-template-columns:1fr 1fr;text-align:center}
-  .footer-brand{grid-column:1/-1}
-  .footer-brand .footer-logo{justify-content:center}
-  .footer-bottom{flex-direction:column;align-items:center;text-align:center;gap:8px}
-  .footer-links{align-items:center}
-  .footer-contact{text-align:center}
-}
+/* ── Cookie Banner ── */
 .cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--navy);padding:16px 0;z-index:9999;transform:translateY(100%);transition:transform .5s var(--ease);border-top:1px solid rgba(255,255,255,.08)}
 .cookie-banner.show{transform:translateY(0)}
 .cookie-banner .container{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
@@ -117,6 +143,26 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 .cookie-accept:hover{background:var(--blue-bright);transform:translateY(-1px);box-shadow:0 4px 12px rgba(29,78,216,.3)}
 .cookie-decline{background:transparent;color:var(--text-on-dark-mid);border:1px solid rgba(255,255,255,.15)}
 .cookie-decline:hover{border-color:rgba(255,255,255,.3);color:var(--cream)}
+
+/* ── Responsive ── */
+@media(max-width:768px){
+  .pricing-hero{padding:110px 0 60px}
+  .how-we-price{padding:60px 0 80px}
+  .how-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}
+  .nav-links{display:none;position:fixed;top:0;left:0;right:0;height:100vh;background:#fff;flex-direction:column;justify-content:center;align-items:center;padding:40px;gap:24px;z-index:999}
+  .nav-links.open{display:flex}
+  .nav-links .nav-cta{display:none}
+  .nav-toggle{display:block;position:relative;z-index:1000}
+  footer .container{grid-template-columns:1fr 1fr;text-align:center}
+  .footer-brand{grid-column:1/-1}
+  .footer-brand .footer-logo{justify-content:center}
+  .footer-bottom{flex-direction:column;align-items:center;text-align:center;gap:8px}
+  .footer-links{align-items:center}
+  .footer-contact{text-align:center}
+}
+@media(max-width:480px){
+  .container{padding:0 1.25rem}
+}
 </style>
 </head>
 <body>
@@ -136,76 +182,69 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   </div>
 </nav>
 
-<main class="legal-page">
-  <div class="container">
-    <h1>Privacy Policy</h1>
-    <p class="legal-meta">Last updated: February 2026</p>
+<main>
 
-    <h2>1. Introduction</h2>
-    <p>Mozaiik Wealth Tech Inc. ("Mozaiik", "we", "our", or "us"), federally incorporated in Canada, is committed to protecting the privacy and security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at mozaiik.com or use our services.</p>
-    <p>We operate in compliance with the Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable Canadian provincial privacy legislation.</p>
-
-    <h2>2. Information We Collect</h2>
-    <p>We may collect the following types of information:</p>
-    <ul>
-      <li><strong>Contact Information:</strong> Name, email address, phone number, and company name when you request early access or contact us.</li>
-      <li><strong>Usage Data:</strong> Information about how you interact with our website, including pages visited, time spent, and referring URLs.</li>
-      <li><strong>Device Information:</strong> Browser type, operating system, IP address, and device identifiers collected automatically through cookies and similar technologies.</li>
-    </ul>
-
-    <h2>3. How We Use Your Information</h2>
-    <p>We use the information we collect to:</p>
-    <ul>
-      <li>Respond to your inquiries and provide requested information about our platform.</li>
-      <li>Process and manage early access requests.</li>
-      <li>Send relevant communications about our products and services (with your consent). You may withdraw consent and unsubscribe at any time via the link in our emails or by contacting us directly.</li>
-      <li>Improve and optimize our website and user experience.</li>
-      <li>Comply with legal obligations and regulatory requirements.</li>
-    </ul>
-
-    <h2>4. Disclosure of Information</h2>
-    <p>We do not sell, trade, or rent your personal information to third parties. We may share your information with:</p>
-    <ul>
-      <li><strong>Service Providers:</strong> Trusted third parties who assist us in operating our website and conducting our business, subject to confidentiality agreements.</li>
-      <li><strong>Legal Requirements:</strong> When required by law, regulation, or legal process.</li>
-      <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets, with appropriate notice to affected individuals.</li>
-    </ul>
-
-    <h2>5. Data Storage and Security</h2>
-    <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include encryption, access controls, and regular security assessments.</p>
-    <p>Your personal information is stored and processed on servers located in Canada. We are committed to Canadian data residency and use cloud infrastructure that supports Canadian data storage requirements.</p>
-
-    <h2>6. Data Retention</h2>
-    <p>We retain your personal information only for as long as necessary to fulfill the purposes for which it was collected, or as required by applicable laws and regulations. When personal information is no longer needed, it is securely deleted or anonymized.</p>
-
-    <h2>7. Your Rights</h2>
-    <p>Under Canadian privacy law, you have the right to:</p>
-    <ul>
-      <li>Access the personal information we hold about you.</li>
-      <li>Request correction of inaccurate or incomplete information.</li>
-      <li>Withdraw consent for the collection, use, or disclosure of your information at any time.</li>
-      <li>Request deletion of your personal information, where permitted by law and subject to legal and regulatory retention requirements.</li>
-    </ul>
-    <p>To exercise any of these rights, please contact our Privacy Officer at the address below. We will respond to your request within 30 days.</p>
-
-    <h2>8. Cookies and Tracking Technologies</h2>
-    <p>Our website uses cookies and similar tracking technologies to enhance your browsing experience and analyze website usage. Specifically, we use:</p>
-    <ul>
-      <li>Google Analytics (GA4) for website traffic analysis and visitor behavior insights.</li>
-      <li>Essential cookies required for basic website functionality.</li>
-    </ul>
-    <p>You can control cookie preferences through your browser settings. Disabling cookies may affect certain features of the website.</p>
-
-    <h2>9. Third-Party Links</h2>
-    <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites and encourage you to review their privacy policies before providing any personal information.</p>
-
-    <h2>10. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date. We will make reasonable efforts to notify registered users of material changes. We encourage you to review this policy periodically.</p>
-
-    <h2>11. Contact Us</h2>
-    <p>If you have questions or concerns about this Privacy Policy or our data practices, please contact our Privacy Officer:</p>
-    <p>Mozaiik Wealth Tech Inc.<br>Ottawa, Ontario, Canada<br><a href="#" id="privacyEmail">Loading...</a></p>
+<!-- Hero -->
+<section class="pricing-hero">
+  <div class="container rv">
+    <h1>Tailored to your firm.</h1>
+    <p class="hero-sub">Flexible plans designed for Canadian advisory firms of every size. No hidden fees, no unnecessary complexity.</p>
   </div>
+</section>
+
+<!-- How We Price -->
+<section class="how-we-price">
+  <div class="container">
+    <div class="how-header rv">
+      <h2>How we price</h2>
+      <p>Mozaiik is purpose-built for complexity. Pricing reflects your firm — not a one-size-fits-all formula.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-item rv" style="transition-delay:.05s">
+        <div class="how-icon">
+          <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3>Scales with your firm</h3>
+        <p>Pricing is based on your team size, entity count, and complexity — so you only pay for what you use.</p>
+      </div>
+      <div class="how-item rv" style="transition-delay:.12s">
+        <div class="how-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>No hidden fees</h3>
+        <p>Transparent, predictable pricing with no surprises. Everything your firm needs is included from day one.</p>
+      </div>
+      <div class="how-item rv" style="transition-delay:.19s">
+        <div class="how-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Canadian-first</h3>
+        <p>Purpose-built for Canadian regulatory requirements, with data residency and compliance built in — not bolted on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="pricing-cta">
+  <div class="cta-glow" aria-hidden="true"></div>
+  <div class="container" style="max-width:920px">
+    <h2 class="rv">Let's find the right fit for your firm.</h2>
+    <p class="cta-sub rv" style="transition-delay:.1s">Tell us about your team, your clients, and your complexity — and we'll design a plan around you.</p>
+    <div class="rv" style="transition-delay:.2s;position:relative;z-index:1">
+      <a href="contact.html" class="btn btn-glow"><span>Request a Conversation</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Early Adopter Banner -->
+<section class="early-adopter">
+  <div class="container rv">
+    <div class="early-badge">Early Partner Program</div>
+    <p>Early partners receive preferred pricing and help shape the product roadmap.</p>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -236,8 +275,12 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 </div>
 
 <script>
+document.documentElement.classList.add('js');
 (function(){
+  /* Footer year */
   var yEl=document.getElementById('footerYear');if(yEl)yEl.textContent=new Date().getFullYear();
+
+  /* Email obfuscation */
   var eu='info',ed='mozaiik.com',ef=eu+'@'+ed;
   var fe=document.getElementById('footerEmail');if(fe){fe.href='mai'+'lto:'+ef;fe.textContent=ef}
 
@@ -252,7 +295,21 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   if(ca)ca.addEventListener('click',function(){localStorage.setItem('mozaiik_cookies','accepted');cb.classList.remove('show')});
   if(cd)cd.addEventListener('click',function(){localStorage.setItem('mozaiik_cookies','declined');cb.classList.remove('show')});
 
-  var pe=document.getElementById('privacyEmail');if(pe){pe.href='mai'+'lto:'+ef;pe.textContent=ef}
+  /* Scroll reveal (IntersectionObserver) */
+  if('IntersectionObserver' in window){
+    var revealEls=document.querySelectorAll('.rv');
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}
+      });
+    },{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+    revealEls.forEach(function(el){obs.observe(el)});
+  }else{
+    document.querySelectorAll('.rv').forEach(function(el){el.classList.add('vis')});
+  }
+
+  /* Fallback: ensure everything visible after 6s */
+  setTimeout(function(){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('vis')})},6000);
 })();
 </script>
 </body>

@@ -6,6 +6,17 @@
   <title>Terms of Service — Mozaiik</title>
   <meta name="description" content="Mozaiik Wealth Tech Inc. Terms of Service. Review the terms and conditions for using our website and services.">
   <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Terms of Service — Mozaiik">
+  <meta property="og:description" content="Terms of service for Mozaiik, the operating system for complex family wealth.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mozaiik.com/terms">
+  <meta property="og:image" content="https://mozaiik.com/images/og-image.png">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:site_name" content="Mozaiik">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Terms of Service — Mozaiik">
+  <meta name="twitter:description" content="Terms of service for Mozaiik, the operating system for complex family wealth.">
+  <meta name="twitter:image" content="https://mozaiik.com/images/og-image.png">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%2313151f'/><stop offset='100%25' stop-color='%231a45d4'/></linearGradient></defs><rect width='512' height='512' rx='96' fill='url(%23g)'/><path d='M148 376V136L256 244L364 136V376' stroke='white' stroke-width='44' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
   <link rel="canonical" href="https://mozaiik.com/terms">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +49,9 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .footer-logo-img{display:none}
 .footer-wordmark{font-family:var(--sans);font-weight:700;font-size:1.55rem;letter-spacing:-.02em;line-height:1;color:#fff;user-select:none}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
-.nav-links a{font-weight:500;font-size:.84rem;letter-spacing:.02em;color:var(--text-mid);text-decoration:none;transition:color .3s}
+.nav-links a{font-weight:500;font-size:.84rem;letter-spacing:.02em;color:var(--text-mid);text-decoration:none;transition:color .3s;position:relative}
+.nav-links a:not(.nav-cta)::after{content:'';position:absolute;bottom:-4px;left:0;width:100%;height:2px;background:var(--blue);border-radius:1px;transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+.nav-links a:not(.nav-cta):hover::after{transform:scaleX(1);transform-origin:left}
 .nav-links a:hover{color:var(--text-dark)}
 .nav-cta{padding:9px 22px;background:var(--navy);color:#fff!important;border-radius:100px;font-weight:600!important;font-size:.82rem!important;letter-spacing:.02em;transition:all .35s var(--ease)!important;position:relative;overflow:hidden}
 .nav-cta::after{content:'';position:absolute;inset:0;border-radius:100px;background:linear-gradient(135deg,var(--blue),var(--blue-bright));opacity:0;transition:opacity .35s}
@@ -66,10 +79,10 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .legal-page a:hover{color:var(--blue-bright)}
 
 footer{padding:56px 0 40px;background:var(--navy);border-top:1px solid var(--border-dark)}
-footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:32px;align-items:start}
-.footer-brand .footer-logo{display:inline-flex;align-items:center;margin-bottom:14px}
-
-.footer-tagline{font-size:.82rem;color:var(--text-on-dark-mid);line-height:1.6;margin-bottom:16px}
+footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;gap:32px;align-items:start}
+.footer-brand .footer-logo{display:inline-flex;align-items:center}
+.footer-bottom{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline;margin-top:32px;padding-top:24px;border-top:1px solid var(--border-dark)}
+.footer-tagline{font-size:.82rem;color:var(--text-on-dark-mid);line-height:1.6}
 .footer-copy{font-size:.72rem;color:var(--text-on-dark-dim);line-height:1.6}
 .footer-col h4{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--cream);margin-bottom:16px}
 .footer-links{display:flex;flex-direction:column;gap:10px;list-style:none}
@@ -88,9 +101,22 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:3
   footer .container{grid-template-columns:1fr 1fr;text-align:center}
   .footer-brand{grid-column:1/-1}
   .footer-brand .footer-logo{justify-content:center}
+  .footer-bottom{flex-direction:column;align-items:center;text-align:center;gap:8px}
   .footer-links{align-items:center}
   .footer-contact{text-align:center}
 }
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--navy);padding:16px 0;z-index:9999;transform:translateY(100%);transition:transform .5s var(--ease);border-top:1px solid rgba(255,255,255,.08)}
+.cookie-banner.show{transform:translateY(0)}
+.cookie-banner .container{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.cookie-text{font-size:.82rem;color:var(--text-on-dark-mid);line-height:1.6;flex:1;min-width:280px}
+.cookie-text a{color:var(--blue-soft);text-decoration:underline;text-underline-offset:2px}
+.cookie-text a:hover{color:var(--blue-pale)}
+.cookie-actions{display:flex;gap:10px;flex-shrink:0}
+.cookie-btn{padding:8px 20px;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.02em;border-radius:100px;cursor:pointer;transition:all .3s var(--ease);border:none}
+.cookie-accept{background:var(--blue);color:#fff}
+.cookie-accept:hover{background:var(--blue-bright);transform:translateY(-1px);box-shadow:0 4px 12px rgba(29,78,216,.3)}
+.cookie-decline{background:transparent;color:var(--text-on-dark-mid);border:1px solid rgba(255,255,255,.15)}
+.cookie-decline:hover{border-color:rgba(255,255,255,.3);color:var(--cream)}
 </style>
 </head>
 <body>
@@ -116,15 +142,18 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:3
     <p class="legal-meta">Last updated: February 2026</p>
 
     <h2>1. Acceptance of Terms</h2>
-    <p>By accessing or using the website located at mozaiik.com (the "Website") operated by Mozaiik Wealth Tech Inc. ("Mozaiik", "we", "our", or "us"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the Website.</p>
+    <p>By accessing or using the website located at mozaiik.com (the "Website") operated by Mozaiik Wealth Tech Inc. ("Mozaiik", "we", "our", or "us"), a corporation federally incorporated in Canada, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the Website.</p>
 
-    <h2>2. Description of Service</h2>
-    <p>Mozaiik provides a wealth management technology platform purpose-built for Canadian advisory firms and family offices. The Website provides information about our platform and allows prospective clients to request early access.</p>
+    <h2>2. Important Disclaimer</h2>
+    <p>Mozaiik is a technology platform provider. Nothing on this Website constitutes financial, investment, legal, or tax advice. Mozaiik does not provide financial advisory services directly. The platform is designed to support licensed advisory professionals in their practice — it does not replace professional judgment or regulatory obligations.</p>
 
-    <h2>3. Eligibility</h2>
+    <h2>3. Description of Service</h2>
+    <p>Mozaiik provides a wealth management technology platform purpose-built for Canadian Investment Counsel firms and Multi-Family Offices. The Website provides information about our platform and allows prospective clients to request early access.</p>
+
+    <h2>4. Eligibility</h2>
     <p>The Website is intended for use by individuals and entities involved in wealth management, financial advisory, and related professional services in Canada. By using the Website, you represent that you are at least 18 years of age and have the legal capacity to enter into these Terms.</p>
 
-    <h2>4. Use of the Website</h2>
+    <h2>5. Use of the Website</h2>
     <p>You agree to use the Website only for lawful purposes and in accordance with these Terms. You agree not to:</p>
     <ul>
       <li>Use the Website in any way that violates applicable federal, provincial, or local law or regulation.</li>
@@ -134,34 +163,40 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:3
       <li>Interfere with or disrupt the integrity or performance of the Website.</li>
     </ul>
 
-    <h2>5. Intellectual Property</h2>
+    <h2>6. Intellectual Property</h2>
     <p>All content on the Website, including text, graphics, logos, images, software, and design elements, is the property of Mozaiik Wealth Tech Inc. or its licensors and is protected by Canadian and international intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from any content without our prior written consent.</p>
 
-    <h2>6. Early Access Program</h2>
+    <h2>7. Early Access Program</h2>
     <p>Participation in our early access program is subject to additional terms that will be provided upon acceptance into the program. Submitting a request does not guarantee access. We reserve the right to accept or decline any application at our sole discretion.</p>
 
-    <h2>7. Disclaimer of Warranties</h2>
-    <p>The Website is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied. We do not warrant that the Website will be uninterrupted, error-free, or free of harmful components.</p>
-    <p>Nothing on this Website constitutes financial, investment, legal, or tax advice. Mozaiik is a technology platform provider and does not provide financial advisory services directly.</p>
+    <h2>8. Disclaimer of Warranties</h2>
+    <p>The Website is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the Website will be uninterrupted, error-free, or free of harmful components.</p>
 
-    <h2>8. Limitation of Liability</h2>
+    <h2>9. Limitation of Liability</h2>
     <p>To the maximum extent permitted by applicable law, Mozaiik Wealth Tech Inc. shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the Website, even if we have been advised of the possibility of such damages.</p>
+    <p>In no event shall our total liability to you for all claims arising out of or related to your use of the Website exceed the amount paid by you, if any, for accessing the Website in the twelve (12) months preceding the claim.</p>
 
-    <h2>9. Indemnification</h2>
-    <p>You agree to indemnify and hold harmless Mozaiik Wealth Tech Inc., its officers, directors, employees, and agents from any claims, losses, damages, liabilities, costs, and expenses arising from your use of the Website or violation of these Terms.</p>
+    <h2>10. Indemnification</h2>
+    <p>You agree to indemnify and hold harmless Mozaiik Wealth Tech Inc., its officers, directors, employees, and agents from any claims, losses, damages, liabilities, costs, and expenses (including reasonable legal fees) arising from your use of the Website or violation of these Terms.</p>
 
-    <h2>10. Third-Party Links</h2>
+    <h2>11. Third-Party Links</h2>
     <p>The Website may contain links to third-party websites or services. We are not responsible for the content or practices of these external sites and do not endorse them. Your use of third-party sites is at your own risk.</p>
 
-    <h2>11. Governing Law</h2>
-    <p>These Terms shall be governed by and construed in accordance with the laws of the Province of Ontario and the federal laws of Canada applicable therein, without regard to conflict of law principles. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts of Ontario.</p>
+    <h2>12. Governing Law and Jurisdiction</h2>
+    <p>These Terms shall be governed by and construed in accordance with the laws of the Province of Ontario and the federal laws of Canada applicable therein, without regard to conflict of law principles. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts located in Ontario, Canada.</p>
 
-    <h2>12. Changes to Terms</h2>
-    <p>We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting to the Website. Your continued use of the Website following any changes constitutes acceptance of the revised Terms.</p>
+    <h2>13. Changes to Terms</h2>
+    <p>We reserve the right to modify these Terms at any time. Changes will be effective upon posting to the Website. We will make reasonable efforts to notify registered users of material changes. Your continued use of the Website following any changes constitutes acceptance of the revised Terms.</p>
 
-    <h2>13. Contact Us</h2>
+    <h2>14. Severability</h2>
+    <p>If any provision of these Terms is found to be unenforceable or invalid by a court of competent jurisdiction, the remaining provisions shall remain in full force and effect.</p>
+
+    <h2>15. Entire Agreement</h2>
+    <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and Mozaiik Wealth Tech Inc. regarding your use of the Website and supersede all prior agreements, communications, and understandings, whether written or oral.</p>
+
+    <h2>16. Contact Us</h2>
     <p>If you have questions about these Terms, please contact us at:</p>
-    <p><strong>Mozaiik Wealth Tech Inc.</strong><br><a href="#" id="termsEmail">Loading...</a></p>
+    <p>Mozaiik Wealth Tech Inc.<br>Ottawa, Ontario, Canada<br><a href="#" id="termsEmail">Loading...</a></p>
   </div>
 </main>
 
@@ -169,15 +204,28 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:3
   <div class="container">
     <div class="footer-brand">
       <div class="footer-logo"><span class="footer-wordmark">mozaiik</span></div>
+    </div>
+    <div class="footer-col"><h4>Navigation</h4><ul class="footer-links"><li><a href="index.html#platform">Platform</a></li><li><a href="index.html#how-it-works">How It Works</a></li><li><a href="index.html#ai">AI Intelligence</a></li><li><a href="index.html#cta">Early Access</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="manifesto.html">Manifesto</a></li><li><a href="#" class="footer-muted">Careers — Coming Soon</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><div class="footer-contact"><a href="contact.html">Contact Us &rarr;</a><a href="https://www.linkedin.com/company/mozaiik" target="_blank" rel="noopener noreferrer">LinkedIn &rarr;</a><a href="#" id="footerEmail">Loading...</a></div></div>
+    <div class="footer-col"><h4>Resources</h4><ul class="footer-links"><li><a href="pricing.html">Pricing</a></li><li><a href="faq.html">FAQ</a></li><li><a href="blog.html">Insights</a></li></ul></div>
+    <div class="footer-col"><h4>Legal</h4><ul class="footer-links"><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
+    <div class="footer-bottom">
       <p class="footer-tagline">The operating system for complex family wealth.</p>
       <p class="footer-copy">&copy; <span id="footerYear"></span> Mozaiik Wealth Tech Inc. All rights reserved.</p>
     </div>
-    <div class="footer-col"><h4>Navigation</h4><ul class="footer-links"><li><a href="index.html#platform">Platform</a></li><li><a href="index.html#how-it-works">How It Works</a></li><li><a href="index.html#ai">AI Intelligence</a></li><li><a href="index.html#cta">Early Access</a></li></ul></div>
-    <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="manifesto.html">Manifesto</a></li><li><a href="#" class="footer-muted">Careers — Coming Soon</a></li><li><a href="#" class="footer-muted">Insights — Coming Soon</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><div class="footer-contact"><a href="contact.html">Contact Us &rarr;</a><a href="#" id="footerEmail">Loading...</a><a href="https://www.linkedin.com/company/mozaiik" target="_blank" rel="noopener noreferrer">LinkedIn &rarr;</a></div></div>
-    <div class="footer-col"><h4>Legal</h4><ul class="footer-links"><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
   </div>
 </footer>
+
+<div class="cookie-banner" id="cookieBanner">
+  <div class="container">
+    <p class="cookie-text">We use cookies to improve your experience and analyze site traffic. By continuing, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-decline" id="cookieDecline">Decline</button>
+      <button class="cookie-btn cookie-accept" id="cookieAccept">Accept</button>
+    </div>
+  </div>
+</div>
 
 <script>
 (function(){
@@ -188,6 +236,13 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:3
   /* Hamburger toggle */
   var tog=document.getElementById('navToggle'),links=document.getElementById('navLinks');
   if(tog&&links){tog.addEventListener('click',function(){var o=tog.classList.toggle('active');links.classList.toggle('open');tog.setAttribute('aria-expanded',o)});links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){tog.classList.remove('active');links.classList.remove('open');tog.setAttribute('aria-expanded','false')})})}
+
+  /* Cookie consent */
+  var cb=document.getElementById('cookieBanner');
+  if(cb&&!localStorage.getItem('mozaiik_cookies')){setTimeout(function(){cb.classList.add('show')},1500)}
+  var ca=document.getElementById('cookieAccept'),cd=document.getElementById('cookieDecline');
+  if(ca)ca.addEventListener('click',function(){localStorage.setItem('mozaiik_cookies','accepted');cb.classList.remove('show')});
+  if(cd)cd.addEventListener('click',function(){localStorage.setItem('mozaiik_cookies','declined');cb.classList.remove('show')});
 
   var te=document.getElementById('termsEmail');if(te){te.href='mai'+'lto:'+ef;te.textContent=ef}
 })();
