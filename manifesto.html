@@ -6,6 +6,17 @@
   <title>The Manifesto — Mozaiik</title>
   <meta name="description" content="The Mozaiik Manifesto. Wealth deserves better architecture. Read why we're building the first wealth operating system purpose-built for Canadian fiduciaries.">
   <meta name="robots" content="index, follow">
+  <meta property="og:title" content="The Manifesto — Mozaiik">
+  <meta property="og:description" content="Wealth deserves better architecture. Read why we're building the first wealth operating system purpose-built for Canadian fiduciaries.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mozaiik.com/manifesto">
+  <meta property="og:image" content="https://mozaiik.com/images/og-image.png">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:site_name" content="Mozaiik">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Manifesto — Mozaiik">
+  <meta name="twitter:description" content="Wealth deserves better architecture. Read why we're building the first wealth operating system purpose-built for Canadian fiduciaries.">
+  <meta name="twitter:image" content="https://mozaiik.com/images/og-image.png">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%2313151f'/><stop offset='100%25' stop-color='%231a45d4'/></linearGradient></defs><rect width='512' height='512' rx='96' fill='url(%23g)'/><path d='M148 376V136L256 244L364 136V376' stroke='white' stroke-width='44' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
   <link rel="canonical" href="https://mozaiik.com/manifesto">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +45,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.65rem 0;background:
 nav .container{display:flex;align-items:center;justify-content:space-between}
 .container{max-width:1200px;margin:0 auto;padding:0 2.5rem}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-dark)}
-.nav-logo-img{height:38px;width:auto;display:block}
+.nav-logo-img{height:32px;width:auto;display:block}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .nav-links a{font-weight:500;font-size:.84rem;letter-spacing:.02em;color:var(--text-mid);text-decoration:none;transition:color .3s}
 .nav-links a:hover{color:var(--text-dark)}
@@ -66,7 +77,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .stagger.vis>*:nth-child(5){transition-delay:.33s}
 
 /* ── Manifesto Hero ── */
-.manifesto-hero{padding:160px 0 80px;text-align:center;background:var(--navy);position:relative;overflow:hidden}
+.manifesto-hero{padding:180px 0 100px;text-align:center;background:var(--navy);position:relative;overflow:hidden}
 .manifesto-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 800px 500px at 50% 30%,rgba(29,78,216,.15),transparent),radial-gradient(ellipse 600px 400px at 20% 70%,rgba(99,102,241,.08),transparent),radial-gradient(ellipse 500px 400px at 80% 60%,rgba(26,69,212,.06),transparent);pointer-events:none}
 .manifesto-hero .container{position:relative;z-index:1;max-width:760px}
 .hero-back{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:500;letter-spacing:.02em;color:var(--text-on-dark-mid);text-decoration:none;margin-bottom:28px;transition:color .3s}
@@ -154,9 +165,10 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:3
 /* ── Responsive ── */
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.js .rv,.js .rv-scale,.js .stagger>*{opacity:1!important;transform:none!important}}
 @media(max-width:768px){
-  .manifesto-hero{padding:120px 0 60px}
+  .manifesto-hero{padding:140px 0 80px}
   .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;padding:40px;gap:24px}
   .nav-links.open{display:flex}
+  .nav-links .nav-cta{display:none}
   .nav-toggle{display:block}
   .manifesto-section{padding:48px 0}
   .manifesto-content{padding:48px 0}
@@ -179,9 +191,9 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:3
       <img src="images/logo.png" alt="Mozaiik" class="nav-logo-img">
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html#problem">Problem</a></li>
       <li><a href="index.html#platform">Platform</a></li>
-      <li><a href="index.html#preview">Preview</a></li>
+      <li><a href="index.html#how-it-works">How It Works</a></li>
+      <li><a href="index.html#ai">AI Intelligence</a></li>
       <li><a href="contact.html" class="nav-cta"><span>Request Early Access</span></a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -192,11 +204,6 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:3
   <!-- Hero -->
   <section class="manifesto-hero">
     <div class="container">
-      <a href="index.html" class="hero-back">
-        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-        Back to Home
-      </a><br>
-      <span class="manifesto-label">The Mozaiik Manifesto</span>
       <h1>Wealth deserves better <em>architecture.</em></h1>
       <p class="hero-sub">Over $1 trillion in Canadian wealth is passing between generations this decade. And history tells us most of it won't survive the transition.</p>
     </div>
