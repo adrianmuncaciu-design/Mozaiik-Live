@@ -1,9 +1,4 @@
 node_modules/
 .claude/
-__b64.txt
 *.bak
 *.png.tmp
-package.json
-package-lock.json
-01113.png
-/logo.png
