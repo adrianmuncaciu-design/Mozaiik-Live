@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OG Image Template — 1200x630</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  width: 1200px;
+  height: 630px;
+  background: linear-gradient(135deg, #fdfbf8 0%, #f0eef7 40%, #eef0fb 60%, #fdfbf8 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 600px 400px at 20% 80%, rgba(124,107,191,.08), transparent),
+              radial-gradient(ellipse 500px 400px at 80% 20%, rgba(176,137,48,.06), transparent);
+  pointer-events: none;
+}
+.logo {
+  height: 64px;
+  width: auto;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+.divider {
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(135deg, #7c6bbf, #B08930);
+  border-radius: 2px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+.tagline {
+  font-size: 42px;
+  font-weight: 400;
+  color: #13151f;
+  text-align: center;
+  line-height: 1.35;
+  letter-spacing: -0.3px;
+  position: relative;
+  z-index: 1;
+}
+.tagline em {
+  font-style: italic;
+  background: linear-gradient(135deg, #1a45d4 0%, #7c6bbf 40%, #7A6518 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.subtitle {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #B08930;
+  position: relative;
+  z-index: 1;
+}
+</style>
+</head>
+<body>
+  <img src="images/logo-nav.png" alt="Mozaiik" class="logo">
+  <div class="divider"></div>
+  <div class="tagline">The Operating System for<br><em>Complex Family Wealth</em></div>
+  <div class="subtitle">Purpose-Built for Canadian Private Wealth</div>
+</body>
+</html>
