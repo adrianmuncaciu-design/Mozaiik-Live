@@ -24,6 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -202,8 +203,8 @@ a.blog-card{cursor:pointer}
   <!-- Hero -->
   <section class="blog-hero">
     <div class="container">
-      <h1>Ideas shaping the future of wealth.</h1>
-      <p>Perspectives on technology, governance, and the evolving landscape of Canadian private wealth.</p>
+      <h1 data-aos="fade-up">Ideas shaping the future of wealth.</h1>
+      <p data-aos="fade-up" data-aos-delay="100">Perspectives on technology, governance, and the evolving landscape of Canadian private wealth.</p>
     </div>
   </section>
 
@@ -212,21 +213,21 @@ a.blog-card{cursor:pointer}
     <div class="container">
       <div class="blog-grid">
 
-        <a href="article-canadian-wealth-os.html" class="blog-card rv" style="text-decoration:none">
+        <a href="article-canadian-wealth-os.html" class="blog-card rv" style="text-decoration:none" data-aos="fade-up" data-aos-delay="0">
           <span class="blog-cat blog-cat-industry">Industry</span>
           <h3>Why Canadian Wealth Management Needs Its Own Operating System</h3>
           <p>With $1 trillion transferring between generations and CIRO modernizing the rulebook, U.S.-built platforms can't fill the gap. Here's what's missing.</p>
           <div class="blog-coming">February 2026 &middot; 6 min read</div>
         </a>
 
-        <a href="article-entity-first-architecture.html" class="blog-card rv" style="text-decoration:none">
+        <a href="article-entity-first-architecture.html" class="blog-card rv" style="text-decoration:none" data-aos="fade-up" data-aos-delay="100">
           <span class="blog-cat blog-cat-technology">Technology</span>
           <h3>Entity-First Architecture: Rethinking How We Model Wealth</h3>
           <p>Traditional platforms organize around accounts. We believe the entity &mdash; trusts, holdcos, families &mdash; should come first. Here's why the data model matters.</p>
           <div class="blog-coming">February 2026 &middot; 5 min read</div>
         </a>
 
-        <a href="article-navigating-csa-osc-ciro.html" class="blog-card rv" style="text-decoration:none">
+        <a href="article-navigating-csa-osc-ciro.html" class="blog-card rv" style="text-decoration:none" data-aos="fade-up" data-aos-delay="200">
           <span class="blog-cat blog-cat-compliance">Compliance</span>
           <h3>Navigating CSA, OSC, and CIRO: A Unified Approach</h3>
           <p>Canadian advisory firms juggle multiple regulatory frameworks. How technology can simplify compliance without cutting corners.</p>
@@ -240,7 +241,7 @@ a.blog-card{cursor:pointer}
   <!-- Newsletter -->
   <section class="newsletter-section">
     <div class="container">
-      <div class="newsletter-inner rv">
+      <div class="newsletter-inner rv" data-aos="fade-up">
         <h2>Stay in the loop</h2>
         <p>Subscribe to get notified when we publish new insights.</p>
         <form class="newsletter-form" id="newsletterForm" name="newsletter" method="POST" action="thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
@@ -262,7 +263,7 @@ a.blog-card{cursor:pointer}
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-glow"></div>
-    <div class="container rv">
+    <div class="container rv" data-aos="fade-up">
       <h2>Want to learn more about Mozaiik?</h2>
       <p>See how a purpose-built operating system brings clarity to complex family wealth.</p>
       <a href="index.html" class="btn btn-primary"><span>Explore the Platform</span> <span class="arrow" aria-hidden="true">&rarr;</span></a>
@@ -352,5 +353,7 @@ a.blog-card{cursor:pointer}
   }
 })();
 </script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({duration:600,once:true,easing:'ease-out-cubic',offset:80});</script>
 </body>
 </html>

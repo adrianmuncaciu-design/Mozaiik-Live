@@ -24,6 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -285,20 +286,20 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   <!-- Hero -->
   <section class="about-hero">
     <div class="container">
-      <span class="about-label">About Mozaiik</span>
-      <h1>Built by a practitioner,<br>for <em>practitioners.</em></h1>
-      <p class="hero-intro">Mozaiik exists because the tools available to Canadian wealth advisors were never designed for how this industry actually works.</p>
+      <span class="about-label" data-aos="fade-up">About Mozaiik</span>
+      <h1 data-aos="fade-up" data-aos-delay="100">Built by a practitioner,<br>for <em>practitioners.</em></h1>
+      <p class="hero-intro" data-aos="fade-up" data-aos-delay="200">Mozaiik exists because the tools available to Canadian wealth advisors were never designed for how this industry actually works.</p>
     </div>
   </section>
 
   <!-- Narrative body -->
   <section class="about-narrative">
     <div class="container">
-      <div class="narrative-pull">
+      <div class="narrative-pull" data-aos="fade-up">
         <p class="pull-label">The Problem</p>
         <blockquote>The industry doesn't need another dashboard. It needs an operating system that understands how Canadian private wealth actually works.</blockquote>
       </div>
-      <div class="narrative-body">
+      <div class="narrative-body" data-aos="fade-up" data-aos-delay="100">
         <p>Canadian advisory firms and multi-family offices manage some of the most complex wealth structures in the world — trusts nested inside holding companies, cross-border beneficiaries, multiple custodians, regulatory requirements that shift by province and entity type.</p>
         <p>And the tools they use? Spreadsheets. PDFs. Manual data pulls from six different portals before a single client meeting.</p>
         <p>The family office software that does exist was built for family offices themselves — not for the advisory firms that serve them. It's designed for different workflows, different compliance regimes, and a different market entirely. None of it addresses Canadian regulatory requirements from CSA, OSC, and CIRO.</p>
@@ -314,7 +315,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   <!-- Founder -->
   <section class="founder">
     <div class="container">
-      <div class="founder-photo-wrap">
+      <div class="founder-photo-wrap" data-aos="fade-up">
         <div class="founder-photo">
           <img src="images/adrian.jpg" alt="Adrian Muncaciu" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.initials').style.display='block'">
           <span class="initials" style="display:none">AM</span>
@@ -331,7 +332,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
           Connect on LinkedIn
         </a>
       </div>
-      <div class="founder-bio">
+      <div class="founder-bio" data-aos="fade-up" data-aos-delay="100">
         <p>Adrian spent nearly two decades as a wealth management practitioner, advising high-net-worth families and managing complex multi-entity portfolios across trusts, holding companies, and corporate structures.</p>
         <p>Over those years, he watched the same pattern repeat: talented advisors spending more time wrestling with fragmented systems than actually advising clients. The data was there — scattered across custodian portals, spreadsheets, and filing cabinets. The relationships between entities were understood — but only in the advisor's head, never in the software.</p>
         <p>Mozaiik is the platform Adrian wished existed every day of his career. Purpose-built for the Canadian regulatory landscape, designed around entity relationships rather than account numbers, and engineered to give advisory firms a single source of truth across every family they serve.</p>
@@ -342,13 +343,12 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   <!-- Strategic Advisor -->
   <section class="advisor">
     <div class="container">
-      <div class="advisor-bio rv-left">
-        <span class="advisor-label">Strategic Advisor &amp; Investor</span>
+      <div class="advisor-bio rv-left" data-aos="fade-up">
         <p>Richard is the founder of IP Private Wealth and brings over 35 years of experience working with high-net-worth clients. From the very beginning, he has championed independent financial services as the path to delivering truly unbiased wealth management advice — a philosophy that shaped everything IPPW has become.</p>
         <p>An early adopter of the multi-family office approach in Ottawa, Richard built a comprehensive network of professionals to assist clients across every aspect of their financial lives. He specializes in advising business owners on exit strategies, monetizing corporate value, implementing optimal after-tax wealth management structures, trusts, and estate planning.</p>
         <p>After decades of navigating this complexity with fragmented tools and manual processes, Richard recognized what Mozaiik could become — the unified operating system the industry has been missing. IP Private Wealth serves as Mozaiik's pilot firm, ensuring the platform is built and stress-tested in real-world advisory conditions. His investment in Mozaiik reflects a conviction earned over a career spent living inside the problem.</p>
       </div>
-      <div class="founder-photo-wrap rv-right">
+      <div class="founder-photo-wrap rv-right" data-aos="fade-up" data-aos-delay="100">
         <div class="founder-photo">
           <img src="images/richard.png" alt="Richard Kluska" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.initials').style.display='block'">
           <span class="initials" style="display:none">RK</span>
@@ -371,47 +371,47 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   <!-- What We Believe -->
   <section class="about-values">
     <div class="container">
-      <div class="about-values-header">
+      <div class="about-values-header" data-aos="fade-up">
         <h2>What we believe</h2>
         <p>Built on <em>conviction.</em></p>
       </div>
       <div class="values-grid">
-        <div class="val-card vc-violet">
+        <div class="val-card vc-violet" data-aos="fade-up">
           <div class="val-icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><line x1="12" y1="8" x2="5" y2="15"/><line x1="12" y1="8" x2="19" y2="15"/></svg>
           </div>
           <h3>Entities first, accounts second</h3>
           <p>Wealth doesn't live in accounts. It lives in families, trusts, corporations, and the relationships between them. Our data model starts there.</p>
         </div>
-        <div class="val-card vc-teal">
+        <div class="val-card vc-teal" data-aos="fade-up" data-aos-delay="100">
           <div class="val-icon">
             <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h3>Built for fiduciaries</h3>
           <p>Every feature is designed for professionals who bear legal responsibility for their clients' wealth. Compliance isn't a module — it's the foundation.</p>
         </div>
-        <div class="val-card vc-emerald">
+        <div class="val-card vc-emerald" data-aos="fade-up" data-aos-delay="200">
           <div class="val-icon">
             <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <h3>Canadian by design</h3>
           <p>Not a U.S. platform with a maple leaf. Built from day one around CSA, OSC, and CIRO requirements, Canadian custodians, and the entity structures unique to this market.</p>
         </div>
-        <div class="val-card vc-amber">
+        <div class="val-card vc-amber" data-aos="fade-up" data-aos-delay="300">
           <div class="val-icon">
             <svg viewBox="0 0 24 24"><rect x="2" y="6" width="8" height="12" rx="1"/><rect x="14" y="6" width="8" height="12" rx="1"/><path d="M10 10h4M10 14h4"/></svg>
           </div>
           <h3>Open, not locked</h3>
           <p>Your data shouldn't be trapped. Mozaiik connects to the custodians and providers you already use through secure APIs — we consolidate, not replace.</p>
         </div>
-        <div class="val-card vc-blue">
+        <div class="val-card vc-blue" data-aos="fade-up" data-aos-delay="400">
           <div class="val-icon">
             <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
           </div>
           <h3>Built with advisors, not for them</h3>
           <p>Our anchor partners shape the product from day one. We don't guess what advisors need — we build alongside the firms who live this every day.</p>
         </div>
-        <div class="val-card vc-rose">
+        <div class="val-card vc-rose" data-aos="fade-up" data-aos-delay="500">
           <div class="val-icon">
             <svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
           </div>
@@ -425,9 +425,9 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   <!-- CTA -->
   <section class="about-cta">
     <div class="container">
-      <h2>We're building this for you.</h2>
-      <p>Early partners shape the roadmap. If you manage complex family wealth in Canada, we'd like to hear from you.</p>
-      <a href="contact.html" class="btn-glow"><span>Request Early Access</span> <span style="position:relative;z-index:1">&rarr;</span></a>
+      <h2 data-aos="fade-up">We're building this for you.</h2>
+      <p data-aos="fade-up" data-aos-delay="100">Early partners shape the roadmap. If you manage complex family wealth in Canada, we'd like to hear from you.</p>
+      <a href="contact.html" class="btn-glow" data-aos="fade-up" data-aos-delay="200"><span>Request Early Access</span> <span style="position:relative;z-index:1">&rarr;</span></a>
     </div>
   </section>
 </main>
@@ -484,5 +484,7 @@ document.documentElement.classList.add('js');
   if('IntersectionObserver' in window){var revealEls=document.querySelectorAll('.rv,.rv-left,.rv-right');var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});revealEls.forEach(function(el){obs.observe(el)})}else{document.querySelectorAll('.rv,.rv-left,.rv-right').forEach(function(el){el.classList.add('vis')})}
 })();
 </script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({duration:600,once:true,easing:'ease-out-cubic',offset:80});</script>
 </body>
 </html>

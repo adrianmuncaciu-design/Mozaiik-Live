@@ -24,6 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -188,7 +189,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 
 <!-- Hero -->
 <section class="pricing-hero">
-  <div class="container rv">
+  <div class="container rv" data-aos="fade-up">
     <h1>Tailored to your firm.</h1>
     <p class="hero-sub">Flexible plans designed for Canadian advisory firms of every size. No hidden fees, no unnecessary complexity.</p>
   </div>
@@ -197,26 +198,26 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 <!-- How We Price -->
 <section class="how-we-price">
   <div class="container">
-    <div class="how-header rv">
+    <div class="how-header rv" data-aos="fade-up">
       <h2>How we price</h2>
       <p>Mozaiik is purpose-built for complexity. Pricing reflects your firm — not a one-size-fits-all formula.</p>
     </div>
     <div class="how-grid">
-      <div class="how-item rv" style="transition-delay:.05s">
+      <div class="how-item rv" style="transition-delay:.05s" data-aos="fade-up" data-aos-delay="0">
         <div class="how-icon">
           <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         </div>
         <h3>Scales with your firm</h3>
         <p>Pricing is based on your team size, entity count, and complexity — so you only pay for what you use.</p>
       </div>
-      <div class="how-item rv" style="transition-delay:.12s">
+      <div class="how-item rv" style="transition-delay:.12s" data-aos="fade-up" data-aos-delay="100">
         <div class="how-icon">
           <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <h3>No hidden fees</h3>
         <p>Transparent, predictable pricing with no surprises. Everything your firm needs is included from day one.</p>
       </div>
-      <div class="how-item rv" style="transition-delay:.19s">
+      <div class="how-item rv" style="transition-delay:.19s" data-aos="fade-up" data-aos-delay="200">
         <div class="how-icon">
           <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
@@ -231,9 +232,9 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 <section class="pricing-cta">
   <div class="cta-glow" aria-hidden="true"></div>
   <div class="container" style="max-width:920px">
-    <h2 class="rv">Let's find the right fit for your firm.</h2>
-    <p class="cta-sub rv" style="transition-delay:.1s">Tell us about your team, your clients, and your complexity — and we'll design a plan around you.</p>
-    <div class="rv" style="transition-delay:.2s;position:relative;z-index:1">
+    <h2 class="rv" data-aos="fade-up">Let's find the right fit for your firm.</h2>
+    <p class="cta-sub rv" style="transition-delay:.1s" data-aos="fade-up" data-aos-delay="100">Tell us about your team, your clients, and your complexity — and we'll design a plan around you.</p>
+    <div class="rv" style="transition-delay:.2s;position:relative;z-index:1" data-aos="fade-up" data-aos-delay="200">
       <a href="contact.html" class="btn btn-glow"><span>Request a Conversation</span></a>
     </div>
   </div>
@@ -241,7 +242,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 
 <!-- Early Adopter Banner -->
 <section class="early-adopter">
-  <div class="container rv">
+  <div class="container rv" data-aos="fade-up">
     <div class="early-badge">Early Partner Program</div>
     <p>Early partners receive preferred pricing and help shape the product roadmap.</p>
   </div>
@@ -314,5 +315,7 @@ document.documentElement.classList.add('js');
   setTimeout(function(){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('vis')})},6000);
 })();
 </script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({duration:600,once:true,easing:'ease-out-cubic',offset:80});</script>
 </body>
 </html>

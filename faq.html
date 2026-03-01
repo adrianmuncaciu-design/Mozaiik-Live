@@ -139,6 +139,8 @@
   }
   </script>
 
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -292,8 +294,8 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 
 <section class="faq-hero">
   <div class="container">
-    <h1 class="rv">Frequently Asked Questions</h1>
-    <p class="rv">Everything you need to know about Mozaiik.</p>
+    <h1 class="rv" data-aos="fade-up">Frequently Asked Questions</h1>
+    <p class="rv" data-aos="fade-up" data-aos-delay="100">Everything you need to know about Mozaiik.</p>
   </div>
 </section>
 
@@ -301,7 +303,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   <div class="container">
 
     <!-- About Mozaiik -->
-    <div class="faq-category rv">
+    <div class="faq-category rv" data-aos="fade-up">
       <h2 class="faq-category-title">About Mozaiik</h2>
 
       <div class="faq-item">
@@ -336,7 +338,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
     </div>
 
     <!-- Platform & Features -->
-    <div class="faq-category rv">
+    <div class="faq-category rv" data-aos="fade-up" data-aos-delay="100">
       <h2 class="faq-category-title">Platform &amp; Features</h2>
 
       <div class="faq-item">
@@ -371,7 +373,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
     </div>
 
     <!-- Launch & Access -->
-    <div class="faq-category rv">
+    <div class="faq-category rv" data-aos="fade-up" data-aos-delay="200">
       <h2 class="faq-category-title">Launch &amp; Access</h2>
 
       <div class="faq-item">
@@ -406,7 +408,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
     </div>
 
     <!-- Pricing & Plans -->
-    <div class="faq-category rv">
+    <div class="faq-category rv" data-aos="fade-up" data-aos-delay="300">
       <h2 class="faq-category-title">Pricing &amp; Plans</h2>
 
       <div class="faq-item">
@@ -431,7 +433,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
     </div>
 
     <!-- Security & Privacy -->
-    <div class="faq-category rv">
+    <div class="faq-category rv" data-aos="fade-up" data-aos-delay="400">
       <h2 class="faq-category-title">Security &amp; Privacy</h2>
 
       <div class="faq-item">
@@ -458,7 +460,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   </div>
 </main>
 
-<section class="faq-cta rv">
+<section class="faq-cta rv" data-aos="fade-up">
   <div class="container">
     <h2>Still have questions?</h2>
     <p>We'd love to hear from you. Reach out and our team will get back to you promptly.</p>
@@ -556,5 +558,7 @@ document.documentElement.classList.add('js');
   });
 })();
 </script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({duration:600,once:true,easing:'ease-out-cubic',offset:80});</script>
 </body>
 </html>

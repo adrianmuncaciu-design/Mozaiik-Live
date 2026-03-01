@@ -24,6 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -248,13 +249,13 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   <!-- Hero -->
   <section class="manifesto-hero">
     <div class="container">
-      <h1>Wealth deserves better <em>architecture.</em></h1>
-      <p class="hero-sub">Over $1 trillion in Canadian wealth is passing between generations this decade. And history tells us most of it won't survive the transition.</p>
+      <h1 data-aos="fade-up">Wealth deserves better <em>architecture.</em></h1>
+      <p class="hero-sub" data-aos="fade-up" data-aos-delay="100">Over $1 trillion in Canadian wealth is passing between generations this decade. And history tells us most of it won't survive the transition.</p>
     </div>
   </section>
 
   <!-- Opening -->
-  <section class="manifesto-content rv">
+  <section class="manifesto-content rv" data-aos="fade-up">
     <div class="container">
       <p class="lead">Not because of bad investments. Not because of poor returns. Because nobody built the infrastructure to hold it all together.</p>
       <p>The wealth management industry has spent decades perfecting the science of portfolio performance. Returns, benchmarks, alpha, risk-adjusted metrics. Billions have been poured into platforms that can tell you exactly how a portfolio performed last quarter, down to the basis point.</p>
@@ -265,7 +266,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   </section>
 
   <!-- The Real Architecture of Wealth -->
-  <section class="manifesto-section rv">
+  <section class="manifesto-section rv" data-aos="fade-up">
     <div class="container">
       <h2>The real architecture of <em>wealth</em></h2>
       <p>Complex family wealth doesn't live in a portfolio. It lives in a web of legal entities. Trusts nested inside holding companies. Operating businesses linked to partnerships. Personal accounts threaded through corporate structures. Each with its own governance, its own compliance obligations, its own documentation.</p>
@@ -276,7 +277,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   </section>
 
   <!-- What We Believe -->
-  <section class="manifesto-section rv">
+  <section class="manifesto-section rv" data-aos="fade-up" data-aos-delay="100">
     <div class="container">
       <h2>What we <em>believe</em></h2>
       <div class="belief-grid stagger">
@@ -305,7 +306,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   </section>
 
   <!-- What We're Building -->
-  <section class="manifesto-section rv">
+  <section class="manifesto-section rv" data-aos="fade-up" data-aos-delay="200">
     <div class="container">
       <h2>What we're <em>building</em></h2>
       <p><strong>Mozaiik is the first wealth operating system purpose-built for Canadian Investment Counsel firms and Multi-Family Offices.</strong></p>
@@ -318,7 +319,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   </section>
 
   <!-- Why Now -->
-  <section class="manifesto-section rv">
+  <section class="manifesto-section rv" data-aos="fade-up" data-aos-delay="300">
     <div class="container">
       <h2>Why <em>now</em></h2>
       <p>Four forces are converging that make this moment inevitable.</p>
@@ -344,7 +345,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   </section>
 
   <!-- Closing -->
-  <section class="manifesto-close rv">
+  <section class="manifesto-close rv" data-aos="fade-up">
     <div class="container">
       <p>We are not building another dashboard. We are not building another reporting tool. We are not building software for software's sake.</p>
       <p><strong style="color:var(--cream)">We are building the system that a fiduciary reaches for first, and the one they cannot imagine working without.</strong></p>
@@ -411,5 +412,7 @@ document.documentElement.classList.add('js');
   }else{document.querySelectorAll('.rv,.rv-scale,.stagger').forEach(function(el){el.classList.add('vis')})}
 })();
 </script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({duration:600,once:true,easing:'ease-out-cubic',offset:80});</script>
 </body>
 </html>

@@ -24,6 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--navy:#13151f;--navy-mid:#1a1d2e;--navy-light:#252840;--blue:#1a45d4;--blue-bright:#2357e8;--blue-soft:#4a8af5;--blue-pale:#a5b8ff;--cream:#f4f1eb;--cream-dark:#e8e3d8;--warm-white:#fdfbf8;--white:#ffffff;--text-dark:#0d1117;--text-mid:#4a5568;--text-light:#8896a8;--text-on-dark:#e8ecf2;--text-on-dark-mid:rgba(232,236,242,.55);--text-on-dark-dim:rgba(232,236,242,.28);--border:#dedad2;--border-dark:rgba(255,255,255,.07);--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--ease:cubic-bezier(.16,1,.3,1)}
@@ -44,7 +45,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.65rem 0;background:
 <nav><div class="container"><a href="index.html" class="nav-logo" aria-label="Mozaiik - Home"><img src="images/logo.png" alt="Mozaiik" class="nav-logo-img"></a><ul class="nav-links" id="navLinks"><li><a href="index.html#platform">Platform</a></li><li><a href="index.html#how-it-works">How It Works</a></li><li><a href="index.html#ai">AI Intelligence</a></li><li><a href="contact.html" class="nav-cta"><span>Request Early Access</span></a></li></ul><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
 
 <main>
-  <section class="article-hero">
+  <section class="article-hero" data-aos="fade-up">
     <div class="container">
       <div class="article-meta">
         <span class="article-cat cat-technology">Technology</span>
@@ -61,27 +62,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.65rem 0;background:
     <div class="container">
       <div class="article-content">
 
-        <h2>Every Platform Gets This Wrong</h2>
+        <h2 data-aos="fade-up">Every Platform Gets This Wrong</h2>
         <p>Open any wealth management platform today and the first thing you see is a list of accounts. An RRSP here. A TFSA there. A non-registered account. A corporate trading account. Each one a separate row in a separate view.</p>
         <p>Now picture the family behind those accounts. A matriarch with a personal portfolio and a spousal RRSP. A family trust holding real estate and private equity. A holding company that owns dividend stocks and an operating business. A foundation making annual charitable grants. Two adult children, each with their own registered and non-registered accounts, one a beneficiary of the trust and a director of the holdco.</p>
         <p>That family doesn't experience their wealth as twelve separate accounts. They experience it as one interconnected family. But the advisor's technology forces them to see it as twelve separate rows &mdash; and to manually piece together the family picture every time a client calls, every quarter-end, every report.</p>
         <p>This is the account-centric architecture problem. And it's the foundational design flaw that makes wealth management technology feel like it's working against the advisor rather than for them.</p>
 
-        <h2>What Entity-Centric Architecture Looks Like</h2>
+        <h2 data-aos="fade-up">What Entity-Centric Architecture Looks Like</h2>
         <p>Entity-centric architecture starts from a different premise. Instead of organizing data around brokerage accounts, it organizes around the entities that own those accounts &mdash; the people, trusts, corporations, foundations, and partnerships that constitute a family's wealth structure.</p>
         <p>In an entity-centric system, the trust isn't a line item. It's a first-class object with its own attributes: trustees, beneficiaries, terms, jurisdiction, tax residency, distribution schedule. The holding company isn't an account number &mdash; it's a node in the family structure with ownership links to the people who control it and the entities it owns.</p>
         <p>Accounts still exist, of course. But they roll up into entities. And entities form families. The hierarchy is: <strong>accounts &rarr; entities &rarr; families</strong>. Not the reverse.</p>
         <p>This matters for three practical reasons.</p>
 
-        <h2>1. The Advisor Sees What the Client Sees</h2>
+        <h2 data-aos="fade-up">1. The Advisor Sees What the Client Sees</h2>
         <p>When a client calls and asks "how is our family doing?" the advisor needs to answer that question across every entity, every account, every asset class. In an account-centric system, this requires pulling data from multiple screens, running ad hoc reports, and often opening a spreadsheet to consolidate the numbers.</p>
         <p>In an entity-centric system, the family view exists natively. One screen. All entities. All accounts. All asset classes. The advisor sees what the client sees &mdash; a unified picture of family wealth.</p>
         <p>This isn't a reporting feature bolted on top. It's a consequence of how the data is structured from the ground up.</p>
 
-        <h2>2. Succession Planning Becomes Visible</h2>
+        <h2 data-aos="fade-up">2. Succession Planning Becomes Visible</h2>
         <p>The great wealth transfer is fundamentally an entity-level event. When the patriarch passes, what happens to the family trust? Who becomes the successor trustee? What are the distribution triggers? How does control of the holding company transfer? Which accounts need to be retitled, and to whom?</p>
 
-        <div class="pull-stat">
+        <div class="pull-stat" data-aos="fade-up">
           <div class="stat-number">70%</div>
           <div class="stat-label">of wealthy families lose their wealth by the second generation</div>
         </div>
@@ -89,17 +90,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.65rem 0;background:
         <p>Account-centric platforms can't answer these questions because they don't model the relationships. Entity-centric platforms can, because the relationships between people and entities are explicit in the data structure.</p>
         <p>For advisors who want to retain heirs &mdash; and given that the majority of heirs change their parents' advisor, retention is existential &mdash; the ability to show the next generation a clear picture of family governance is a competitive advantage. The heir doesn't care about account numbers. They care about understanding the family structure and their role within it.</p>
 
-        <h2>3. Canadian Complexity Demands It</h2>
+        <h2 data-aos="fade-up">3. Canadian Complexity Demands It</h2>
         <p>The Canadian wealth landscape is structurally more complex than many markets. Alter ego trusts, joint partner trusts, inter vivos family trusts, testamentary trusts, graduated rate estates &mdash; each with distinct tax treatment and regulatory requirements. Holding companies subject to RDTOH refund mechanisms. Individual Pension Plans. Prescribed Rate Loans between spouses. Family foundations with disbursement quotas.</p>
         <p>These aren't edge cases for Canadian advisory firms. They're the daily reality. And they're all entity-level structures that account-centric platforms handle poorly, if at all.</p>
         <p>A platform that models these entities natively &mdash; with their attributes, relationships, tax implications, and governance rules &mdash; doesn't just save time. It reduces the compliance risk that comes from managing complex structures in spreadsheets where a formula error or a missed beneficiary designation can have significant consequences.</p>
 
-        <h2>Why Nobody's Built This Before</h2>
+        <h2 data-aos="fade-up">Why Nobody's Built This Before</h2>
         <p>The honest answer: it's harder. Account-centric architecture mirrors how custodians organize data &mdash; by account number. Building an entity-centric layer on top requires a fundamentally different data model, a different UX paradigm, and a deep understanding of how wealth structures actually work in practice.</p>
         <p>Most wealth technology companies are engineering-led. They build what's technically clean and what custodian data makes easy. Entity-centric architecture requires domain expertise &mdash; the kind that comes from years of sitting across the table from families, mapping their structures on whiteboards, and understanding why the trust deed matters as much as the portfolio allocation.</p>
         <p>It also requires rethinking the user interface. Account-centric platforms rely on familiar paradigms: tables, lists, drill-downs. Entity-centric platforms need visual mapping &mdash; relationship diagrams that show ownership, control, and beneficiary designations across generations. This is a harder design problem, but it's the one that actually matches how advisors think.</p>
 
-        <h2>The Architecture Is the Moat</h2>
+        <h2 data-aos="fade-up">The Architecture Is the Moat</h2>
         <p>In SaaS, features can be copied. An entity-centric data model cannot &mdash; at least not easily. Once an advisory firm maps their clients' family structures into an entity-centric platform, that mapping becomes deeply embedded in their workflow. The trust relationships, ownership chains, beneficiary designations, and governance notes constitute institutional knowledge that doesn't exist anywhere else.</p>
         <p>For Canadian advisory firms managing complex multi-entity families, the question isn't whether entity-centric architecture is better. It's how much longer they can afford to model families in spreadsheets while the great wealth transfer accelerates around them.</p>
 
@@ -132,5 +133,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.65rem 0;background:
 <script>
 (function(){var yEl=document.getElementById('footerYear');if(yEl)yEl.textContent=new Date().getFullYear();var eu='info',ed='mozaiik.com',ef=eu+'@'+ed;var fe=document.getElementById('footerEmail');if(fe){fe.href='mai'+'lto:'+ef;fe.textContent=ef}var tog=document.getElementById('navToggle'),links=document.getElementById('navLinks');if(tog&&links){tog.addEventListener('click',function(){var o=tog.classList.toggle('active');links.classList.toggle('open');tog.setAttribute('aria-expanded',o)});links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){tog.classList.remove('active');links.classList.remove('open');tog.setAttribute('aria-expanded','false')})})}var cb=document.getElementById('cookieBanner');if(cb&&!localStorage.getItem('mozaiik_cookies')){setTimeout(function(){cb.classList.add('show')},1500)}var ca=document.getElementById('cookieAccept'),cd=document.getElementById('cookieDecline');if(ca)ca.addEventListener('click',function(){localStorage.setItem('mozaiik_cookies','accepted');cb.classList.remove('show')});if(cd)cd.addEventListener('click',function(){localStorage.setItem('mozaiik_cookies','declined');cb.classList.remove('show')})})();
 </script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({duration:600,once:true,easing:'ease-out-cubic',offset:80});</script>
 </body>
 </html>

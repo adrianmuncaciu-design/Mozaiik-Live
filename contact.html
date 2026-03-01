@@ -24,6 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -201,12 +202,12 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 
 <main class="contact-page">
   <div class="container">
-    <div class="contact-header">
+    <div class="contact-header" data-aos="fade-up">
       <h1>Ready to rethink how you<br>manage family wealth?</h1>
       <p>Tell us about your firm. We'll show you what Mozaiik can do.</p>
     </div>
 
-    <div class="contact-form" id="contactFormWrap">
+    <div class="contact-form" id="contactFormWrap" data-aos="fade-up" data-aos-delay="100">
       <form id="contactForm" name="contact" method="POST" action="thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
         <p class="hidden" style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
         <input type="hidden" name="form-name" value="contact">
@@ -248,17 +249,17 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
     </div>
 
     <div class="value-strip">
-      <div class="value-item vc-violet">
+      <div class="value-item vc-violet" data-aos="fade-up">
         <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <h3>Purpose-built for Canadian private wealth</h3>
         <p>Designed around CIRO, OSC, and multi-entity structures unique to Canada.</p>
       </div>
-      <div class="value-item vc-teal">
+      <div class="value-item vc-teal" data-aos="fade-up" data-aos-delay="100">
         <div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><line x1="12" y1="8" x2="5" y2="15"/><line x1="12" y1="8" x2="19" y2="15"/></svg></div>
         <h3>Multi-entity visibility from day one</h3>
         <p>See trusts, holdcos, and beneficiaries in a single consolidated view.</p>
       </div>
-      <div class="value-item vc-emerald">
+      <div class="value-item vc-emerald" data-aos="fade-up" data-aos-delay="200">
         <div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <h3>Launching Fall 2026</h3>
         <p>Early partners shape the roadmap. Get involved before general availability.</p>
@@ -328,5 +329,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   }
 })();
 </script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({duration:600,once:true,easing:'ease-out-cubic',offset:80});</script>
 </body>
 </html>

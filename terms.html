@@ -24,6 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -140,8 +141,8 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 
 <main class="legal-page">
   <div class="container">
-    <h1>Terms of Service</h1>
-    <p class="legal-meta">Last updated: February 2026</p>
+    <h1 data-aos="fade-up">Terms of Service</h1>
+    <p class="legal-meta" data-aos="fade-up">Last updated: February 2026</p>
 
     <h2>1. Acceptance of Terms</h2>
     <p>By accessing or using the website located at mozaiik.com (the "Website") operated by Mozaiik Wealth Tech Inc. ("Mozaiik", "we", "our", or "us"), a corporation federally incorporated in Canada, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the Website.</p>
@@ -249,5 +250,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   var te=document.getElementById('termsEmail');if(te){te.href='mai'+'lto:'+ef;te.textContent=ef}
 })();
 </script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({duration:600,once:true,easing:'ease-out-cubic',offset:80});</script>
 </body>
 </html>

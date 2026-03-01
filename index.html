@@ -25,7 +25,9 @@
   <link rel="canonical" href="https://mozaiik.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/dmserifdisplay/v15/-nFnOHM81r4j6k0gjAW3mujVU2B2K_d709jy92k.woff2" as="font" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -93,6 +95,7 @@ body{font-family:var(--sans);background:var(--white);color:var(--text-dark);-web
 @keyframes blob-morph{0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%}25%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%}50%{border-radius:50% 60% 30% 60%/30% 60% 70% 40%}75%{border-radius:60% 40% 60% 30%/40% 50% 60% 50%}}
 @keyframes typewriter-cursor{0%,100%{opacity:1}50%{opacity:0}}
 @keyframes btn-breathe{0%,100%{box-shadow:0 0 20px rgba(26,69,212,.2),0 0 60px rgba(26,69,212,.1)}50%{box-shadow:0 0 30px rgba(26,69,212,.4),0 0 80px rgba(26,69,212,.18)}}
+@keyframes hero-gradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 @keyframes particle-float{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-120px) translateX(var(--drift));opacity:0}}
 @keyframes particle-float-slow{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:.7}90%{opacity:.7}100%{transform:translateY(-80px) translateX(var(--drift));opacity:0}}
 .particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
@@ -145,20 +148,22 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;font-family:var(--sans);font-weight:600;font-size:.95rem;letter-spacing:.02em;text-decoration:none;border-radius:100px;border:none;cursor:pointer;transition:all .4s var(--ease);position:relative;overflow:hidden}
 .btn-primary{background:var(--navy);color:#fff}
 .btn-primary::before{content:'';position:absolute;inset:0;border-radius:100px;background:linear-gradient(135deg,var(--blue),var(--blue-bright));opacity:0;transition:opacity .4s}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(29,78,216,.3)}
+.btn-primary:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 48px rgba(29,78,216,.3)}
 .btn-primary:hover::before{opacity:1}
 .btn-primary span{position:relative;z-index:1}
 .btn-primary .arrow{transition:transform .3s var(--ease-bounce)}
 .btn-primary:hover .arrow{transform:translateX(4px)}
 .btn-ghost{background:transparent;color:var(--text-dark);border:1.5px solid var(--border);border-radius:100px}
-.btn-ghost:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px) scale(1.03)}
 .btn-glow{background:var(--navy);color:#fff;border-radius:100px;position:relative;overflow:hidden}
 .btn-glow::before{content:'';position:absolute;inset:0;border-radius:100px;background:linear-gradient(135deg,var(--blue),var(--blue-bright));opacity:0;transition:opacity .4s}
-.btn-glow:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(29,78,216,.3)}
+.btn-glow:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 48px rgba(29,78,216,.3)}
 .btn-glow:hover::before{opacity:1}
+.btn:focus-visible,.preview-tab:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:100px}
+.feature-card:focus-visible,.ai-card:focus-visible,.comp-card:focus-visible,.step:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:var(--sp-2)}
 .btn-glow span{position:relative;z-index:1}
 
-.hero{min-height:70vh;display:flex;align-items:center;padding:48px 0 var(--sp-5);position:relative;overflow:hidden;background:linear-gradient(180deg,var(--warm-white) 0%,var(--white) 100%)}
+.hero{min-height:70vh;display:flex;align-items:center;padding:48px 0 var(--sp-5);position:relative;overflow:hidden;background:linear-gradient(120deg,var(--warm-white),#eef0fb,#f0eef7,var(--cream),var(--warm-white));background-size:300% 300%;animation:hero-gradient 18s ease infinite}
 .hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .hero-blob-2{position:absolute;width:500px;height:500px;bottom:-20%;left:-10%;opacity:.06;background:linear-gradient(135deg,#818cf8,var(--blue));animation:blob-morph 25s ease-in-out infinite reverse;filter:blur(100px)}
 .hero-waves{position:absolute;inset:0;opacity:0;animation:waves-fade 2.5s .3s ease-out forwards}
@@ -182,6 +187,8 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3);max-width:960px;margin:0 auto;position:relative;z-index:1}
 .comp-card{padding:var(--sp-5) var(--sp-4);border-radius:18px;transition:box-shadow .5s var(--ease),transform .5s var(--ease)}
 .comp-card:hover{transform:translateY(-4px)}
+.comp-old:hover{box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.comp-new:hover{box-shadow:0 20px 50px rgba(29,78,216,.25)}
 .comp-card-label{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
 .comp-card-title{font-family:var(--serif);font-size:clamp(1.2rem,2vw,1.45rem);font-weight:400;margin-bottom:var(--sp-3);line-height:1.25}
 .comp-old{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);backdrop-filter:blur(8px)}
@@ -195,7 +202,13 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .comp-list li{display:flex;align-items:flex-start;gap:12px;font-size:.92rem;line-height:1.55}
 .comp-old .comp-list li{color:var(--text-on-dark-mid)}
 .comp-new .comp-list li{color:var(--text-on-dark);font-weight:500}
-.comp-icon{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;flex-shrink:0;margin-top:1px}
+.comp-icon{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;flex-shrink:0;margin-top:1px;opacity:0;transform:scale(0);transition:opacity .35s var(--ease),transform .35s var(--ease-bounce)}
+.comp-card.aos-animate .comp-icon{opacity:1;transform:scale(1)}
+.comp-card.aos-animate .comp-list li:nth-child(1) .comp-icon{transition-delay:.1s}
+.comp-card.aos-animate .comp-list li:nth-child(2) .comp-icon{transition-delay:.2s}
+.comp-card.aos-animate .comp-list li:nth-child(3) .comp-icon{transition-delay:.3s}
+.comp-card.aos-animate .comp-list li:nth-child(4) .comp-icon{transition-delay:.4s}
+.comp-card.aos-animate .comp-list li:nth-child(5) .comp-icon{transition-delay:.5s}
 .comp-icon-no{background:rgba(248,113,113,.1);color:rgba(248,113,113,.7);border:1.5px solid rgba(248,113,113,.2)}
 .comp-icon-yes{background:rgba(110,231,183,.1);color:rgba(110,231,183,.8);border:1.5px solid rgba(110,231,183,.25)}
 
@@ -216,25 +229,11 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .feature-icon{width:var(--sp-6);height:var(--sp-6);border-radius:12px;background:rgba(var(--fc),.08);display:flex;align-items:center;justify-content:center;margin-bottom:var(--sp-3);transition:all .5s var(--ease);position:relative}
 .feature-icon svg{width:22px;height:22px;stroke:rgb(var(--fc));fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .5s var(--ease)}
 .feature-icon svg *{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset .8s var(--ease)}
-.stagger.vis .feature-card .feature-icon svg *{stroke-dashoffset:0}
+.feature-card.aos-animate .feature-icon svg *{stroke-dashoffset:0;transition-delay:.3s}
 .feature-card:hover .feature-icon{background:rgba(var(--fc),.15);transform:scale(1.1) translateY(-2px)}
 .feature-card:hover .feature-icon svg{transform:scale(1.05)}
 .feature-card h3{font-family:var(--sans);font-weight:600;font-size:1rem;color:var(--text-dark);margin-bottom:var(--sp-1);position:relative}
 .feature-card p{font-size:.88rem;line-height:1.65;color:var(--text-mid);position:relative}
-.js .feature-card{transition:opacity .6s var(--ease),transform .6s var(--ease),box-shadow .5s var(--ease);opacity:0;transform:translateY(var(--sp-4))}
-.stagger.vis .feature-card{opacity:1;transform:translateY(0)}
-.stagger.vis .feature-card:nth-child(1){transition-delay:.05s}
-.stagger.vis .feature-card:nth-child(1) .feature-icon svg *{transition-delay:.3s}
-.stagger.vis .feature-card:nth-child(2){transition-delay:.13s}
-.stagger.vis .feature-card:nth-child(2) .feature-icon svg *{transition-delay:.38s}
-.stagger.vis .feature-card:nth-child(3){transition-delay:.21s}
-.stagger.vis .feature-card:nth-child(3) .feature-icon svg *{transition-delay:.46s}
-.stagger.vis .feature-card:nth-child(4){transition-delay:.29s}
-.stagger.vis .feature-card:nth-child(4) .feature-icon svg *{transition-delay:.54s}
-.stagger.vis .feature-card:nth-child(5){transition-delay:.37s}
-.stagger.vis .feature-card:nth-child(5) .feature-icon svg *{transition-delay:.62s}
-.stagger.vis .feature-card:nth-child(6){transition-delay:.45s}
-.stagger.vis .feature-card:nth-child(6) .feature-icon svg *{transition-delay:.7s}
 
 .preview{padding:100px 0;background:var(--navy);text-align:center;position:relative;overflow:hidden}
 .preview::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 50% 80%,rgba(29,78,216,.1),transparent),radial-gradient(ellipse 500px 400px at 80% 20%,rgba(99,102,241,.06),transparent);pointer-events:none}
@@ -248,8 +247,10 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .preview-tab:hover{border-color:var(--blue-soft);color:var(--blue-soft)}
 .preview-tab.active{background:var(--blue);border-color:var(--blue);color:#fff;transform:scale(1.05)}
 .preview-img-wrap{max-width:1000px;margin:0 auto;position:relative;z-index:1}
-.preview-img-wrap img{width:100%;height:auto;display:block;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.3);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1),filter .6s cubic-bezier(.4,0,.2,1),box-shadow .6s ease;will-change:opacity,transform,filter}
+.preview-img-wrap img{width:100%;height:auto;display:block;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.3);transition:transform .6s cubic-bezier(.4,0,.2,1),box-shadow .6s ease;will-change:transform}
 .preview-img-wrap img:hover{transform:translateY(-6px);box-shadow:0 28px 80px rgba(0,0,0,.4)}
+.pv-clone{position:absolute!important;top:0;left:0;width:100%!important;height:auto;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.3);z-index:2;pointer-events:none;transition:opacity .45s cubic-bezier(.4,0,.2,1),transform .5s cubic-bezier(.4,0,.2,1),filter .45s cubic-bezier(.4,0,.2,1)}
+.pv-clone.out{opacity:0;transform:scale(.97) translateY(8px);filter:blur(4px)}
 
 .hiw{padding:100px 0;background:var(--warm-white);position:relative}
 .hiw::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 500px 300px at 50% 60%,rgba(29,78,216,.025),transparent);pointer-events:none}
@@ -261,12 +262,11 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .steps::after{content:'';position:absolute;top:49px;left:calc(16.67% + 50px);right:calc(16.67% + 50px);height:4px;background:linear-gradient(90deg,rgba(124,58,237,.25),rgba(8,145,178,.25),rgba(5,150,105,.25));z-index:0;transform:scaleX(0);transition:transform 1.2s var(--ease);-webkit-mask:repeating-linear-gradient(90deg,#000 0,#000 8px,transparent 8px,transparent 16px);mask:repeating-linear-gradient(90deg,#000 0,#000 8px,transparent 8px,transparent 16px)}
 .steps.vis::before{transform:scaleX(0)}
 .steps.vis::after{transform:scaleX(1)}
-.step{--sc:26,69,212;text-align:center;position:relative;z-index:1}
+.step{--sc:26,69,212;text-align:center;position:relative;z-index:1;transition:transform .4s var(--ease)}
+.step:hover{transform:translateY(-4px)}
 .step:nth-child(1){--sc:124,58,237}
 .step:nth-child(2){--sc:8,145,178}
 .step:nth-child(3){--sc:5,150,105}
-.js .step{opacity:0;transform:translateY(30px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.step.vis{opacity:1;transform:translateY(0)}
 .step-circle{width:100px;height:100px;border-radius:50%;background:var(--white);border:2px solid rgba(var(--sc),.2);display:flex;align-items:center;justify-content:center;margin:0 auto var(--sp-3);position:relative;transition:all .5s var(--ease);box-shadow:0 4px 20px rgba(var(--sc),.06)}
 .step:hover .step-circle{border-color:rgb(var(--sc));transform:scale(1.08);box-shadow:0 8px 32px rgba(var(--sc),.15)}
 .step-num{font-family:var(--serif);font-size:2rem;color:rgb(var(--sc));font-weight:400}
@@ -345,7 +345,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 .footer-contact a:hover{color:var(--cream)}
 .footer-muted{color:var(--text-on-dark-dim)!important;cursor:default;pointer-events:none;font-size:.8rem!important}
 
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.js .rv,.js .rv-scale,.js .rv-left,.js .rv-right,.js .stagger>*,.js .step,.js .feature-card{opacity:1!important;transform:none!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.js .rv,.js .rv-scale,.js .rv-left,.js .rv-right,.js .stagger>*,.js .step,.js .feature-card,.comp-icon{opacity:1!important;transform:none!important}}
 @media(max-width:1024px){.comp-grid{grid-template-columns:1fr 1fr}.features-grid,.ai-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){body{padding-top:0!important}.announce-bar{position:relative;gap:10px;flex-wrap:wrap;justify-content:center;padding:10px 40px 10px 16px}nav{top:0!important}nav .nav-links{display:none;position:fixed;top:0;left:0;right:0;height:100vh;background:#fff;flex-direction:column;justify-content:center;align-items:center;padding:var(--sp-5);gap:var(--sp-3);z-index:999}nav .nav-links.open{display:flex}.nav-links .nav-cta{display:none}.nav-toggle{display:block;position:relative;z-index:1000}.scroll-progress{top:0!important}.cta-section h2{white-space:normal}.hero{padding:60px 0 50px}.comparison,.features,.hiw,.cta-section,.ai-intel{padding:72px 0}.comp-grid,.features-grid,.steps,.ai-grid{grid-template-columns:1fr}.steps::before,.steps::after{display:none}footer .container{grid-template-columns:1fr 1fr;text-align:center}.footer-brand .footer-logo{justify-content:center}.footer-brand{grid-column:1/-1}.footer-bottom{flex-direction:column;align-items:center;text-align:center;gap:8px}.footer-links{align-items:center}.footer-contact{text-align:center}}
 @media(max-width:640px){.announce-bar{flex-direction:column;gap:var(--sp-1);padding:12px 40px 12px 16px;text-align:center}.announce-cta{font-size:.75rem}}
@@ -400,7 +400,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 </script>
 </head>
 <body>
-<noscript><style>.rv,.rv-scale,.rv-left,.rv-right,.stagger>*,.step,.feature-card{opacity:1!important;transform:none!important}</style></noscript>
+<noscript><style>.rv,.rv-scale,.rv-left,.rv-right,.stagger>*,.step,.feature-card,[data-aos],.comp-icon{opacity:1!important;transform:none!important}</style></noscript>
 
 <div class="announce-bar" id="announceBar">
   <span><strong>Pilot Program Now Open</strong> — Launching Fall 2026</span>
@@ -444,32 +444,32 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 
 <section class="comparison" id="problem">
   <div class="container">
-    <div class="comp-header rv"><div class="label blue">The Problem</div><h2 class="s-title dark">Managing complex wealth shouldn't require <em>duct tape.</em></h2></div>
+    <div class="comp-header" data-aos="fade-up"><div class="label blue">The Problem</div><h2 class="s-title dark">Managing complex wealth shouldn't require <em>duct tape.</em></h2></div>
     <div class="comp-grid">
-      <div class="comp-card comp-old rv-left"><div class="comp-card-label">The Old Way</div><h3 class="comp-card-title">Fragmented, Manual, Risky</h3><ul class="comp-list"><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Spreadsheets stitched together across entities</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Data scattered across bank portals, PDFs, and Excel files</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>No consolidated family view across custodians</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Compliance gaps — Canadian regulators demand more than spreadsheets</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Hours wasted building client reports manually</li></ul></div>
-      <div class="comp-card comp-new rv-right"><div class="comp-card-label mozaiik-label">The Mozaiik Way</div><h3 class="comp-card-title">One Platform. Total Clarity.</h3><ul class="comp-list"><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Entity-level mapping — individuals, trusts, holdcos, all connected</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Single source of truth across every custodian</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Consolidated dashboards, ready in real time</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Built-in Canadian regulatory compliance workflows</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Polished client reports generated automatically</li></ul></div>
+      <div class="comp-card comp-old" data-aos="fade-right"><div class="comp-card-label">The Old Way</div><h3 class="comp-card-title">Fragmented, Manual, Risky</h3><ul class="comp-list"><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Spreadsheets stitched together across entities</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Data scattered across bank portals, PDFs, and Excel files</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>No consolidated family view across custodians</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Compliance gaps — Canadian regulators demand more than spreadsheets</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Hours wasted building client reports manually</li></ul></div>
+      <div class="comp-card comp-new" data-aos="fade-left" data-aos-delay="100"><div class="comp-card-label mozaiik-label">The Mozaiik Way</div><h3 class="comp-card-title">One Platform. Total Clarity.</h3><ul class="comp-list"><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Entity-level mapping — individuals, trusts, holdcos, all connected</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Single source of truth across every custodian</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Consolidated dashboards, ready in real time</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Built-in Canadian regulatory compliance workflows</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Polished client reports generated automatically</li></ul></div>
     </div>
   </div>
 </section>
 
 <section class="features" id="platform">
   <div class="container">
-    <div class="features-header rv"><div class="label blue">The Platform</div><h2 class="s-title dark">One platform. Every entity. Complete <em>clarity.</em></h2><p>See every family's wealth in one place — and act on it.</p></div>
-    <div class="features-grid stagger" id="featuresGrid">
-      <div class="feature-card fc-violet"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><line x1="12" y1="8" x2="5" y2="15"/><line x1="12" y1="8" x2="19" y2="15"/></svg></div><h3>Entity Relationship Modeling</h3><p>Map and visualize complex ownership structures — individuals, corporations, trusts, and holding companies — with clear hierarchies.</p></div>
-      <div class="feature-card fc-blue"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="9" x2="9" y2="21"/></svg></div><h3>Consolidated Dashboards</h3><p>See positions, performance, and allocations across every entity and custodian — consolidated in real time.</p></div>
-      <div class="feature-card fc-emerald"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg></div><h3>Secure Document Vault</h3><p>Store, organize, and share documents by entity. Trust agreements, corporate resolutions, and client records in one secured location.</p></div>
-      <div class="feature-card fc-amber"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></div><h3>Compliance Workflows</h3><p>Built-in workflows aligned with Canadian regulatory requirements — KYC, suitability, audit trails, and documentation — reducing overhead and risk.</p></div>
-      <div class="feature-card fc-teal"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 118 2.83"/><path d="M22 12A10 10 0 0012 2v10z"/></svg></div><h3>Asset Allocation</h3><p>Dynamic target vs. actual charts across the entire family. Drill into any entity or roll up to the consolidated view.</p></div>
-      <div class="feature-card fc-rose"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="8" height="12" rx="1"/><rect x="14" y="6" width="8" height="12" rx="1"/><path d="M10 10h4M10 14h4"/></svg></div><h3>API Integrations</h3><p>Connect to Canadian custodians and data providers through secure APIs. Pull in account data, positions, and transactions automatically.</p></div>
+    <div class="features-header" data-aos="fade-up"><div class="label blue">The Platform</div><h2 class="s-title dark">One platform. Every entity. Complete <em>clarity.</em></h2><p>See every family's wealth in one place — and act on it.</p></div>
+    <div class="features-grid" id="featuresGrid">
+      <div class="feature-card fc-violet" data-aos="fade-up"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><line x1="12" y1="8" x2="5" y2="15"/><line x1="12" y1="8" x2="19" y2="15"/></svg></div><h3>Entity Relationship Modeling</h3><p>Map and visualize complex ownership structures — individuals, corporations, trusts, and holding companies — with clear hierarchies.</p></div>
+      <div class="feature-card fc-blue" data-aos="fade-up" data-aos-delay="100"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="9" x2="9" y2="21"/></svg></div><h3>Consolidated Dashboards</h3><p>See positions, performance, and allocations across every entity and custodian — consolidated in real time.</p></div>
+      <div class="feature-card fc-emerald" data-aos="fade-up" data-aos-delay="200"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg></div><h3>Secure Document Vault</h3><p>Store, organize, and share documents by entity. Trust agreements, corporate resolutions, and client records in one secured location.</p></div>
+      <div class="feature-card fc-amber" data-aos="fade-up" data-aos-delay="300"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></div><h3>Compliance Workflows</h3><p>Built-in workflows aligned with Canadian regulatory requirements — KYC, suitability, audit trails, and documentation — reducing overhead and risk.</p></div>
+      <div class="feature-card fc-teal" data-aos="fade-up" data-aos-delay="400"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 118 2.83"/><path d="M22 12A10 10 0 0012 2v10z"/></svg></div><h3>Asset Allocation</h3><p>Dynamic target vs. actual charts across the entire family. Drill into any entity or roll up to the consolidated view.</p></div>
+      <div class="feature-card fc-rose" data-aos="fade-up" data-aos-delay="500"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="8" height="12" rx="1"/><rect x="14" y="6" width="8" height="12" rx="1"/><path d="M10 10h4M10 14h4"/></svg></div><h3>API Integrations</h3><p>Connect to Canadian custodians and data providers through secure APIs. Pull in account data, positions, and transactions automatically.</p></div>
     </div>
   </div>
 </section>
 
 <section class="preview" id="preview">
   <div class="container">
-    <div class="rv"><div class="label blue">Preview</div><h2 class="s-title dark">Everything in one place. <em class="preview-finally">Finally.</em></h2></div>
-    <div class="rv-scale">
+    <div data-aos="fade-up"><div class="label blue">Preview</div><h2 class="s-title dark">Everything in one place. <em class="preview-finally">Finally.</em></h2></div>
+    <div data-aos="zoom-in" data-aos-delay="100">
       <div class="preview-tabs" role="tablist" aria-label="Product preview tabs">
         <button class="preview-tab active" data-img="dashboard" role="tab" aria-selected="true">Dashboard</button>
         <button class="preview-tab" data-img="allocation" role="tab" aria-selected="false">Allocation</button>
@@ -478,7 +478,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
         <button class="preview-tab" data-img="ai" role="tab" aria-selected="false">AI Insights</button>
       </div>
       <div class="preview-img-wrap">
-        <img id="previewImg" src="images/dashboard.png" alt="Mozaiik platform dashboard showing consolidated family wealth overview" loading="lazy" width="1000" height="625">
+        <img id="previewImg" src="images/dashboard.webp" alt="Mozaiik platform dashboard showing consolidated family wealth overview" loading="lazy" width="1000" height="625">
       </div>
     </div>
   </div>
@@ -486,11 +486,11 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 
 <section class="hiw" id="how-it-works">
   <div class="container">
-    <div class="hiw-header rv"><div class="label blue">How It Works</div><h2 class="s-title dark">From complexity to <em>clarity.</em></h2><p class="s-desc dark" style="margin:0 auto;text-align:center">We help you model your world, not force you into a template.</p></div>
+    <div class="hiw-header" data-aos="fade-up"><div class="label blue">How It Works</div><h2 class="s-title dark">From complexity to <em>clarity.</em></h2><p class="s-desc dark" style="margin:0 auto;text-align:center">We help you model your world, not force you into a template.</p></div>
     <div class="steps" id="hiwSteps">
-      <div class="step"><div class="step-circle"><span class="step-num">1</span><div class="step-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><line x1="12" y1="8" x2="5" y2="15"/><line x1="12" y1="8" x2="19" y2="15"/></svg></div></div><h3>Model Your Entities</h3><p>Define clients, corporations, trusts, and holding companies. Map ownership relationships as they exist in the real world.</p></div>
-      <div class="step"><div class="step-circle"><span class="step-num">2</span><div class="step-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="8" height="12" rx="1"/><rect x="14" y="6" width="8" height="12" rx="1"/><path d="M10 10h4M10 14h4"/></svg></div></div><h3>Connect Data Sources</h3><p>Link custodians, data providers, and document repositories. Mozaiik pulls in data automatically.</p></div>
-      <div class="step"><div class="step-circle"><span class="step-num">3</span><div class="step-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="9" x2="9" y2="21"/></svg></div></div><h3>Get a Unified View</h3><p>See consolidated dashboards, run compliance workflows, and manage documents through a single interface.</p></div>
+      <div class="step" data-aos="fade-up" data-aos-id="hiw-step-1"><div class="step-circle"><span class="step-num">1</span><div class="step-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><line x1="12" y1="8" x2="5" y2="15"/><line x1="12" y1="8" x2="19" y2="15"/></svg></div></div><h3>Model Your Entities</h3><p>Define clients, corporations, trusts, and holding companies. Map ownership relationships as they exist in the real world.</p></div>
+      <div class="step" data-aos="fade-up" data-aos-delay="150"><div class="step-circle"><span class="step-num">2</span><div class="step-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="8" height="12" rx="1"/><rect x="14" y="6" width="8" height="12" rx="1"/><path d="M10 10h4M10 14h4"/></svg></div></div><h3>Connect Data Sources</h3><p>Link custodians, data providers, and document repositories. Mozaiik pulls in data automatically.</p></div>
+      <div class="step" data-aos="fade-up" data-aos-delay="300"><div class="step-circle"><span class="step-num">3</span><div class="step-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="9" x2="9" y2="21"/></svg></div></div><h3>Get a Unified View</h3><p>See consolidated dashboards, run compliance workflows, and manage documents through a single interface.</p></div>
     </div>
   </div>
 </section>
@@ -498,26 +498,26 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 <section class="ai-intel" id="ai">
   <div class="ai-mesh" aria-hidden="true"></div><div class="ai-mesh-2" aria-hidden="true"></div>
   <div class="container">
-    <div class="rv"><div class="label">Mozaiik Intelligence</div><h2 class="s-title"><span style="color:var(--blue-soft)">AI</span> that Understands <em>Family Wealth</em></h2></div>
-    <div class="ai-grid stagger">
-      <div class="ai-card ai-anim-pulse"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><path d="M2 12C2 6.48 6.48 2 12 2s10 4.48 10 10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M22 12h-4M12 22v-4M2 12h4"/></svg></div></div><h3>Pattern Recognition</h3><p>Identifies trends across portfolios, entities, and time periods that would take hours to spot manually.</p></div>
-      <div class="ai-card ai-anim-spin"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><line x1="12" y1="8" x2="5" y2="15"/><line x1="12" y1="8" x2="19" y2="15"/><line x1="5" y1="18" x2="19" y2="18"/></svg></div></div><h3>Entity Intelligence</h3><p>Understands relationships between trusts, holdcos, and beneficiaries to provide consolidated views.</p></div>
-      <div class="ai-card ai-anim-ripple"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-ring ai-icon-ring-2"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div></div><h3>Event Detection</h3><p>Alerts advisors to liquidity events, concentration risk, and rebalancing opportunities in real-time.</p></div>
-      <div class="ai-card ai-anim-clock"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div></div><h3>Historical Context</h3><p>Links past decisions to current outcomes, building institutional memory for better judgment.</p></div>
-      <div class="ai-card ai-anim-blink"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div></div><h3>Natural Language Query</h3><p>Ask questions in plain English. Get answers pulled from your entire book of business.</p></div>
-      <div class="ai-card ai-anim-float"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div></div><h3>Personalized Insights</h3><p>Learns from advisor preferences and family goals to surface relevant recommendations.</p></div>
+    <div data-aos="fade-up"><div class="label">Mozaiik Intelligence</div><h2 class="s-title"><span style="color:var(--blue-soft)">AI</span> that Understands <em>Family Wealth</em></h2></div>
+    <div class="ai-grid">
+      <div class="ai-card ai-anim-pulse" data-aos="fade-up"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><path d="M2 12C2 6.48 6.48 2 12 2s10 4.48 10 10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M22 12h-4M12 22v-4M2 12h4"/></svg></div></div><h3>Pattern Recognition</h3><p>Identifies trends across portfolios, entities, and time periods that would take hours to spot manually.</p></div>
+      <div class="ai-card ai-anim-spin" data-aos="fade-up" data-aos-delay="100"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><line x1="12" y1="8" x2="5" y2="15"/><line x1="12" y1="8" x2="19" y2="15"/><line x1="5" y1="18" x2="19" y2="18"/></svg></div></div><h3>Entity Intelligence</h3><p>Understands relationships between trusts, holdcos, and beneficiaries to provide consolidated views.</p></div>
+      <div class="ai-card ai-anim-ripple" data-aos="fade-up" data-aos-delay="200"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-ring ai-icon-ring-2"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div></div><h3>Event Detection</h3><p>Alerts advisors to liquidity events, concentration risk, and rebalancing opportunities in real-time.</p></div>
+      <div class="ai-card ai-anim-clock" data-aos="fade-up" data-aos-delay="300"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div></div><h3>Historical Context</h3><p>Links past decisions to current outcomes, building institutional memory for better judgment.</p></div>
+      <div class="ai-card ai-anim-blink" data-aos="fade-up" data-aos-delay="400"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div></div><h3>Natural Language Query</h3><p>Ask questions in plain English. Get answers pulled from your entire book of business.</p></div>
+      <div class="ai-card ai-anim-float" data-aos="fade-up" data-aos-delay="500"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div></div><h3>Personalized Insights</h3><p>Learns from advisor preferences and family goals to surface relevant recommendations.</p></div>
     </div>
-    <div class="ai-badge-wrap rv"><div class="ai-coming-badge">Coming Soon</div><p>Mozaiik Intelligence is currently in development.</p></div>
+    <div class="ai-badge-wrap" data-aos="fade-up"><div class="ai-coming-badge">Coming Soon</div><p>Mozaiik Intelligence is currently in development.</p></div>
   </div>
 </section>
 
 <section class="cta-section" id="cta">
   <div class="cta-glow" aria-hidden="true"></div>
   <div class="container" style="max-width:920px">
-    <h2 class="s-title rv" id="ctaTypewriter" data-typewriter="Built for advisors who think in systems."></h2>
-    <p class="s-desc rv" style="margin:0 auto;text-align:center;transition-delay:.1s">Limited early access for Fall 2026.</p>
-    <div class="cta-btn-wrap rv" style="transition-delay:.2s"><a href="contact.html" class="btn btn-glow"><span>Request Early Access</span></a></div>
-    <p class="cta-proof rv" style="transition-delay:.35s">Built alongside leading Canadian investment counsel firms.</p>
+    <h2 class="s-title" data-aos="fade-up" id="ctaTypewriter" data-typewriter="Built for advisors who think in systems."></h2>
+    <p class="s-desc" data-aos="fade-up" data-aos-delay="100" style="margin:0 auto;text-align:center">Limited early access for Fall 2026.</p>
+    <div class="cta-btn-wrap" data-aos="fade-up" data-aos-delay="200"><a href="contact.html" class="btn btn-glow"><span>Request Early Access</span></a></div>
+    <p class="cta-proof" data-aos="fade-up" data-aos-delay="300">Built alongside leading Canadian investment counsel firms.</p>
   </div>
 </section>
 </main>
@@ -553,7 +553,6 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 document.documentElement.classList.add('js');
 (function(){
   var rm=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  setTimeout(function(){document.querySelectorAll('.rv,.rv-scale,.rv-left,.rv-right,.stagger,.step').forEach(function(el){el.classList.add('vis')})},6000);
   var prog=document.getElementById('scrollProgress');
   if(prog)window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;if(h>0)prog.style.width=(window.scrollY/h*100)+'%'},{passive:true});
   var nav=document.getElementById('nav');
@@ -568,7 +567,6 @@ document.documentElement.classList.add('js');
   if(ca)ca.addEventListener('click',function(){localStorage.setItem('mozaiik_cookies','accepted');cb.classList.remove('show')});
   if(cd)cd.addEventListener('click',function(){localStorage.setItem('mozaiik_cookies','declined');cb.classList.remove('show')});
 
-  if('IntersectionObserver' in window){var revealEls=document.querySelectorAll('.rv,.rv-scale,.rv-left,.rv-right,.stagger');var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});revealEls.forEach(function(el){obs.observe(el)})}else{document.querySelectorAll('.rv,.rv-scale,.rv-left,.rv-right,.stagger,.step').forEach(function(el){el.classList.add('vis')})}
   var hb=document.querySelector('.hero-blob-2'),hH=window.innerHeight;
   if(!rm&&hb){var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(function(){var s=window.scrollY;if(s<hH){hb.style.transform='translateY('+(s*.2)+'px)'}tk=false})}},{passive:true})}
   /* ── Sine-wave hero background ── */
@@ -615,11 +613,10 @@ document.documentElement.classList.add('js');
   }
   if(!rm){document.querySelectorAll('.feature-card').forEach(function(card){var raf=null;card.addEventListener('mousemove',function(e){if(raf)return;raf=requestAnimationFrame(function(){var r=card.getBoundingClientRect();var x=(e.clientX-r.left)/r.width-.5;var y=(e.clientY-r.top)/r.height-.5;card.style.transform='perspective(800px) rotateY('+x*8+'deg) rotateX('+(-y*8)+'deg) translateY(-4px)';raf=null})});card.addEventListener('mouseleave',function(){if(raf){cancelAnimationFrame(raf);raf=null}card.style.transform=''})})}
   document.querySelectorAll('.ai-card').forEach(function(card){var light=document.createElement('div');light.className='ai-card-light';card.appendChild(light);card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect();card.style.setProperty('--mouse-x',(e.clientX-r.left)+'px');card.style.setProperty('--mouse-y',(e.clientY-r.top)+'px')})});
-  var hiwS=document.getElementById('hiwSteps');if(hiwS&&'IntersectionObserver' in window){var steps=hiwS.querySelectorAll('.step');var hF=false;var hO=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting&&!hF){hF=true;hO.disconnect();hiwS.classList.add('vis');steps[0].classList.add('vis');setTimeout(function(){if(steps[1])steps[1].classList.add('vis')},400);setTimeout(function(){if(steps[2])steps[2].classList.add('vis')},800)}})},{threshold:.15});hO.observe(hiwS)}
-  var imgMap={dashboard:'images/dashboard.png',allocation:'images/allocation.png',vault:'images/vault.png',entity:'images/entity.png',ai:'images/ai.png'};
+  var imgMap={dashboard:'images/dashboard.webp',allocation:'images/allocation.webp',vault:'images/vault.webp',entity:'images/entity.webp',ai:'images/ai.webp'};
   var imgAlt={dashboard:'Mozaiik platform dashboard showing consolidated family wealth overview',allocation:'Asset allocation view with target vs actual breakdowns across entities',vault:'Secure document vault organized by entity with trust agreements and records',entity:'Entity structure visualization mapping ownership across trusts and holding companies',ai:'AI insights panel showing risk alerts, capital calls, and tax optimization recommendations'};
   var pImg=document.getElementById('previewImg'),pTabs=Array.from(document.querySelectorAll('.preview-tab')),aT=null,aP=false;
-  function swTab(tab){pTabs.forEach(function(t){t.classList.remove('active');t.setAttribute('aria-selected','false')});void tab.offsetWidth;tab.classList.add('active');tab.setAttribute('aria-selected','true');if(!pImg)return;pImg.style.opacity='0';pImg.style.transform='scale(.975) translateY(12px)';pImg.style.filter='blur(6px)';setTimeout(function(){pImg.src=imgMap[tab.dataset.img];pImg.alt=imgAlt[tab.dataset.img]||'Mozaiik platform preview';pImg.onload=function(){pImg.style.opacity='1';pImg.style.transform='scale(1) translateY(0)';pImg.style.filter='blur(0px)'};if(pImg.complete){pImg.style.opacity='1';pImg.style.transform='scale(1) translateY(0)';pImg.style.filter='blur(0px)'}},320)}
+  function swTab(tab){pTabs.forEach(function(t){t.classList.remove('active');t.setAttribute('aria-selected','false')});void tab.offsetWidth;tab.classList.add('active');tab.setAttribute('aria-selected','true');if(!pImg)return;var ns=imgMap[tab.dataset.img];if(pImg.src.indexOf(ns)!==-1)return;var wrap=pImg.parentNode;wrap.querySelectorAll('.pv-clone').forEach(function(old){old.parentNode.removeChild(old)});var cl=pImg.cloneNode(true);cl.removeAttribute('id');cl.className='pv-clone';wrap.appendChild(cl);var ld=new Image();ld.onload=function(){pImg.src=ns;pImg.alt=imgAlt[tab.dataset.img]||'Mozaiik platform preview';requestAnimationFrame(function(){cl.classList.add('out')});setTimeout(function(){if(cl.parentNode)cl.parentNode.removeChild(cl)},550)};ld.src=ns}
   function autoAdv(){var idx=pTabs.indexOf(document.querySelector('.preview-tab.active'));swTab(pTabs[(idx+1)%pTabs.length])}
   function startA(){if(!aP)aT=setInterval(autoAdv,5000)}function stopA(){clearInterval(aT)}
   pTabs.forEach(function(tab){tab.addEventListener('click',function(){stopA();aP=true;swTab(tab);setTimeout(function(){aP=false;startA()},8000)})});
@@ -631,6 +628,13 @@ document.documentElement.classList.add('js');
   var eu='info',ed='mozaiik.com',ef=eu+'@'+ed;var fe=document.getElementById('footerEmail');if(fe){fe.href='mai'+'lto:'+ef;fe.textContent=ef}
   if(!rm){document.querySelectorAll('.comparison,.preview,.ai-intel').forEach(function(section){var wrap=document.createElement('div');wrap.className='particles';section.appendChild(wrap);for(var i=0;i<18;i++){var p=document.createElement('div');var isGlow=Math.random()>.6;p.className='particle'+(isGlow?' glow':'');var size=isGlow?Math.random()*4+3:Math.random()*3+2;p.style.width=size+'px';p.style.height=size+'px';p.style.left=Math.random()*100+'%';p.style.top=Math.random()*100+'%';p.style.setProperty('--dur',(Math.random()*8+6)+'s');p.style.setProperty('--delay',(Math.random()*10)+'s');p.style.setProperty('--drift',(Math.random()*60-30)+'px');wrap.appendChild(p)}})}
 })();
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({duration:600,once:true,easing:'ease-out-cubic',offset:80});
+/* Trigger dashed line animation for HIW steps */
+var hiwSteps=document.getElementById('hiwSteps');
+if(hiwSteps){document.addEventListener('aos:in:hiw-step-1',function(){hiwSteps.classList.add('vis')})}
 </script>
 </body>
 </html>
