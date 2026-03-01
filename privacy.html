@@ -19,17 +19,18 @@
   <meta name="twitter:title" content="Privacy Policy — Mozaiik">
   <meta name="twitter:description" content="Read how Mozaiik protects your data. Canadian data residency, enterprise-grade security, and full PIPEDA compliance.">
   <meta name="twitter:image" content="https://mozaiik.com/images/og-image.png">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%2313151f'/><stop offset='100%25' stop-color='%231a45d4'/></linearGradient></defs><rect width='512' height='512' rx='96' fill='url(%23g)'/><path d='M148 376V136L256 244L364 136V376' stroke='white' stroke-width='44' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%2313151f'/><stop offset='100%25' stop-color='%237c6bbf'/></linearGradient></defs><rect width='512' height='512' rx='96' fill='url(%23g)'/><path d='M148 376V136L256 244L364 136V376' stroke='white' stroke-width='44' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
   <link rel="canonical" href="https://mozaiik.com/privacy">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
   --navy:#13151f;--navy-mid:#1a1d2e;--navy-light:#252840;
   --blue:#1a45d4;--blue-bright:#2357e8;--blue-soft:#4a8af5;--blue-pale:#a5b8ff;
+  --gold:#B08930;--gold-soft:#c9a24e;--gold-pale:#dfc07a;
   --cream:#f4f1eb;--cream-dark:#e8e3d8;--warm-white:#fdfbf8;
   --white:#ffffff;
   --text-dark:#0d1117;--text-mid:#4a5568;--text-light:#8896a8;
@@ -39,7 +40,7 @@
   --sans:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
 }
-::selection{background:rgba(26,69,212,.15);color:var(--text-dark)}
+::selection{background:rgba(124,107,191,.15);color:var(--text-dark)}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--white);color:var(--text-dark);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
@@ -47,18 +48,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.65rem 0;background:
 nav .container{display:flex;align-items:center;justify-content:space-between}
 .container{max-width:1200px;margin:0 auto;padding:0 2.5rem}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-dark)}
-.nav-logo-img{height:32px;width:auto;display:block}
+.nav-logo-img{height:32px;width:auto;display:block;transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.nav-logo:hover .nav-logo-img{opacity:.85;transform:translateY(-1px)}
+.nav-logo-text{display:none}
+.logo-ii{display:none}
 .footer-logo{display:inline-flex;align-items:center;margin-bottom:14px}
 .footer-logo-img{display:none}
 .footer-wordmark{font-family:var(--sans);font-weight:700;font-size:1.55rem;letter-spacing:-.02em;line-height:1;color:#fff;user-select:none}
+.footer-logo-text{font-family:'Plus Jakarta Sans',var(--sans);font-weight:800;font-size:1.55rem;letter-spacing:.08em;color:#fff;line-height:1;user-select:none}
+.footer-ii{background:linear-gradient(90deg,#a78bfa 0%,#7c6bbf 55%,#fff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:800}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .nav-links a{font-weight:500;font-size:.84rem;letter-spacing:.02em;color:var(--text-mid);text-decoration:none;transition:color .3s;position:relative}
-.nav-links a:not(.nav-cta)::after{content:'';position:absolute;bottom:-4px;left:0;width:100%;height:2px;background:var(--blue);border-radius:1px;transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+.nav-links a:not(.nav-cta)::after{content:'';position:absolute;bottom:-4px;left:0;width:100%;height:2px;background:#7c6bbf;border-radius:1px;transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
 .nav-links a:not(.nav-cta):hover::after{transform:scaleX(1);transform-origin:left}
 .nav-links a:hover{color:var(--text-dark)}
 .nav-cta{padding:9px 22px;background:var(--navy);color:#fff!important;border-radius:100px;font-weight:600!important;font-size:.82rem!important;letter-spacing:.02em;transition:all .35s var(--ease)!important;position:relative;overflow:hidden}
-.nav-cta::after{content:'';position:absolute;inset:0;border-radius:100px;background:linear-gradient(135deg,var(--blue),var(--blue-bright));opacity:0;transition:opacity .35s}
-.nav-cta:hover{transform:translateY(-1px)!important;box-shadow:0 6px 20px rgba(29,78,216,.25)}
+.nav-cta::after{content:'';position:absolute;inset:0;border-radius:100px;background:linear-gradient(135deg,#7c6bbf,var(--gold));opacity:0;transition:opacity .35s}
+.nav-cta:hover{transform:translateY(-1px)!important;box-shadow:0 6px 20px rgba(176,137,48,.3)}
 .nav-cta:hover::after{opacity:1}
 .nav-cta span{position:relative;z-index:1}
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px;width:40px;height:40px;position:relative}
@@ -72,14 +78,14 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 
 .legal-page{padding:140px 0 80px}
 .legal-page .container{max-width:760px}
-.legal-page h1{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,2.6rem);line-height:1.15;color:var(--text-dark);margin-bottom:8px}
+.legal-page h1{font-family:'Plus Jakarta Sans',var(--sans);font-weight:400;font-size:clamp(2rem,4vw,2.6rem);line-height:1.15;color:var(--text-dark);margin-bottom:8px}
 .legal-meta{font-size:.85rem;color:var(--text-light);margin-bottom:48px}
 .legal-page h2{font-family:var(--sans);font-weight:700;font-size:1.1rem;color:var(--text-dark);margin-top:40px;margin-bottom:12px}
 .legal-page p{font-size:.92rem;line-height:1.75;color:var(--text-mid);margin-bottom:16px}
 .legal-page ul{list-style:disc;padding-left:24px;margin-bottom:16px}
 .legal-page ul li{font-size:.92rem;line-height:1.75;color:var(--text-mid);margin-bottom:6px}
-.legal-page a{color:var(--blue);text-decoration:none;transition:color .2s}
-.legal-page a:hover{color:var(--blue-bright)}
+.legal-page a{color:#7c6bbf;text-decoration:none;transition:color .2s}
+.legal-page a:hover{color:var(--gold)}
 
 footer{padding:56px 0 40px;background:var(--navy);border-top:1px solid var(--border-dark)}
 footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;gap:32px;align-items:start}
@@ -107,17 +113,18 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   .footer-bottom{flex-direction:column;align-items:center;text-align:center;gap:8px}
   .footer-links{align-items:center}
   .footer-contact{text-align:center}
+  .nav-logo-img{height:22px}
 }
 .cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--navy);padding:16px 0;z-index:9999;transform:translateY(100%);transition:transform .5s var(--ease);border-top:1px solid rgba(255,255,255,.08)}
 .cookie-banner.show{transform:translateY(0)}
 .cookie-banner .container{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .cookie-text{font-size:.82rem;color:var(--text-on-dark-mid);line-height:1.6;flex:1;min-width:280px}
-.cookie-text a{color:var(--blue-soft);text-decoration:underline;text-underline-offset:2px}
-.cookie-text a:hover{color:var(--blue-pale)}
+.cookie-text a{color:#a78bfa;text-decoration:underline;text-underline-offset:2px}
+.cookie-text a:hover{color:var(--gold-pale)}
 .cookie-actions{display:flex;gap:10px;flex-shrink:0}
 .cookie-btn{padding:8px 20px;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.02em;border-radius:100px;cursor:pointer;transition:all .3s var(--ease);border:none}
-.cookie-accept{background:var(--blue);color:#fff}
-.cookie-accept:hover{background:var(--blue-bright);transform:translateY(-1px);box-shadow:0 4px 12px rgba(29,78,216,.3)}
+.cookie-accept{background:#7c6bbf;color:#fff}
+.cookie-accept:hover{background:linear-gradient(135deg,#7c6bbf,var(--gold));transform:translateY(-1px);box-shadow:0 4px 12px rgba(176,137,48,.3)}
 .cookie-decline{background:transparent;color:var(--text-on-dark-mid);border:1px solid rgba(255,255,255,.15)}
 .cookie-decline:hover{border-color:rgba(255,255,255,.3);color:var(--cream)}
 </style>
@@ -127,7 +134,8 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 <nav>
   <div class="container">
     <a href="index.html" class="nav-logo" aria-label="Mozaiik - Home">
-      <img src="images/logo.png" alt="Mozaiik" class="nav-logo-img">
+      <img src="images/logo-nav.png" alt="Mozaiik" class="nav-logo-img">
+      <span class="nav-logo-text" aria-hidden="true">moz<span class="logo-ii">aiik</span></span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html#platform">Platform</a></li>
@@ -214,7 +222,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 <footer>
   <div class="container">
     <div class="footer-brand">
-      <div class="footer-logo"><span class="footer-wordmark">mozaiik</span></div>
+      <div class="footer-logo"><span class="footer-logo-text">moz<span class="footer-ii">aiik</span></span></div>
     </div>
     <div class="footer-col"><h4>Navigation</h4><ul class="footer-links"><li><a href="index.html#platform">Platform</a></li><li><a href="index.html#how-it-works">How It Works</a></li><li><a href="index.html#ai">AI Intelligence</a></li><li><a href="index.html#cta">Early Access</a></li></ul></div>
     <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="manifesto.html">Manifesto</a></li><li><a href="#" class="footer-muted">Careers — Coming Soon</a></li></ul></div>
