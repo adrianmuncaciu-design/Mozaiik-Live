@@ -88,6 +88,52 @@ body{font-family:var(--sans);background:var(--white);color:var(--text-dark);-web
 .stagger>*:nth-child(3){transition-delay:.22s}.stagger>*:nth-child(4){transition-delay:.30s}
 .stagger>*:nth-child(5){transition-delay:.38s}.stagger>*:nth-child(6){transition-delay:.46s}
 
+/* ── Page loader ── */
+.page-loader{position:fixed;inset:0;z-index:9999;background:#f8f7fa;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .5s var(--ease),visibility .5s}
+.page-loader .loader-logo{opacity:0;transform:scale(.94) translateY(6px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.page-loader .loader-bar-wrap{width:48px;height:2px;background:rgba(124,107,191,.1);border-radius:2px;margin-top:20px;overflow:hidden;opacity:0;transition:opacity .3s .1s}
+.page-loader .loader-bar{width:0;height:100%;background:linear-gradient(90deg,#7c6bbf,var(--gold));border-radius:2px;transition:width 1.2s cubic-bezier(.22,1,.36,1)}
+.page-loader.loaded .loader-logo{opacity:1;transform:scale(1) translateY(0)}
+.page-loader.loaded .loader-bar-wrap{opacity:1}
+.page-loader.loaded .loader-bar{width:80%}
+.page-loader.done{opacity:0;visibility:hidden;pointer-events:none}
+.page-loader.done .loader-bar{width:100%;transition:width .2s}
+body.loading{overflow:hidden}
+
+/* ── Enhanced AOS overrides ── */
+[data-aos="fade-up"]{transform:translateY(40px)!important}
+[data-aos="fade-up"].aos-animate{transform:translateY(0)!important}
+[data-aos="fade-right"]{transform:translateX(60px)!important}
+[data-aos="fade-right"].aos-animate{transform:translateX(0)!important}
+[data-aos="fade-left"]{transform:translateX(-60px)!important}
+[data-aos="fade-left"].aos-animate{transform:translateX(0)!important}
+[data-aos]{transition-timing-function:cubic-bezier(.16,1,.3,1)!important}
+
+/* Custom AOS: blur-up */
+[data-aos="blur-up"]{opacity:0;filter:blur(6px);transform:translateY(18px);transition-property:opacity,filter,transform}
+[data-aos="blur-up"].aos-animate{opacity:1;filter:blur(0);transform:translateY(0)}
+
+/* Custom AOS: scale-reveal */
+[data-aos="scale-reveal"]{opacity:0;transform:scale(.92);transition-property:opacity,transform}
+[data-aos="scale-reveal"].aos-animate{opacity:1;transform:scale(1)}
+
+/* Custom AOS: slide-reveal (eyebrow labels) */
+[data-aos="slide-reveal"]{opacity:0;transform:translateX(-12px);transition-property:opacity,transform}
+[data-aos="slide-reveal"].aos-animate{opacity:1;transform:translateX(0)}
+
+/* SVG stroke draw animation */
+.feature-card svg path,.feature-card svg circle,.feature-card svg rect,.feature-card svg line,.feature-card svg polyline{stroke-dasharray:200;stroke-dashoffset:200;transition:stroke-dashoffset .8s var(--ease)}
+.feature-card.aos-animate svg path,.feature-card.aos-animate svg circle,.feature-card.aos-animate svg rect,.feature-card.aos-animate svg line,.feature-card.aos-animate svg polyline{stroke-dashoffset:0}
+
+/* Step number bounce */
+.step-num{transition:transform .5s var(--ease-bounce),opacity .5s var(--ease)}
+.step[data-aos]:not(.aos-animate) .step-num{transform:scale(0);opacity:0}
+.step.aos-animate .step-num{transform:scale(1);opacity:1}
+
+/* Footer reveal */
+footer .footer-inner{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+footer.vis .footer-inner{opacity:1;transform:translateY(0)}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
@@ -184,7 +230,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .hero-actions{display:flex;align-items:center;justify-content:center;gap:var(--sp-2);flex-wrap:wrap;margin-top:var(--sp-3);opacity:0;animation:fadeUp .8s .7s var(--ease) forwards}
 
 .comparison{padding:100px 0;background:var(--navy);position:relative;overflow:hidden}
-.comparison::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 30% 60%,rgba(124,107,191,.12),transparent),radial-gradient(ellipse 500px 400px at 70% 30%,rgba(124,107,191,.06),transparent);pointer-events:none}
+.comparison::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 30% 60%,rgba(124,107,191,.12),transparent),radial-gradient(ellipse 500px 400px at 70% 30%,rgba(124,107,191,.06),transparent);pointer-events:none;transform:translateY(var(--glow-y,0));transition:transform .1s linear}
 .comp-header{text-align:center;max-width:620px;margin:0 auto var(--sp-7);position:relative;z-index:1}
 .comp-header .label{color:var(--gold-pale)}
 .comp-header .s-title{color:var(--cream)}
@@ -218,7 +264,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .comp-icon-yes{background:rgba(110,231,183,.1);color:rgba(110,231,183,.8);border:1.5px solid rgba(110,231,183,.25)}
 
 .features{padding:100px 0;position:relative;background:var(--white)}
-.features::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 30% 70%,rgba(124,107,191,.03),transparent),radial-gradient(ellipse 500px 300px at 70% 30%,rgba(124,107,191,.02),transparent);pointer-events:none}
+.features::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 30% 70%,rgba(124,107,191,.03),transparent),radial-gradient(ellipse 500px 300px at 70% 30%,rgba(124,107,191,.02),transparent);pointer-events:none;transform:translateY(var(--glow-y,0));transition:transform .1s linear}
 .features-header{text-align:center;max-width:600px;margin:0 auto var(--sp-7);position:relative;z-index:1}
 .features-header p{font-size:1rem;line-height:1.75;color:var(--text-mid)}
 .features .s-title em{font-style:normal;color:#7A6518}
@@ -405,8 +451,13 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 }
 </script>
 </head>
-<body>
-<noscript><style>.rv,.rv-scale,.rv-left,.rv-right,.stagger>*,.step,.feature-card,[data-aos],.comp-icon{opacity:1!important;transform:none!important}</style></noscript>
+<body class="loading">
+<!-- Page loader -->
+<div class="page-loader" id="pageLoader">
+  <img src="images/logo-nav.png" alt="Mozaiik" class="loader-logo" width="120" height="24">
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+<noscript><style>.rv,.rv-scale,.rv-left,.rv-right,.stagger>*,.step,.feature-card,[data-aos],.comp-icon{opacity:1!important;transform:none!important;filter:none!important}.page-loader{display:none!important}body.loading{overflow:auto!important}footer .footer-inner{opacity:1!important;transform:none!important}</style></noscript>
 
 <div class="announce-bar" id="announceBar">
   <span><strong>Pilot Program Now Open</strong> — Launching Fall 2026</span>
@@ -451,7 +502,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 
 <section class="comparison" id="problem">
   <div class="container">
-    <div class="comp-header" data-aos="fade-up"><div class="label gold">The Problem</div><h2 class="s-title dark">Managing complex wealth shouldn't require <em>duct tape.</em></h2></div>
+    <div class="comp-header"><div class="label gold" data-aos="slide-reveal">The Problem</div><h2 class="s-title dark" data-aos="blur-up" data-aos-delay="100">Managing complex wealth shouldn't require <em>duct tape.</em></h2></div>
     <div class="comp-grid">
       <div class="comp-card comp-old" data-aos="fade-right"><div class="comp-card-label">The Old Way</div><h3 class="comp-card-title">Fragmented, Manual, Risky</h3><ul class="comp-list"><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Spreadsheets stitched together across entities</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Data scattered across bank portals, PDFs, and Excel files</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>No consolidated family view across custodians</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Compliance gaps — Canadian regulators demand more than spreadsheets</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Hours wasted building client reports manually</li></ul></div>
       <div class="comp-card comp-new" data-aos="fade-left" data-aos-delay="100"><div class="comp-card-label mozaiik-label">The Mozaiik Way</div><h3 class="comp-card-title">One Platform. Total Clarity.</h3><ul class="comp-list"><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Entity-level mapping — individuals, trusts, holdcos, all connected</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Single source of truth across every custodian</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Consolidated dashboards, ready in real time</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Built-in Canadian regulatory compliance workflows</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Polished client reports generated automatically</li></ul></div>
@@ -461,7 +512,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 
 <section class="features" id="platform">
   <div class="container">
-    <div class="features-header" data-aos="fade-up"><div class="label gold">The Platform</div><h2 class="s-title dark">One platform. Every entity. Complete <em>clarity.</em></h2><p>See every family's wealth in one place — and act on it.</p></div>
+    <div class="features-header"><div class="label gold" data-aos="slide-reveal">The Platform</div><h2 class="s-title dark" data-aos="blur-up" data-aos-delay="100">One platform. Every entity. Complete <em>clarity.</em></h2><p data-aos="fade-up" data-aos-delay="200">See every family's wealth in one place — and act on it.</p></div>
     <div class="features-grid" id="featuresGrid">
       <div class="feature-card fc-violet" data-aos="fade-up"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><line x1="12" y1="8" x2="5" y2="15"/><line x1="12" y1="8" x2="19" y2="15"/></svg></div><h3>Entity Relationship Modeling</h3><p>Map and visualize complex ownership structures — individuals, corporations, trusts, and holding companies — with clear hierarchies.</p></div>
       <div class="feature-card fc-blue" data-aos="fade-up" data-aos-delay="100"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="9" x2="9" y2="21"/></svg></div><h3>Consolidated Dashboards</h3><p>See positions, performance, and allocations across every entity and custodian — consolidated in real time.</p></div>
@@ -475,8 +526,8 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 
 <section class="preview" id="preview">
   <div class="container">
-    <div data-aos="fade-up"><div class="label gold">Preview</div><h2 class="s-title dark">Everything in one place. <em class="preview-finally">Finally.</em></h2></div>
-    <div data-aos="zoom-in" data-aos-delay="100">
+    <div><div class="label gold" data-aos="slide-reveal">Preview</div><h2 class="s-title dark" data-aos="blur-up" data-aos-delay="100">Everything in one place. <em class="preview-finally">Finally.</em></h2></div>
+    <div data-aos="scale-reveal" data-aos-delay="100" data-aos-duration="800">
       <div class="preview-tabs" role="tablist" aria-label="Product preview tabs">
         <button class="preview-tab active" data-img="dashboard" role="tab" aria-selected="true">Dashboard</button>
         <button class="preview-tab" data-img="allocation" role="tab" aria-selected="false">Allocation</button>
@@ -493,7 +544,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 
 <section class="hiw" id="how-it-works">
   <div class="container">
-    <div class="hiw-header" data-aos="fade-up"><div class="label gold">How It Works</div><h2 class="s-title dark">From complexity to <em>clarity.</em></h2><p class="s-desc dark" style="margin:0 auto;text-align:center">We help you model your world, not force you into a template.</p></div>
+    <div class="hiw-header"><div class="label gold" data-aos="slide-reveal">How It Works</div><h2 class="s-title dark" data-aos="blur-up" data-aos-delay="100">From complexity to <em>clarity.</em></h2><p class="s-desc dark" style="margin:0 auto;text-align:center" data-aos="fade-up" data-aos-delay="200">We help you model your world, not force you into a template.</p></div>
     <div class="steps" id="hiwSteps">
       <div class="step" data-aos="fade-up" data-aos-id="hiw-step-1"><div class="step-circle"><span class="step-num">1</span><div class="step-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><line x1="12" y1="8" x2="5" y2="15"/><line x1="12" y1="8" x2="19" y2="15"/></svg></div></div><h3>Model Your Entities</h3><p>Define clients, corporations, trusts, and holding companies. Map ownership relationships as they exist in the real world.</p></div>
       <div class="step" data-aos="fade-up" data-aos-delay="150"><div class="step-circle"><span class="step-num">2</span><div class="step-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="8" height="12" rx="1"/><rect x="14" y="6" width="8" height="12" rx="1"/><path d="M10 10h4M10 14h4"/></svg></div></div><h3>Connect Data Sources</h3><p>Link custodians, data providers, and document repositories. Mozaiik pulls in data automatically.</p></div>
@@ -505,7 +556,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 <section class="ai-intel" id="ai">
   <div class="ai-mesh" aria-hidden="true"></div><div class="ai-mesh-2" aria-hidden="true"></div>
   <div class="container">
-    <div data-aos="fade-up"><div class="label">Mozaiik Intelligence</div><h2 class="s-title"><span style="color:var(--gold-soft)">AI</span> that Understands <em>Family Wealth</em></h2></div>
+    <div><div class="label" data-aos="slide-reveal">Mozaiik Intelligence</div><h2 class="s-title" data-aos="blur-up" data-aos-delay="100"><span style="color:var(--gold-soft)">AI</span> that Understands <em>Family Wealth</em></h2></div>
     <div class="ai-grid">
       <div class="ai-card ai-anim-pulse" data-aos="fade-up"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><path d="M2 12C2 6.48 6.48 2 12 2s10 4.48 10 10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M22 12h-4M12 22v-4M2 12h4"/></svg></div></div><h3>Pattern Recognition</h3><p>Identifies trends across portfolios, entities, and time periods that would take hours to spot manually.</p></div>
       <div class="ai-card ai-anim-spin" data-aos="fade-up" data-aos-delay="100"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><line x1="12" y1="8" x2="5" y2="15"/><line x1="12" y1="8" x2="19" y2="15"/><line x1="5" y1="18" x2="19" y2="18"/></svg></div></div><h3>Entity Intelligence</h3><p>Understands relationships between trusts, holdcos, and beneficiaries to provide consolidated views.</p></div>
@@ -530,7 +581,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 </main>
 
 <footer>
-  <div class="container">
+  <div class="container footer-inner">
     <div class="footer-brand">
       <div class="footer-logo"><span class="footer-wordmark">mozaiik</span><span class="footer-logo-text">moz<span class="footer-ii">aiik</span></span></div>
     </div>
@@ -822,14 +873,58 @@ document.documentElement.classList.add('js');
   var yEl=document.getElementById('footerYear');if(yEl)yEl.textContent=new Date().getFullYear();
   var eu='info',ed='mozaiik.com',ef=eu+'@'+ed;var fe=document.getElementById('footerEmail');if(fe){fe.href='mai'+'lto:'+ef;fe.textContent=ef}
   if(!rm){document.querySelectorAll('.comparison,.preview,.ai-intel').forEach(function(section){var wrap=document.createElement('div');wrap.className='particles';section.appendChild(wrap);for(var i=0;i<18;i++){var p=document.createElement('div');var isGlow=Math.random()>.6;p.className='particle'+(isGlow?' glow':'');var size=isGlow?Math.random()*4+3:Math.random()*3+2;p.style.width=size+'px';p.style.height=size+'px';p.style.left=Math.random()*100+'%';p.style.top=Math.random()*100+'%';p.style.setProperty('--dur',(Math.random()*8+6)+'s');p.style.setProperty('--delay',(Math.random()*10)+'s');p.style.setProperty('--drift',(Math.random()*60-30)+'px');wrap.appendChild(p)}})}
+  /* ── Page loader ── */
+  var loader=document.getElementById('pageLoader');
+  if(loader){
+    if(rm){loader.remove();document.body.classList.remove('loading')}
+    else{
+      requestAnimationFrame(function(){loader.classList.add('loaded')});
+      var done=false;
+      function finishLoad(){
+        if(done)return;done=true;
+        loader.classList.add('done');
+        document.body.classList.remove('loading');
+        setTimeout(function(){loader.remove()},600);
+      }
+      window.addEventListener('load',function(){setTimeout(finishLoad,500)});
+      setTimeout(finishLoad,2500);
+    }
+  }
+  /* ── Footer reveal on scroll ── */
+  var ft=document.querySelector('footer');
+  if(ft&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(e){if(e[0].isIntersecting)ft.classList.add('vis')},{threshold:.15}).observe(ft);
+  }else if(ft){ft.classList.add('vis')}
+  /* ── Section background glow parallax ── */
+  if(!rm){
+    var glowSections=document.querySelectorAll('.comparison,.features,.ai-intel,.preview');
+    var gTk=false;
+    window.addEventListener('scroll',function(){
+      if(gTk)return;gTk=true;
+      requestAnimationFrame(function(){
+        var st=window.scrollY,wh=window.innerHeight;
+        glowSections.forEach(function(s){
+          var r=s.getBoundingClientRect();
+          if(r.top<wh&&r.bottom>0){
+            var pct=(r.top/wh-.5)*-20;
+            var bf=s.querySelector(':before')||s;
+            s.style.setProperty('--glow-y',pct+'px');
+          }
+        });
+        gTk=false;
+      });
+    },{passive:true});
+  }
 })();
 </script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init({duration:600,once:true,easing:'ease-out-cubic',offset:80});
+AOS.init({duration:700,once:true,easing:'ease-out-cubic',offset:80});
 /* Trigger dashed line animation for HIW steps */
 var hiwSteps=document.getElementById('hiwSteps');
-if(hiwSteps){document.addEventListener('aos:in:hiw-step-1',function(){hiwSteps.classList.add('vis')})}
+if(hiwSteps){document.addEventListener('aos:in:hiw-step-1',function(){hiwSteps.classList.add('vis')});}
+/* Reduced motion: disable all AOS animations */
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('[data-aos]').forEach(function(el){el.removeAttribute('data-aos')})}
 </script>
 </body>
 </html>
