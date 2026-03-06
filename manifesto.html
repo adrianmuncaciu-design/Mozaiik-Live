@@ -176,11 +176,11 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .finale-values{font-size:1.1rem;color:var(--gold-pale);margin-bottom:40px;line-height:1.7}
 .manifesto-finale .sign-off{font-size:.88rem;color:var(--text-on-dark-dim);font-style:italic;margin-top:40px}
 .manifesto-finale .sign-off strong{color:var(--text-on-dark-mid);font-style:normal;font-weight:600}
-.btn-glow{display:inline-flex;align-items:center;gap:10px;padding:15px 38px;font-family:var(--sans);font-weight:600;font-size:.95rem;letter-spacing:.02em;color:#fff;background:var(--navy);border:none;border-radius:100px;cursor:pointer;text-decoration:none;transition:all .4s var(--ease);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
-.btn-glow::before{content:'';position:absolute;inset:0;border-radius:100px;background:linear-gradient(135deg,#7c6bbf,var(--gold));opacity:0;transition:opacity .4s}
-.btn-glow:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(176,137,48,.3);border-color:transparent}
-.btn-glow:hover::before{opacity:1}
-.btn-glow span{position:relative;z-index:1}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:15px 38px;font-family:var(--sans);font-weight:600;font-size:.95rem;letter-spacing:.02em;color:#fff;background:var(--navy);border:1.5px solid rgba(255,255,255,.22);border-radius:100px;cursor:pointer;text-decoration:none;transition:all .4s var(--ease)}
+.btn-primary:hover{background:#5B8A7A;border-color:#5B8A7A;color:#fff;transform:translateY(-3px) scale(1.03);box-shadow:0 8px 32px rgba(91,138,122,.25)}
+.btn-primary span{position:relative;z-index:1}
+.btn-primary .arrow{transition:transform .3s var(--ease)}
+.btn-primary:hover .arrow{transform:translateX(4px)}
 
 /* ── Footer ── */
 .footer-logo{display:inline-flex;align-items:center;margin-bottom:14px}
@@ -208,8 +208,8 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 .cookie-text a:hover{color:var(--gold-pale)}
 .cookie-actions{display:flex;gap:10px;flex-shrink:0}
 .cookie-btn{padding:8px 20px;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.02em;border-radius:100px;cursor:pointer;transition:all .3s var(--ease);border:none}
-.cookie-accept{background:#7c6bbf;color:#fff}
-.cookie-accept:hover{background:linear-gradient(135deg,#7c6bbf,var(--gold));transform:translateY(-1px);box-shadow:0 4px 12px rgba(176,137,48,.3)}
+.cookie-accept{background:var(--navy);color:#fff;border:1.5px solid rgba(255,255,255,.22)}
+.cookie-accept:hover{background:rgba(91,138,122,.15);border-color:rgba(91,138,122,.45);transform:translateY(-1px);box-shadow:0 4px 12px rgba(91,138,122,.15)}
 .cookie-decline{background:transparent;color:var(--text-on-dark-mid);border:1px solid rgba(255,255,255,.15)}
 .cookie-decline:hover{border-color:rgba(255,255,255,.3);color:var(--cream)}
 
@@ -424,7 +424,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
     <div class="container">
       <p class="finale-quote">We are building the system a fiduciary reaches for <em>first</em> — and <em>never replaces.</em></p>
       <p class="finale-values">Stewardship over sales. Clarity over complexity. Judgment over automation.</p>
-      <a href="contact.html" class="btn-glow"><span>Book a Demo</span> <span>&rarr;</span></a>
+      <a href="contact.html" class="btn-primary"><span>Book a Demo</span> <span class="arrow" aria-hidden="true">&rarr;</span></a>
       <p class="sign-off"><strong>Mozaiik Wealth Tech Inc.</strong><br>Purpose-built for Canadian fiduciaries.</p>
     </div>
   </section>

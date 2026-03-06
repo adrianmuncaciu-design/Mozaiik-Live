@@ -67,10 +67,8 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 @keyframes ty-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.05);opacity:.85}}
 .thank-you-title{font-family:'Plus Jakarta Sans',var(--sans);font-weight:400;font-size:clamp(1.6rem,3.5vw,2.2rem);line-height:1.2;color:var(--text-dark);margin-bottom:12px}
 .thank-you-desc{font-size:1.05rem;line-height:1.7;color:var(--text-mid);margin-bottom:40px;max-width:420px;margin-left:auto;margin-right:auto}
-.thank-you-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;font-family:var(--sans);font-weight:600;font-size:.95rem;letter-spacing:.02em;text-decoration:none;border-radius:100px;border:none;cursor:pointer;background:var(--navy);color:#fff;transition:all .4s var(--ease);position:relative;overflow:hidden}
-.thank-you-btn::before{content:'';position:absolute;inset:0;border-radius:100px;background:linear-gradient(135deg,#7c6bbf,var(--gold));opacity:0;transition:opacity .4s}
-.thank-you-btn:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(176,137,48,.3)}
-.thank-you-btn:hover::before{opacity:1}
+.thank-you-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;font-family:var(--sans);font-weight:600;font-size:.95rem;letter-spacing:.02em;text-decoration:none;border-radius:100px;border:1.5px solid rgba(255,255,255,.22);cursor:pointer;background:var(--navy);color:#fff;transition:all .4s var(--ease)}
+.thank-you-btn:hover{background:#5B8A7A;border-color:#5B8A7A;color:#fff;transform:translateY(-3px) scale(1.03);box-shadow:0 8px 32px rgba(91,138,122,.25)}
 .thank-you-btn span{position:relative;z-index:1}
 .thank-you-btn .arrow{transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
 .thank-you-btn:hover .arrow{transform:translateX(4px)}
@@ -98,8 +96,8 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 .cookie-text a:hover{color:var(--gold-pale)}
 .cookie-actions{display:flex;gap:10px;flex-shrink:0}
 .cookie-btn{padding:8px 20px;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.02em;border-radius:100px;cursor:pointer;transition:all .3s var(--ease);border:none}
-.cookie-accept{background:#7c6bbf;color:#fff}
-.cookie-accept:hover{background:linear-gradient(135deg,#7c6bbf,var(--gold));transform:translateY(-1px);box-shadow:0 4px 12px rgba(176,137,48,.3)}
+.cookie-accept{background:var(--navy);color:#fff;border:1.5px solid rgba(255,255,255,.22)}
+.cookie-accept:hover{background:rgba(91,138,122,.15);border-color:rgba(91,138,122,.45);transform:translateY(-1px);box-shadow:0 4px 12px rgba(91,138,122,.15)}
 .cookie-decline{background:transparent;color:var(--text-on-dark-mid);border:1px solid rgba(255,255,255,.15)}
 .cookie-decline:hover{border-color:rgba(255,255,255,.3);color:var(--cream)}
 

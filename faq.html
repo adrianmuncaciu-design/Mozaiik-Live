@@ -138,11 +138,11 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .faq-cta h2{font-family:'Plus Jakarta Sans',var(--sans);font-weight:400;font-size:clamp(1.6rem,3.5vw,2.2rem);line-height:1.2;color:var(--text-dark);margin-bottom:12px}
 .faq-cta h2 em{font-style:italic;background:linear-gradient(135deg,#8b5cf6,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .faq-cta p{font-size:.95rem;color:var(--text-mid);line-height:1.6;margin-bottom:32px;max-width:460px;margin-left:auto;margin-right:auto}
-.btn-glow{display:inline-flex;align-items:center;gap:10px;padding:15px 38px;font-family:var(--sans);font-weight:600;font-size:.95rem;letter-spacing:.02em;color:#fff;background:var(--navy);border:none;border-radius:100px;cursor:pointer;text-decoration:none;transition:all .4s var(--ease);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
-.btn-glow::before{content:'';position:absolute;inset:0;border-radius:100px;background:linear-gradient(135deg,#7c6bbf,var(--gold));opacity:0;transition:opacity .4s}
-.btn-glow:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(176,137,48,.3);border-color:transparent}
-.btn-glow:hover::before{opacity:1}
-.btn-glow span{position:relative;z-index:1}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:15px 38px;font-family:var(--sans);font-weight:600;font-size:.95rem;letter-spacing:.02em;color:#fff;background:var(--navy);border:1.5px solid rgba(255,255,255,.22);border-radius:100px;cursor:pointer;text-decoration:none;transition:all .4s var(--ease)}
+.btn-primary:hover{background:#5B8A7A;border-color:#5B8A7A;color:#fff;transform:translateY(-3px) scale(1.03);box-shadow:0 8px 32px rgba(91,138,122,.25)}
+.btn-primary span{position:relative;z-index:1}
+.btn-primary .arrow{transition:transform .3s var(--ease)}
+.btn-primary:hover .arrow{transform:translateX(4px)}
 
 /* ── Footer ── */
 .footer-logo{display:inline-flex;align-items:center;margin-bottom:14px}
@@ -170,8 +170,8 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 .cookie-text a:hover{color:var(--gold-pale)}
 .cookie-actions{display:flex;gap:10px;flex-shrink:0}
 .cookie-btn{padding:8px 20px;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.02em;border-radius:100px;cursor:pointer;transition:all .3s var(--ease);border:none}
-.cookie-accept{background:#7c6bbf;color:#fff}
-.cookie-accept:hover{background:linear-gradient(135deg,#7c6bbf,var(--gold));transform:translateY(-1px);box-shadow:0 4px 12px rgba(176,137,48,.3)}
+.cookie-accept{background:var(--navy);color:#fff;border:1.5px solid rgba(255,255,255,.22)}
+.cookie-accept:hover{background:rgba(91,138,122,.15);border-color:rgba(91,138,122,.45);transform:translateY(-1px);box-shadow:0 4px 12px rgba(91,138,122,.15)}
 .cookie-decline{background:transparent;color:var(--text-on-dark-mid);border:1px solid rgba(255,255,255,.15)}
 .cookie-decline:hover{border-color:rgba(255,255,255,.3);color:var(--cream)}
 
@@ -390,7 +390,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   <div class="container">
     <h2>Still have <em>questions?</em></h2>
     <p>We'd love to hear from you. Reach out and our team will get back to you promptly.</p>
-    <a href="contact.html" class="btn-glow"><span>Contact Us</span> <span>&rarr;</span></a>
+    <a href="contact.html" class="btn-primary"><span>Contact Us</span> <span class="arrow" aria-hidden="true">&rarr;</span></a>
   </div>
 </section>
 

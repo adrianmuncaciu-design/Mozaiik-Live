@@ -128,15 +128,13 @@ a.blog-card{cursor:pointer}
 .newsletter-form{display:flex;gap:12px;max-width:460px;margin:0 auto}
 .newsletter-form input[type="email"]{flex:1;font-family:var(--sans);font-size:.92rem;color:var(--text-dark);background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:14px 18px;outline:none;transition:border-color .3s,box-shadow .3s}
 .newsletter-form input[type="email"]::placeholder{color:var(--text-light)}
-.newsletter-form input[type="email"]:focus{border-color:#7c6bbf;box-shadow:0 0 0 3px rgba(124,107,191,.08)}
-.newsletter-form button{padding:14px 28px;font-family:var(--sans);font-weight:600;font-size:.9rem;letter-spacing:.02em;color:#fff;background:var(--navy);border:none;border-radius:10px;cursor:pointer;transition:all .4s var(--ease);position:relative;overflow:hidden;white-space:nowrap}
-.newsletter-form button::after{content:'';position:absolute;inset:0;border-radius:10px;background:linear-gradient(135deg,#7c6bbf,var(--gold));opacity:0;transition:opacity .4s}
-.newsletter-form button:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(176,137,48,.3)}
-.newsletter-form button:hover::after{opacity:1}
+.newsletter-form input[type="email"]:focus{border-color:#5B8A7A;box-shadow:0 0 0 3px rgba(91,138,122,.08)}
+.newsletter-form button{padding:14px 28px;font-family:var(--sans);font-weight:600;font-size:.9rem;letter-spacing:.02em;color:#fff;background:var(--navy);border:1.5px solid rgba(255,255,255,.22);border-radius:10px;cursor:pointer;transition:all .4s var(--ease);white-space:nowrap}
+.newsletter-form button:hover{background:#5B8A7A;border-color:#5B8A7A;color:#fff;transform:translateY(-2px);box-shadow:0 8px 32px rgba(91,138,122,.25)}
 .newsletter-form button span{position:relative;z-index:1}
 .newsletter-note{font-size:.78rem;color:var(--text-light);margin-top:16px}
 .newsletter-success{display:none;text-align:center;padding:8px 0}
-.newsletter-success svg{width:40px;height:40px;stroke:#7c6bbf;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-bottom:12px}
+.newsletter-success svg{width:40px;height:40px;stroke:#5B8A7A;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-bottom:12px}
 .newsletter-success h3{font-family:'Plus Jakarta Sans',var(--sans);font-weight:400;font-size:1.3rem;color:var(--text-dark);margin-bottom:6px}
 .newsletter-success p{font-size:.9rem;color:var(--text-mid);line-height:1.7}
 
@@ -149,8 +147,8 @@ a.blog-card{cursor:pointer}
 .cookie-text a:hover{color:#c4b5fd}
 .cookie-actions{display:flex;gap:10px;flex-shrink:0}
 .cookie-btn{padding:8px 20px;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.02em;border-radius:100px;cursor:pointer;transition:all .3s var(--ease);border:none}
-.cookie-accept{background:#7c6bbf;color:#fff}
-.cookie-accept:hover{background:#6b5aae;transform:translateY(-1px);box-shadow:0 4px 12px rgba(124,107,191,.3)}
+.cookie-accept{background:var(--navy);color:#fff;border:1.5px solid rgba(255,255,255,.22)}
+.cookie-accept:hover{background:rgba(91,138,122,.15);border-color:rgba(91,138,122,.45);transform:translateY(-1px);box-shadow:0 4px 12px rgba(91,138,122,.15)}
 .cookie-decline{background:transparent;color:var(--text-on-dark-mid);border:1px solid rgba(255,255,255,.15)}
 .cookie-decline:hover{border-color:rgba(255,255,255,.3);color:var(--cream)}
 
