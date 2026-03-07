@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
 
+Disallow: /index-teal-theme.html
+Disallow: /index-white-hero.html
+Disallow: /index-tree-hero.html
+Disallow: /index-constellation-v2.html
+Disallow: /index-ai-cards-v3.html
+Disallow: /index-navy-hovers.html
+Disallow: /mosaic-build.html
+Disallow: /og-template.html
+Disallow: /_gen_og.js
+Disallow: /_fix_theme.js
+Disallow: /_tree_anim.js
+Disallow: /_contour_block.txt
+
 Sitemap: https://mozaiik.com/sitemap.xml
