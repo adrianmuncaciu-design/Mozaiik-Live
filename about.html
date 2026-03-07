@@ -164,10 +164,15 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .about-values-header h2 em{font-style:italic;background:linear-gradient(135deg,#6B7FBF 0%,var(--gold-soft) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.val-card{--vc:107,127,191;padding:32px 28px;border-radius:16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);position:relative;overflow:hidden;transition:all .5s var(--ease)}
+.val-card{--vc:107,127,191;--mouse-x:50%;--mouse-y:50%;padding:32px 28px;border-radius:16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);position:relative;overflow:hidden;transition:border-color .5s var(--ease),box-shadow .5s var(--ease),transform .15s ease-out}
+.val-card::before{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(250px circle at var(--mouse-x) var(--mouse-y),rgba(var(--vc),.25),transparent 50%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:1px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:1}
+.val-card:hover::before{opacity:1}
 .val-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,rgb(var(--vc)),rgba(var(--vc),.4));transform:scaleX(.12);transform-origin:left;transition:transform .5s var(--ease);opacity:.6}
-.val-card:hover{border-color:rgba(var(--vc),.3);box-shadow:0 16px 48px rgba(0,0,0,.3);transform:translateY(-4px)}
+.val-card:hover{border-color:rgba(var(--vc),.3);box-shadow:0 16px 48px rgba(0,0,0,.3)}
 .val-card:hover::after{transform:scaleX(1);opacity:1}
+.val-card-light{position:absolute;inset:0;border-radius:inherit;background:radial-gradient(280px circle at var(--mouse-x) var(--mouse-y),rgba(var(--vc),.1),transparent 50%);opacity:0;transition:opacity .3s ease;pointer-events:none;z-index:0}
+.val-card:hover .val-card-light{opacity:1}
+.val-card h3,.val-card p,.val-icon{position:relative;z-index:2}
 .val-icon{width:48px;height:48px;border-radius:14px;background:rgba(var(--vc),.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px;border:1.5px solid rgba(var(--vc),.15);transition:all .4s var(--ease)}
 .val-card:hover .val-icon{background:rgba(var(--vc),.2);transform:scale(1.08)}
 .val-icon svg{width:22px;height:22px;stroke:rgb(var(--vc));fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -576,6 +581,24 @@ document.documentElement.classList.add('js');
   },{threshold:0});
   nObs.observe(sect);
 })();
+
+/* ── Value cards 3D tilt + mouse light ── */
+document.querySelectorAll('.val-card').forEach(function(card){
+  var light=document.createElement('div');light.className='val-card-light';card.appendChild(light);
+  card.addEventListener('mousemove',function(e){
+    var r=card.getBoundingClientRect();
+    var mx=e.clientX-r.left,my=e.clientY-r.top;
+    card.style.setProperty('--mouse-x',mx+'px');
+    card.style.setProperty('--mouse-y',my+'px');
+    var cx=r.width/2,cy=r.height/2;
+    var tiltX=(my-cy)/cy*-6;
+    var tiltY=(mx-cx)/cx*6;
+    card.style.transform='perspective(600px) rotateX('+tiltX+'deg) rotateY('+tiltY+'deg) translateY(-4px)';
+  });
+  card.addEventListener('mouseleave',function(){
+    card.style.transform='';
+  });
+});
 </script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({duration:600,once:true,easing:'ease-out-cubic',offset:80});</script>
