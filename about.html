@@ -157,6 +157,8 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 
 /* ── What We Believe ── */
 .about-values{padding:80px 0;background:var(--navy);position:relative;overflow:hidden}
+.values-net{position:absolute;inset:0;pointer-events:none}
+.values-net canvas{width:100%;height:100%;display:block}
 .about-values::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 600px at 30% 40%,rgba(107,127,191,.1),transparent),radial-gradient(ellipse 500px 500px at 70% 60%,rgba(107,127,191,.06),transparent);pointer-events:none}
 .about-values .container{max-width:1000px;position:relative;z-index:1}
 .about-values-header{text-align:center;margin-bottom:56px}
@@ -165,6 +167,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 
 .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .val-card{--vc:107,127,191;--mouse-x:50%;--mouse-y:50%;padding:32px 28px;border-radius:16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);position:relative;overflow:hidden;transition:border-color .5s var(--ease),box-shadow .5s var(--ease),transform .15s ease-out}
+.val-card.aos-animate{transition:border-color .5s var(--ease),box-shadow .5s var(--ease),transform .15s ease-out!important}
 .val-card::before{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(250px circle at var(--mouse-x) var(--mouse-y),rgba(var(--vc),.25),transparent 50%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:1px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:1}
 .val-card:hover::before{opacity:1}
 .val-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,rgb(var(--vc)),rgba(var(--vc),.4));transform:scaleX(.12);transform-origin:left;transition:transform .5s var(--ease);opacity:.6}
@@ -392,6 +395,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 
   <!-- What We Believe -->
   <section class="about-values">
+    <div class="values-net" aria-hidden="true"><canvas id="valuesNetCanvas"></canvas></div>
     <div class="container">
       <div class="about-values-header" data-aos="fade-up">
         <h2>What we <em>believe</em></h2>
@@ -582,9 +586,83 @@ document.documentElement.classList.add('js');
   nObs.observe(sect);
 })();
 
+/* ── Floating node network for values section ── */
+(function(){
+  var cv=document.getElementById('valuesNetCanvas');
+  if(!cv||window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  var ctx=cv.getContext('2d');
+  var sect=cv.closest('.about-values');
+  var nodes=[];
+  var COUNT=30;
+  var CONNECT_DIST=130;
+  var dpr=window.devicePixelRatio||1;
+
+  function resize(){
+    var r=sect.getBoundingClientRect();
+    cv.width=r.width*dpr;cv.height=r.height*dpr;
+    cv.style.width=r.width+'px';cv.style.height=r.height+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  resize();
+  window.addEventListener('resize',resize);
+
+  var w=sect.offsetWidth,h=sect.offsetHeight;
+  for(var i=0;i<COUNT;i++){
+    var isGold=Math.random()<0.2;
+    nodes.push({
+      x:Math.random()*w,
+      y:Math.random()*h,
+      vx:(Math.random()-.5)*.25,
+      vy:(Math.random()-.5)*.25,
+      r:isGold?2.5:Math.random()*2+1.5,
+      color:isGold?'rgba(194,166,80,':'rgba(244,241,235,',
+      alpha:Math.random()*.15+.08
+    });
+  }
+
+  var running=false;
+  function loop(){
+    if(!running)return;
+    var wr=sect.offsetWidth,hr=sect.offsetHeight;
+    ctx.clearRect(0,0,wr,hr);
+    for(var i=0;i<nodes.length;i++){
+      var n=nodes[i];
+      n.x+=n.vx;n.y+=n.vy;
+      if(n.x<-20)n.x=wr+20;if(n.x>wr+20)n.x=-20;
+      if(n.y<-20)n.y=hr+20;if(n.y>hr+20)n.y=-20;
+    }
+    for(var i=0;i<nodes.length;i++){
+      for(var j=i+1;j<nodes.length;j++){
+        var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y;
+        var dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<CONNECT_DIST){
+          var opacity=(1-dist/CONNECT_DIST)*.06;
+          ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);
+          ctx.strokeStyle='rgba(244,241,235,'+opacity+')';ctx.lineWidth=.6;ctx.stroke();
+        }
+      }
+    }
+    for(var i=0;i<nodes.length;i++){
+      var n=nodes[i];
+      ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+      ctx.fillStyle=n.color+n.alpha+')';ctx.fill();
+    }
+    requestAnimationFrame(loop);
+  }
+
+  var obs=new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting){running=true;loop();}
+    else{running=false;}
+  },{threshold:0});
+  obs.observe(sect);
+})();
+
 /* ── Value cards 3D tilt + mouse light ── */
 document.querySelectorAll('.val-card').forEach(function(card){
   var light=document.createElement('div');light.className='val-card-light';card.appendChild(light);
+  card.addEventListener('mouseenter',function(){
+    card.style.transition='border-color .5s,box-shadow .5s,transform .15s ease-out';
+  });
   card.addEventListener('mousemove',function(e){
     var r=card.getBoundingClientRect();
     var mx=e.clientX-r.left,my=e.clientY-r.top;
@@ -596,6 +674,7 @@ document.querySelectorAll('.val-card').forEach(function(card){
     card.style.transform='perspective(600px) rotateX('+tiltX+'deg) rotateY('+tiltY+'deg) translateY(-4px)';
   });
   card.addEventListener('mouseleave',function(){
+    card.style.transition='';
     card.style.transform='';
   });
 });

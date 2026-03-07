@@ -79,6 +79,8 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 
 /* ── Article Hero ── */
 .article-hero{padding:150px 0 56px;background:var(--navy);position:relative;overflow:hidden}
+.article-net{position:absolute;inset:0;pointer-events:none}
+.article-net canvas{width:100%;height:100%;display:block}
 .article-meta{display:flex;align-items:center;gap:16px;margin-bottom:24px;flex-wrap:wrap}
 .article-cat{display:inline-block;padding:5px 14px;border-radius:100px;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .cat-industry{background:rgba(176,137,48,.1);color:var(--gold-pale);border:1px solid rgba(176,137,48,.18)}
@@ -221,6 +223,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 
 <main>
   <section class="article-hero" data-aos="fade-up">
+    <div class="article-net" aria-hidden="true"><canvas id="articleNetCanvas"></canvas></div>
     <div class="container">
       <div class="article-meta">
         <span class="article-cat cat-industry">Industry</span>
@@ -354,6 +357,18 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   var ca=document.getElementById('cookieAccept'),cd=document.getElementById('cookieDecline');
   if(ca)ca.addEventListener('click',function(){localStorage.setItem('mozaiik_cookies','accepted');cb.classList.remove('show')});
   if(cd)cd.addEventListener('click',function(){localStorage.setItem('mozaiik_cookies','declined');cb.classList.remove('show')});
+  /* ── Floating node network ── */
+  var cv=document.getElementById('articleNetCanvas');
+  if(cv&&!window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    var ctx=cv.getContext('2d');var sect=cv.closest('.article-hero');
+    var nodes=[],COUNT=20,CONNECT_DIST=130,dpr=window.devicePixelRatio||1;
+    function nR(){var r=sect.getBoundingClientRect();cv.width=r.width*dpr;cv.height=r.height*dpr;cv.style.width=r.width+'px';cv.style.height=r.height+'px';ctx.setTransform(dpr,0,0,dpr,0,0)}
+    nR();window.addEventListener('resize',nR);
+    var w=sect.offsetWidth,h=sect.offsetHeight;
+    for(var i=0;i<COUNT;i++){var ig=Math.random()<.2;nodes.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,r:ig?2.5:Math.random()*2+1.5,color:ig?'rgba(194,166,80,':'rgba(244,241,235,',alpha:Math.random()*.15+.08})}
+    function nL(){var wr=sect.offsetWidth,hr=sect.offsetHeight;ctx.clearRect(0,0,wr,hr);for(var i=0;i<nodes.length;i++){var n=nodes[i];n.x+=n.vx;n.y+=n.vy;if(n.x<-20)n.x=wr+20;if(n.x>wr+20)n.x=-20;if(n.y<-20)n.y=hr+20;if(n.y>hr+20)n.y=-20}for(var i=0;i<nodes.length;i++){for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<CONNECT_DIST){var op=(1-dist/CONNECT_DIST)*.06;ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle='rgba(244,241,235,'+op+')';ctx.lineWidth=.6;ctx.stroke()}}}for(var i=0;i<nodes.length;i++){var n=nodes[i];ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle=n.color+n.alpha+')';ctx.fill()}requestAnimationFrame(nL)}
+    nL();
+  }
 })();
 </script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

@@ -79,6 +79,8 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 
 /* ── Contact Page ── */
 .contact-page{padding:150px 0 100px;position:relative;overflow:hidden;background:var(--navy)}
+.contact-net{position:absolute;inset:0;pointer-events:none}
+.contact-net canvas{width:100%;height:100%;display:block}
 .contact-page::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 800px 500px at 50% 20%,rgba(107,127,191,.15),transparent),radial-gradient(ellipse 600px 400px at 20% 60%,rgba(107,127,191,.08),transparent),radial-gradient(ellipse 500px 400px at 80% 70%,rgba(176,137,48,.06),transparent);pointer-events:none}
 .contact-page .container{max-width:640px;position:relative;z-index:1}
 
@@ -230,6 +232,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 </nav>
 
 <main class="contact-page">
+  <div class="contact-net" aria-hidden="true"><canvas id="contactNetCanvas"></canvas></div>
   <div class="container">
     <div class="contact-header" data-aos="fade-up">
       <h1>Ready to rethink how you<br>manage <em>family wealth</em>?</h1>
@@ -363,6 +366,21 @@ document.documentElement.classList.add('js');
       })
       .catch(function(){if(btn)btn.textContent='Send Message';alert('Something went wrong. Please try again.')});
     });
+  }
+
+  /* ── Floating node network ── */
+  var cv=document.getElementById('contactNetCanvas');
+  if(cv&&!window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    var ctx=cv.getContext('2d');
+    var sect=cv.closest('.contact-page');
+    var nodes=[],COUNT=24,CONNECT_DIST=130,dpr=window.devicePixelRatio||1;
+    function nResize(){var r=sect.getBoundingClientRect();cv.width=r.width*dpr;cv.height=r.height*dpr;cv.style.width=r.width+'px';cv.style.height=r.height+'px';ctx.setTransform(dpr,0,0,dpr,0,0)}
+    nResize();window.addEventListener('resize',nResize);
+    var w=sect.offsetWidth,h=sect.offsetHeight;
+    for(var i=0;i<COUNT;i++){var isGold=Math.random()<.2;nodes.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:isGold?2.5:Math.random()*2+1.5,color:isGold?'rgba(194,166,80,':'rgba(244,241,235,',alpha:Math.random()*.15+.08})}
+    var nRun=false;
+    function nLoop(){if(!nRun)return;var wr=sect.offsetWidth,hr=sect.offsetHeight;ctx.clearRect(0,0,wr,hr);for(var i=0;i<nodes.length;i++){var n=nodes[i];n.x+=n.vx;n.y+=n.vy;if(n.x<-20)n.x=wr+20;if(n.x>wr+20)n.x=-20;if(n.y<-20)n.y=hr+20;if(n.y>hr+20)n.y=-20}for(var i=0;i<nodes.length;i++){for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<CONNECT_DIST){var op=(1-dist/CONNECT_DIST)*.06;ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle='rgba(244,241,235,'+op+')';ctx.lineWidth=.6;ctx.stroke()}}}for(var i=0;i<nodes.length;i++){var n=nodes[i];ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle=n.color+n.alpha+')';ctx.fill()}requestAnimationFrame(nLoop)}
+    var nObs=new IntersectionObserver(function(e){if(e[0].isIntersecting){nRun=true;nLoop()}else{nRun=false}},{threshold:0});nObs.observe(sect);
   }
 })();
 </script>
