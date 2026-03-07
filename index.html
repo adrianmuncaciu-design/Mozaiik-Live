@@ -228,6 +228,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .comp-icon{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px}
 .comp-icon-no{background:rgba(220,80,80,.12);color:rgba(200,60,60,.6);border:1.5px solid rgba(220,80,80,.2)}
 .comp-icon-yes{background:rgba(16,185,129,.14);color:rgba(5,150,105,1);border:1.5px solid rgba(16,185,129,.35)}
+.comp-vs{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;z-index:3;box-shadow:0 4px 20px rgba(19,21,31,.25),0 0 0 4px rgba(19,21,31,.08);opacity:0;transition:opacity .5s var(--ease),transform .5s var(--ease)}
 
 
 
@@ -323,7 +324,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 #ctaTypewriter .tw-cursor{display:inline-block;width:2px;height:.85em;background:var(--gold);margin-left:3px;vertical-align:text-bottom;animation:typewriter-cursor .7s step-end infinite}
 #ctaTypewriter .tw-cursor.done{animation:typewriter-cursor .7s step-end 3 forwards;opacity:0}
 .tw-gradient{color:inherit}
-.cta-section h2{white-space:nowrap}
+.cta-section h2{white-space:normal}
 
 footer{padding:var(--sp-7) 0 var(--sp-5);background:var(--navy);border-top:1px solid rgba(255,255,255,.06)}
 footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;gap:32px;align-items:start}
@@ -339,9 +340,9 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 .footer-contact a:hover{color:var(--cream)}
 .footer-muted{color:var(--text-on-dark-dim)!important;cursor:default;pointer-events:none;font-size:.8rem!important}
 
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.js .rv,.js .rv-scale,.js .rv-left,.js .rv-right,.js .stagger>*,.comp-icon{opacity:1!important;transform:none!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.js .rv,.js .rv-scale,.js .rv-left,.js .rv-right,.js .stagger>*,.comp-icon,.comp-vs{opacity:1!important;transform:none!important}}
 @media(max-width:1024px){.comp-grid{grid-template-columns:1fr 1fr}.ai-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){nav .nav-links{display:none;position:fixed;top:0;left:0;right:0;height:100vh;background:var(--navy);flex-direction:column;justify-content:center;align-items:center;padding:var(--sp-5);gap:var(--sp-3);z-index:999}nav .nav-links.open{display:flex}nav .nav-links a{color:var(--cream);font-size:1.2rem}.nav-links .nav-cta{display:inline-flex;background:var(--navy);border:1px solid rgba(255,255,255,.22);color:#fff}.nav-toggle{display:block;position:relative;z-index:1000}.scroll-progress{top:0!important}.cta-section h2{white-space:normal}.ai-intel .s-title{white-space:normal;font-size:clamp(1.4rem,5vw,2rem)}.hero{padding:80px 0 40px}.hero-content{max-width:100%}.comparison,.features,.cta-section,.ai-intel{padding:72px 0}.comp-grid,.ai-grid{grid-template-columns:1fr}.feature-row,.feature-row.reverse{flex-direction:column}footer .container{grid-template-columns:1fr 1fr;text-align:center}.footer-brand .footer-logo{justify-content:center}.footer-brand{grid-column:1/-1}.footer-bottom{flex-direction:column;align-items:center;text-align:center;gap:8px}.footer-links{align-items:center}.footer-contact{text-align:center}}
+@media(max-width:768px){nav .nav-links{display:none;position:fixed;top:0;left:0;right:0;height:100vh;background:var(--navy);flex-direction:column;justify-content:center;align-items:center;padding:var(--sp-5);gap:var(--sp-3);z-index:999}nav .nav-links.open{display:flex}nav .nav-links a{color:var(--cream);font-size:1.2rem}.nav-links .nav-cta{display:inline-flex;background:var(--navy);border:1px solid rgba(255,255,255,.22);color:#fff}.nav-toggle{display:block;position:relative;z-index:1000}.scroll-progress{top:0!important}.cta-section h2{white-space:normal}.ai-intel .s-title{white-space:normal;font-size:clamp(1.4rem,5vw,2rem)}.hero{padding:80px 0 40px}.hero-content{max-width:100%}.comparison,.features,.cta-section,.ai-intel{padding:72px 0}.comp-grid,.ai-grid{grid-template-columns:1fr}.comp-vs{top:auto;left:auto;position:relative;margin:-6px auto -6px}.feature-row,.feature-row.reverse{flex-direction:column}footer .container{grid-template-columns:1fr 1fr;text-align:center}.footer-brand .footer-logo{justify-content:center}.footer-brand{grid-column:1/-1}.footer-bottom{flex-direction:column;align-items:center;text-align:center;gap:8px}.footer-links{align-items:center}.footer-contact{text-align:center}}
 
 @media(max-width:480px){.hero-actions{flex-direction:column}.hero-actions .btn{width:100%;justify-content:center}}
 .cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--navy);padding:16px 0;z-index:9999;transform:translateY(100%);transition:transform .5s var(--ease);border-top:1px solid rgba(255,255,255,.08)}
@@ -399,7 +400,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   <span class="loader-logo">moz<span class="logo-ai">ai</span>ik</span>
   <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
 </div>
-<noscript><style>.rv,.rv-scale,.rv-left,.rv-right,.stagger>*,[data-aos],.comp-icon{opacity:1!important;transform:none!important;filter:none!important}.page-loader{display:none!important}body.loading{overflow:auto!important}footer .footer-inner{opacity:1!important;transform:none!important}</style></noscript>
+<noscript><style>.rv,.rv-scale,.rv-left,.rv-right,.stagger>*,[data-aos],.comp-icon,.comp-vs{opacity:1!important;transform:none!important;filter:none!important}.page-loader{display:none!important}body.loading{overflow:auto!important}footer .footer-inner{opacity:1!important;transform:none!important}</style></noscript>
 
 <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-hidden="true"></div>
 <nav id="nav" role="navigation" aria-label="Main navigation">
@@ -409,8 +410,8 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#platform">Platform</a></li>
-
       <li><a href="#ai">AI Intelligence</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="contact.html" class="nav-cta"><span>Join the Pilot</span></a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -473,6 +474,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
     <div class="comp-grid">
       <div class="comp-vortex" aria-hidden="true"></div>
       <div class="comp-card comp-old" data-comp-slide="left"><div class="comp-card-label">The Old Way</div><h3 class="comp-card-title">Fragmented, Manual, Risky</h3><ul class="comp-list"><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Spreadsheets stitched together across entities</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Data scattered across bank portals, PDFs, and Excel files</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>No consolidated family view across custodians</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Compliance gaps — Canadian regulators demand more than spreadsheets</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Hours wasted building client reports manually</li></ul></div>
+      <div class="comp-vs" aria-hidden="true">vs</div>
       <div class="comp-card comp-new" data-comp-slide="right"><div class="comp-new-shine"></div><div class="comp-card-label mozaiik-label">The Mozaiik Way</div><h3 class="comp-card-title">Entity-first. Compliance-ready.</h3><ul class="comp-list"><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Entity-level mapping — individuals, trusts, holdcos, all connected</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Single source of truth across every custodian</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Consolidated dashboards, ready in real time</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Built-in Canadian regulatory compliance workflows</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Polished client reports generated automatically</li></ul></div>
     </div>
   </div>
@@ -497,7 +499,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
   <div class="cta-net" aria-hidden="true"><canvas id="ctaNetCanvas"></canvas></div>
   <div class="cta-glow" aria-hidden="true"></div>
   <div class="container" style="max-width:920px">
-    <h2 class="s-title" data-aos="fade-up" id="ctaTypewriter" data-typewriter="Built for advisors who think in systems."></h2>
+    <h2 class="s-title" data-aos="fade-up" id="ctaTypewriter" data-typewriter="Built for advisors who think in systems.">Built for advisors who think in systems.</h2>
     <p class="s-desc" data-aos="fade-up" data-aos-delay="100" style="margin:0 auto;text-align:center">Pilot cohort forming now. Limited to select Canadian IC firms and MFOs.</p>
     <div class="cta-btn-wrap" data-aos="fade-up" data-aos-delay="200"><a href="contact.html" class="btn btn-primary"><span>Join the Pilot</span> <span class="arrow" aria-hidden="true">&rarr;</span></a></div>
     <p class="cta-proof" data-aos="fade-up" data-aos-delay="300">Built alongside leading Canadian investment counsel firms.</p>
@@ -817,6 +819,8 @@ document.documentElement.classList.add('js');
         });
         /* ── Comparison cards slide in from sides (staggered + scale) ── */
         var shineEl=document.querySelector('.comp-new-shine');
+        var vsEl=document.querySelector('.comp-vs');
+        var minEase=1;
         compSlides.forEach(function(card){
           var r=card.getBoundingClientRect();
           if(r.top<wh+100&&r.bottom>-100){
@@ -826,6 +830,7 @@ document.documentElement.classList.add('js');
             var rawP=Math.min(Math.max((wh-r.top)/(wh*.5)-stagger,0),1);
             var progress=Math.min(rawP/(1-stagger),1);
             var ease=progress<.5?2*progress*progress:(1-Math.pow(-2*progress+2,2)/2);
+            if(ease<minEase)minEase=ease;
             var shift=120*(1-ease)*dir;
             var sc=.96+.04*ease;
             var finalOp=isLeft?Math.min(ease,.92):ease;
@@ -837,6 +842,17 @@ document.documentElement.classList.add('js');
             }
           }
         });
+        /* ── VS badge fade-in when cards are ~70% in ── */
+        if(vsEl){
+          var vsP=Math.max((minEase-.6)/.4,0);
+          var vsSc=.5+.5*vsP;
+          vsEl.style.opacity=vsP.toFixed(3);
+          if(window.innerWidth<=768){
+            vsEl.style.transform='scale('+vsSc.toFixed(3)+')';
+          }else{
+            vsEl.style.transform='translate(-50%,-50%) scale('+vsSc.toFixed(3)+')';
+          }
+        }
         gTk=false;
       });
     },{passive:true});
