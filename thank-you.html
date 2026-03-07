@@ -8,7 +8,7 @@
   <title>Thank You — Mozaiik</title>
   <meta name="description" content="Thank you for reaching out. We'll be in touch soon.">
   <meta name="robots" content="noindex, nofollow">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%2313151f'/><stop offset='100%25' stop-color='%237c6bbf'/></linearGradient></defs><rect width='512' height='512' rx='96' fill='url(%23g)'/><path d='M148 376V136L256 244L364 136V376' stroke='white' stroke-width='44' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%2313151f'/><stop offset='100%25' stop-color='%236B7FBF'/></linearGradient></defs><rect width='512' height='512' rx='96' fill='url(%23g)'/><path d='M148 376V136L256 244L364 136V376' stroke='white' stroke-width='44' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
   --sans:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
 }
-::selection{background:rgba(124,107,191,.15);color:var(--text-dark)}
+::selection{background:rgba(107,127,191,.15);color:var(--text-dark)}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--white);color:var(--text-dark);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
@@ -38,17 +38,17 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .container{max-width:1200px;margin:0 auto;padding:0 2.5rem}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-dark)}
 .nav-logo-text{font-family:var(--sans);font-weight:700;font-size:2rem;letter-spacing:-.4px;color:#fff;line-height:1;display:block;transition:opacity .3s var(--ease),transform .3s var(--ease)}
-.logo-ai{color:#a78bfa}
+.logo-ai{color:#6B7FBF}
 .nav-logo:hover .nav-logo-text{opacity:.85;transform:translateY(-1px)}
 .footer-logo{display:inline-flex;align-items:center;margin-bottom:14px}
 .footer-logo-text{font-family:var(--sans);font-weight:700;font-size:1.7rem;letter-spacing:-.4px;color:#fff;line-height:1;user-select:none}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .nav-links a{font-weight:500;font-size:.84rem;letter-spacing:.02em;color:rgba(255,255,255,.7);text-decoration:none;transition:color .3s;position:relative}
-.nav-links a:not(.nav-cta)::after{content:'';position:absolute;bottom:-4px;left:0;width:100%;height:2px;background:#7c6bbf;border-radius:1px;transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+.nav-links a:not(.nav-cta)::after{content:'';position:absolute;bottom:-4px;left:0;width:100%;height:2px;background:#6B7FBF;border-radius:1px;transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
 .nav-links a:not(.nav-cta):hover::after{transform:scaleX(1);transform-origin:left}
 .nav-links a:hover{color:#fff}
 .nav-cta{padding:9px 22px;background:var(--navy);border:1px solid rgba(255,255,255,.22);color:#fff!important;border-radius:100px;font-weight:600!important;font-size:.82rem!important;letter-spacing:.02em;transition:all .35s var(--ease)!important}
-.nav-cta:hover{background:rgba(91,138,122,.15);border-color:rgba(91,138,122,.45);transform:translateY(-1px)!important;box-shadow:0 4px 16px rgba(91,138,122,.15)}
+.nav-cta:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.35);transform:translateY(-1px)!important;box-shadow:0 4px 16px rgba(0,0,0,.15)}
 .nav-cta span{position:relative;z-index:1}
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px;width:40px;height:40px;position:relative}
 .nav-toggle span{display:block;width:22px;height:2px;background:rgba(255,255,255,.8);position:absolute;left:9px;border-radius:2px;transition:transform .35s var(--ease),opacity .25s,top .35s var(--ease)}
@@ -68,7 +68,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .thank-you-title{font-family:'Plus Jakarta Sans',var(--sans);font-weight:400;font-size:clamp(1.6rem,3.5vw,2.2rem);line-height:1.2;color:var(--text-dark);margin-bottom:12px}
 .thank-you-desc{font-size:1.05rem;line-height:1.7;color:var(--text-mid);margin-bottom:40px;max-width:420px;margin-left:auto;margin-right:auto}
 .thank-you-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;font-family:var(--sans);font-weight:600;font-size:.95rem;letter-spacing:.02em;text-decoration:none;border-radius:100px;border:1.5px solid rgba(255,255,255,.22);cursor:pointer;background:var(--navy);color:#fff;transition:all .4s var(--ease)}
-.thank-you-btn:hover{background:#5B8A7A;border-color:#5B8A7A;color:#fff;transform:translateY(-3px) scale(1.03);box-shadow:0 8px 32px rgba(91,138,122,.25)}
+.thank-you-btn:hover{background:#0d0f1a;border-color:#0d0f1a;color:#fff;transform:translateY(-3px) scale(1.03);box-shadow:0 8px 32px rgba(19,21,31,.3)}
 .thank-you-btn span{position:relative;z-index:1}
 .thank-you-btn .arrow{transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
 .thank-you-btn:hover .arrow{transform:translateX(4px)}
@@ -92,12 +92,12 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 .cookie-banner.show{transform:translateY(0)}
 .cookie-banner .container{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .cookie-text{font-size:.82rem;color:var(--text-on-dark-mid);line-height:1.6;flex:1;min-width:280px}
-.cookie-text a{color:#a78bfa;text-decoration:underline;text-underline-offset:2px}
+.cookie-text a{color:#6B7FBF;text-decoration:underline;text-underline-offset:2px}
 .cookie-text a:hover{color:var(--gold-pale)}
 .cookie-actions{display:flex;gap:10px;flex-shrink:0}
 .cookie-btn{padding:8px 20px;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.02em;border-radius:100px;cursor:pointer;transition:all .3s var(--ease);border:none}
 .cookie-accept{background:var(--navy);color:#fff;border:1.5px solid rgba(255,255,255,.22)}
-.cookie-accept:hover{background:rgba(91,138,122,.15);border-color:rgba(91,138,122,.45);transform:translateY(-1px);box-shadow:0 4px 12px rgba(91,138,122,.15)}
+.cookie-accept:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.35);transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
 .cookie-decline{background:transparent;color:var(--text-on-dark-mid);border:1px solid rgba(255,255,255,.15)}
 .cookie-decline:hover{border-color:rgba(255,255,255,.3);color:var(--cream)}
 
