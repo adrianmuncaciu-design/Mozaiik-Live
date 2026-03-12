@@ -311,6 +311,11 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .ai-card-text{flex:1;min-width:0}
 .ai-card h3{font-family:var(--sans);font-weight:600;font-size:1rem;color:var(--cream);margin-bottom:6px}
 .ai-card p{font-size:.88rem;line-height:1.7;color:rgba(244,241,235,.65)}
+/* ── AI stats row ── */
+.ai-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;max-width:800px;margin:0 auto;padding-top:48px;border-top:1px solid rgba(255,255,255,.08);position:relative;z-index:2;text-align:center;margin-top:56px}
+.ai-stat{display:flex;flex-direction:column;align-items:center;gap:12px}
+.ai-stat-num{font-family:'Plus Jakarta Sans',var(--sans);font-size:clamp(2.8rem,5vw,3.8rem);font-weight:700;color:#fff;line-height:1;letter-spacing:-.03em}
+.ai-stat-desc{font-size:.82rem;line-height:1.55;color:rgba(244,241,235,.5);max-width:200px}
 .ai-badge-wrap{text-align:center;margin-top:var(--sp-7);position:relative;z-index:2}
 .ai-coming-badge{display:inline-block;padding:6px 18px;border-radius:var(--sp-1);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);font-size:.72rem;font-weight:700;color:rgba(244,241,235,.6);letter-spacing:.12em;text-transform:uppercase}
 .ai-badge-wrap>p{font-size:.82rem;color:rgba(244,241,235,.5);margin-top:12px}
@@ -347,7 +352,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.js .rv,.js .rv-scale,.js .rv-left,.js .rv-right,.js .stagger>*,.comp-icon,.comp-vs{opacity:1!important;transform:none!important}}
 @media(max-width:1024px){.comp-grid{grid-template-columns:1fr 1fr}.ai-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){nav .nav-links{display:none;position:fixed;top:0;left:0;right:0;height:100vh;background:var(--navy);flex-direction:column;justify-content:center;align-items:center;padding:var(--sp-5);gap:var(--sp-3);z-index:999}nav .nav-links.open{display:flex}nav .nav-links a{color:var(--cream);font-size:1.2rem}.nav-links .nav-cta{display:inline-flex;background:var(--navy);border:1px solid rgba(255,255,255,.22);color:#fff}.nav-toggle{display:block;position:relative;z-index:1000}.scroll-progress{top:0!important}.cta-section h2{white-space:normal}.ai-intel .s-title{white-space:normal;font-size:clamp(1.4rem,5vw,2rem)}.hero{padding:80px 0 40px}.hero-content{max-width:100%}.comparison,.features,.cta-section,.ai-intel{padding:72px 0}.comp-grid,.ai-grid{grid-template-columns:1fr}.comp-vs{top:auto;left:auto;position:relative;margin:-6px auto -6px}.comp-stats{grid-template-columns:1fr 1fr;gap:32px 24px;margin-top:48px;padding-top:40px}.comp-stat-num{font-size:2.2rem}.feature-row,.feature-row.reverse{flex-direction:column}footer .container{grid-template-columns:1fr 1fr;text-align:center}.footer-brand .footer-logo{justify-content:center}.footer-brand{grid-column:1/-1}.footer-bottom{flex-direction:column;align-items:center;text-align:center;gap:8px}.footer-links{align-items:center}.footer-contact{text-align:center}}
+@media(max-width:768px){nav .nav-links{display:none;position:fixed;top:0;left:0;right:0;height:100vh;background:var(--navy);flex-direction:column;justify-content:center;align-items:center;padding:var(--sp-5);gap:var(--sp-3);z-index:999}nav .nav-links.open{display:flex}nav .nav-links a{color:var(--cream);font-size:1.2rem}.nav-links .nav-cta{display:inline-flex;background:var(--navy);border:1px solid rgba(255,255,255,.22);color:#fff}.nav-toggle{display:block;position:relative;z-index:1000}.scroll-progress{top:0!important}.cta-section h2{white-space:normal}.ai-intel .s-title{white-space:normal;font-size:clamp(1.4rem,5vw,2rem)}.hero{padding:80px 0 40px}.hero-content{max-width:100%}.comparison,.features,.cta-section,.ai-intel{padding:72px 0}.comp-grid,.ai-grid{grid-template-columns:1fr}.comp-vs{top:auto;left:auto;position:relative;margin:-6px auto -6px}.comp-stats{grid-template-columns:1fr 1fr;gap:32px 24px;margin-top:48px;padding-top:40px}.comp-stat-num{font-size:2.2rem}.ai-stats{grid-template-columns:1fr;gap:32px;margin-top:40px;padding-top:36px}.ai-stat-num{font-size:2.2rem}.feature-row,.feature-row.reverse{flex-direction:column}footer .container{grid-template-columns:1fr 1fr;text-align:center}.footer-brand .footer-logo{justify-content:center}.footer-brand{grid-column:1/-1}.footer-bottom{flex-direction:column;align-items:center;text-align:center;gap:8px}.footer-links{align-items:center}.footer-contact{text-align:center}}
 
 @media(max-width:480px){.hero-actions{flex-direction:column}.hero-actions .btn{width:100%;justify-content:center}}
 .cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--navy);padding:16px 0;z-index:9999;transform:translateY(100%);transition:transform .5s var(--ease);border-top:1px solid rgba(255,255,255,.08)}
@@ -502,6 +507,11 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
       <div class="ai-card ai-anim-clock"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div></div><div class="ai-card-text"><h3>Historical Context</h3><p>Links past decisions to current outcomes, building institutional memory for better judgment.</p></div></div>
       <div class="ai-card ai-anim-blink"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div></div><div class="ai-card-text"><h3>Natural Language Query</h3><p>Ask questions in plain English. Get answers pulled from your entire book of business.</p></div></div>
       <div class="ai-card ai-anim-float"><div class="ai-icon" aria-hidden="true"><div class="ai-icon-ring"></div><div class="ai-icon-inner"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div></div><div class="ai-card-text"><h3>Personalized Insights</h3><p>Learns from advisor preferences and family goals to surface relevant recommendations.</p></div></div>
+    </div>
+    <div class="ai-stats">
+      <div class="ai-stat" data-aos="fade-up" data-aos-delay="0"><span class="ai-stat-num" data-ai-count="3" data-ai-suffix="x">0x</span><span class="ai-stat-desc">more family offices adopted AI in 2025 than the year before</span></div>
+      <div class="ai-stat" data-aos="fade-up" data-aos-delay="80"><span class="ai-stat-num" data-ai-count="83" data-ai-suffix="%">0%</span><span class="ai-stat-desc">of wealth managers say AI saves them time</span></div>
+      <div class="ai-stat" data-aos="fade-up" data-aos-delay="160"><span class="ai-stat-num" data-ai-prefix="" data-ai-count="12" data-ai-suffix="%">0%</span><span class="ai-stat-desc">only use AI beyond basic tasks like emails and notes</span></div>
     </div>
     <div class="ai-badge-wrap" data-aos="fade-up"><div class="ai-coming-badge">In Development</div><p>Mozaiik Intelligence is being built into the platform. <a href="contact.html" style="color:var(--gold-soft);text-decoration:underline;text-underline-offset:3px;transition:color .3s">Get early access &rarr;</a></p></div>
   </div>
@@ -1212,6 +1222,42 @@ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.query
     }
   },{threshold:.3});
   var wrap=document.querySelector('.comp-stats');
+  if(wrap)observer.observe(wrap);
+})();
+
+/* ── Count-up animation for AI stats ── */
+(function(){
+  var stats=document.querySelectorAll('.ai-stat-num[data-ai-count]');
+  if(!stats.length)return;
+  var animated=false;
+  function countUp(el){
+    var target=parseFloat(el.getAttribute('data-ai-count'));
+    var prefix=el.getAttribute('data-ai-prefix')||'';
+    var suffix=el.getAttribute('data-ai-suffix')||'';
+    var duration=1800;
+    var start=performance.now();
+    function easeOutExpo(t){return t===1?1:1-Math.pow(2,-10*t)}
+    function tick(now){
+      var elapsed=now-start;
+      var progress=Math.min(elapsed/duration,1);
+      var eased=easeOutExpo(progress);
+      var current=Math.round(eased*target);
+      if(target<10)current=(eased*target).toFixed(eased<1?1:0);
+      el.textContent=prefix+current+suffix;
+      if(progress<1)requestAnimationFrame(tick);
+      else el.textContent=prefix+target+suffix;
+    }
+    requestAnimationFrame(tick);
+  }
+  var observer=new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting&&!animated){
+      animated=true;
+      stats.forEach(function(el,i){
+        setTimeout(function(){countUp(el)},i*150);
+      });
+    }
+  },{threshold:.3});
+  var wrap=document.querySelector('.ai-stats');
   if(wrap)observer.observe(wrap);
 })();
 </script>
