@@ -194,44 +194,48 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .hero-actions{display:flex;align-items:center;justify-content:center;gap:var(--sp-2);flex-wrap:wrap;margin-top:var(--sp-5);opacity:0;animation:fadeUp .7s .35s var(--ease) forwards}
 
 .comparison{padding:100px 0;position:relative;background:var(--cream);overflow:hidden}
-.comparison::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 500px at 70% 30%,rgba(107,127,191,.1),transparent),radial-gradient(ellipse 500px 400px at 20% 60%,rgba(107,127,191,.07),transparent),radial-gradient(ellipse 450px 350px at 55% 85%,rgba(194,166,80,.05),transparent);pointer-events:none;transform:translateY(var(--glow-y,0));transition:transform .1s linear}
+.comparison::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 700px 600px at 70% 20%,rgba(107,127,191,.14),transparent),radial-gradient(ellipse 600px 500px at 15% 70%,rgba(107,127,191,.1),transparent),radial-gradient(ellipse 500px 400px at 55% 90%,rgba(194,166,80,.06),transparent),radial-gradient(ellipse 400px 300px at 85% 60%,rgba(141,160,226,.08),transparent);pointer-events:none;transform:translateY(var(--glow-y,0));transition:transform .1s linear}
 .comp-net{position:absolute;inset:0;pointer-events:none}
 .comp-net canvas{width:100%;height:100%;display:block}
 .comp-header{text-align:center;max-width:800px;margin:0 auto var(--sp-7);position:relative;z-index:1}
 .comp-header .s-title em{font-style:italic;color:var(--navy)}
-.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-7);max-width:960px;margin:0 auto;position:relative;z-index:1}
-.comp-vortex{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:200px;z-index:0;pointer-events:none;background:radial-gradient(circle,rgba(107,127,191,.08) 0%,rgba(176,137,48,.04) 50%,transparent 70%);border-radius:50%;filter:blur(20px)}
-.comp-card{padding:var(--sp-5) var(--sp-4);border-radius:18px;transition:all .5s var(--ease);will-change:transform,opacity}
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;max-width:960px;margin:0 auto;position:relative;z-index:1}
+.comp-vortex{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:280px;height:280px;z-index:0;pointer-events:none;background:radial-gradient(circle,rgba(107,127,191,.1) 0%,rgba(176,137,48,.05) 50%,transparent 70%);border-radius:50%;filter:blur(30px)}
+.comp-card{padding:var(--sp-5) var(--sp-4);border-radius:20px;transition:all .5s var(--ease);will-change:transform,opacity;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 [data-comp-slide="left"]{transform:translateX(-120px) scale(.96);opacity:0}
 [data-comp-slide="right"]{transform:translateX(120px) scale(.96);opacity:0}
 .comp-card:hover{transform:translateY(-4px)}
 .comp-card-label{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
 .comp-card-title{font-family:'Plus Jakarta Sans',var(--sans);font-size:clamp(1.2rem,2vw,1.45rem);font-weight:600;margin-bottom:var(--sp-3);line-height:1.25}
-.comp-old{background:linear-gradient(135deg,rgba(5,5,16,.035),rgba(200,60,60,.015));border:1.5px solid rgba(200,60,60,.1);position:relative;overflow:hidden}
-.comp-old::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent,transparent 10px,rgba(200,60,60,.015) 10px,rgba(200,60,60,.015) 11px);pointer-events:none;border-radius:inherit}
-.comp-old:hover{box-shadow:0 12px 40px rgba(0,0,0,.06)}
+.comp-old{background:linear-gradient(145deg,rgba(255,255,255,.45),rgba(255,255,255,.25));border:1px solid rgba(5,5,16,.08);position:relative;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.03),inset 0 1px 0 rgba(255,255,255,.6)}
+.comp-old::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent,transparent 14px,rgba(200,60,60,.01) 14px,rgba(200,60,60,.01) 15px);pointer-events:none;border-radius:inherit}
+.comp-old:hover{box-shadow:0 16px 48px rgba(0,0,0,.07),inset 0 1px 0 rgba(255,255,255,.7);border-color:rgba(5,5,16,.1)}
 .comp-old .comp-card-label{color:var(--text-light)}
-.comp-old .comp-card-title{color:var(--text-mid);text-decoration:line-through;text-decoration-color:rgba(200,60,60,.25);text-decoration-thickness:1.5px;text-underline-offset:0}
-.comp-old .comp-list li{opacity:.75}
-.comp-new{background:radial-gradient(ellipse at 20% 0%,rgba(107,127,191,.06),transparent 60%),#fff;border:1.5px solid rgba(107,127,191,.2);box-shadow:0 12px 50px rgba(107,127,191,.15),0 0 30px rgba(107,127,191,.06);position:relative;overflow:hidden}
-.comp-new::before{content:'';position:absolute;top:0;left:0;bottom:0;width:5px;background:linear-gradient(180deg,#6B7FBF,var(--gold));border-radius:5px 0 0 5px;z-index:2}
-.comp-new::after{content:'';position:absolute;inset:0;border-radius:inherit;background:conic-gradient(from 180deg at 50% 50%,rgba(107,127,191,.3),rgba(194,166,80,.2),rgba(107,127,191,.3));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:1.5px;opacity:0;transition:opacity .5s var(--ease);pointer-events:none}
+.comp-old .comp-card-title{color:var(--text-mid);text-decoration:line-through;text-decoration-color:rgba(200,60,60,.3);text-decoration-thickness:1.5px;text-underline-offset:0}
+.comp-old .comp-list li{opacity:.7;color:var(--text-mid)}
+.comp-new{background:linear-gradient(145deg,rgba(255,255,255,.6),rgba(255,255,255,.35));border:1px solid rgba(107,127,191,.15);box-shadow:0 8px 40px rgba(107,127,191,.1),0 0 60px rgba(107,127,191,.05),inset 0 1px 0 rgba(255,255,255,.8);position:relative;overflow:hidden}
+.comp-new::before{content:'';position:absolute;top:0;left:0;bottom:0;width:4px;background:var(--navy);border-radius:4px 0 0 4px;z-index:2}
+.comp-new::after{content:'';position:absolute;inset:0;border-radius:inherit;background:conic-gradient(from 180deg at 50% 50%,rgba(107,127,191,.35),rgba(194,166,80,.2),rgba(107,127,191,.35));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:1.5px;opacity:0;transition:opacity .5s var(--ease);pointer-events:none}
 .comp-new:hover::after{opacity:1}
-.comp-new:hover{box-shadow:0 24px 70px rgba(107,127,191,.22),0 0 40px rgba(107,127,191,.1);transform:translateY(-6px)}
-.mozaiik-label{color:#6B7FBF;text-shadow:0 0 20px rgba(107,127,191,.3)}
+.comp-new:hover{box-shadow:0 28px 80px rgba(107,127,191,.15),0 0 50px rgba(107,127,191,.08),inset 0 1px 0 rgba(255,255,255,.9);transform:translateY(-6px)}
+.mozaiik-label{color:#6B7FBF;text-shadow:0 0 24px rgba(107,127,191,.35);font-weight:700}
 .comp-new .comp-card-title{color:var(--navy)}
 .comp-new-shine{position:absolute;inset:0;background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.5) 50%,transparent 80%);transform:translateX(-100%);pointer-events:none;z-index:3;border-radius:inherit}
 @keyframes comp-shine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 .comp-list{list-style:none;display:flex;flex-direction:column;gap:16px}
 .comp-list li{display:flex;align-items:flex-start;gap:12px;font-size:.92rem;line-height:1.55}
 .comp-old .comp-list li{color:var(--text-mid)}
-.comp-new .comp-list li{color:var(--text-dark);font-weight:500}
-.comp-icon{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px}
-.comp-icon-no{background:rgba(220,80,80,.12);color:rgba(200,60,60,.6);border:1.5px solid rgba(220,80,80,.2)}
-.comp-icon-yes{background:rgba(16,185,129,.14);color:rgba(5,150,105,1);border:1.5px solid rgba(16,185,129,.35)}
-.comp-vs{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;z-index:3;box-shadow:0 4px 20px rgba(5,5,16,.25),0 0 0 4px rgba(5,5,16,.08);opacity:0;transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.comp-new .comp-list li{color:var(--text-dark);font-weight:500;letter-spacing:-.005em}
+.comp-icon{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex-shrink:0;margin-top:1px}
+.comp-icon-no{background:rgba(220,80,80,.08);color:rgba(200,60,60,.5);border:1.5px solid rgba(220,80,80,.14)}
+.comp-icon-yes{background:rgba(16,185,129,.12);color:rgba(5,150,105,.9);border:1.5px solid rgba(16,185,129,.3);box-shadow:0 2px 8px rgba(16,185,129,.15)}
+.comp-vs{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:var(--navy);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;z-index:3;box-shadow:0 6px 24px rgba(5,5,16,.3),0 0 0 5px rgba(5,5,16,.06),0 0 0 10px rgba(107,127,191,.08);opacity:0;transition:opacity .5s var(--ease),transform .5s var(--ease)}
 
-
+/* ── Comparison stats row ── */
+.comp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:48px;max-width:960px;margin:0 auto;padding-top:56px;border-top:1px solid rgba(5,5,16,.06);position:relative;z-index:1;text-align:center;margin-top:64px}
+.comp-stat{display:flex;flex-direction:column;align-items:center;gap:12px}
+.comp-stat-num{font-family:'Plus Jakarta Sans',var(--sans);font-size:clamp(2.8rem,5vw,3.8rem);font-weight:700;color:var(--navy);line-height:1;letter-spacing:-.03em}
+.comp-stat-desc{font-size:.82rem;line-height:1.55;color:var(--text-mid);max-width:200px}
 
 .features{padding:100px 0;position:relative;background:var(--navy);overflow:hidden;color:var(--cream)}
 .features::before{display:none}
@@ -343,7 +347,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.js .rv,.js .rv-scale,.js .rv-left,.js .rv-right,.js .stagger>*,.comp-icon,.comp-vs{opacity:1!important;transform:none!important}}
 @media(max-width:1024px){.comp-grid{grid-template-columns:1fr 1fr}.ai-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){nav .nav-links{display:none;position:fixed;top:0;left:0;right:0;height:100vh;background:var(--navy);flex-direction:column;justify-content:center;align-items:center;padding:var(--sp-5);gap:var(--sp-3);z-index:999}nav .nav-links.open{display:flex}nav .nav-links a{color:var(--cream);font-size:1.2rem}.nav-links .nav-cta{display:inline-flex;background:var(--navy);border:1px solid rgba(255,255,255,.22);color:#fff}.nav-toggle{display:block;position:relative;z-index:1000}.scroll-progress{top:0!important}.cta-section h2{white-space:normal}.ai-intel .s-title{white-space:normal;font-size:clamp(1.4rem,5vw,2rem)}.hero{padding:80px 0 40px}.hero-content{max-width:100%}.comparison,.features,.cta-section,.ai-intel{padding:72px 0}.comp-grid,.ai-grid{grid-template-columns:1fr}.comp-vs{top:auto;left:auto;position:relative;margin:-6px auto -6px}.feature-row,.feature-row.reverse{flex-direction:column}footer .container{grid-template-columns:1fr 1fr;text-align:center}.footer-brand .footer-logo{justify-content:center}.footer-brand{grid-column:1/-1}.footer-bottom{flex-direction:column;align-items:center;text-align:center;gap:8px}.footer-links{align-items:center}.footer-contact{text-align:center}}
+@media(max-width:768px){nav .nav-links{display:none;position:fixed;top:0;left:0;right:0;height:100vh;background:var(--navy);flex-direction:column;justify-content:center;align-items:center;padding:var(--sp-5);gap:var(--sp-3);z-index:999}nav .nav-links.open{display:flex}nav .nav-links a{color:var(--cream);font-size:1.2rem}.nav-links .nav-cta{display:inline-flex;background:var(--navy);border:1px solid rgba(255,255,255,.22);color:#fff}.nav-toggle{display:block;position:relative;z-index:1000}.scroll-progress{top:0!important}.cta-section h2{white-space:normal}.ai-intel .s-title{white-space:normal;font-size:clamp(1.4rem,5vw,2rem)}.hero{padding:80px 0 40px}.hero-content{max-width:100%}.comparison,.features,.cta-section,.ai-intel{padding:72px 0}.comp-grid,.ai-grid{grid-template-columns:1fr}.comp-vs{top:auto;left:auto;position:relative;margin:-6px auto -6px}.comp-stats{grid-template-columns:1fr 1fr;gap:32px 24px;margin-top:48px;padding-top:40px}.comp-stat-num{font-size:2.2rem}.feature-row,.feature-row.reverse{flex-direction:column}footer .container{grid-template-columns:1fr 1fr;text-align:center}.footer-brand .footer-logo{justify-content:center}.footer-brand{grid-column:1/-1}.footer-bottom{flex-direction:column;align-items:center;text-align:center;gap:8px}.footer-links{align-items:center}.footer-contact{text-align:center}}
 
 @media(max-width:480px){.hero-actions{flex-direction:column}.hero-actions .btn{width:100%;justify-content:center}}
 .cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--navy);padding:16px 0;z-index:9999;transform:translateY(100%);transition:transform .5s var(--ease);border-top:1px solid rgba(255,255,255,.08)}
@@ -471,12 +475,18 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 <section class="comparison" id="problem">
   <div class="comp-net" aria-hidden="true"><canvas id="compNetCanvas"></canvas></div>
   <div class="container">
-    <div class="comp-header"><div class="label gold" data-aos="slide-reveal">The Problem</div><h2 class="s-title dark" data-aos="blur-up" data-aos-delay="60">Built for families. Not just <em>portfolios.</em></h2></div>
+    <div class="comp-header"><div class="label" data-aos="slide-reveal" style="color:rgba(5,5,16,.5)">The Problem</div><h2 class="s-title dark" data-aos="blur-up" data-aos-delay="60">Built for families. Not just <em>portfolios.</em></h2></div>
     <div class="comp-grid">
       <div class="comp-vortex" aria-hidden="true"></div>
       <div class="comp-card comp-old" data-comp-slide="left"><div class="comp-card-label">The Old Way</div><h3 class="comp-card-title">Fragmented, Manual, Risky</h3><ul class="comp-list"><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Spreadsheets stitched together across entities</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Data scattered across bank portals, PDFs, and Excel files</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>No consolidated family view across custodians</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Compliance gaps — Canadian regulators demand more than spreadsheets</li><li><span class="comp-icon comp-icon-no" aria-hidden="true">&times;</span>Hours wasted building client reports manually</li></ul></div>
       <div class="comp-vs" aria-hidden="true">vs</div>
       <div class="comp-card comp-new" data-comp-slide="right"><div class="comp-new-shine"></div><div class="comp-card-label mozaiik-label">The Mozaiik Way</div><h3 class="comp-card-title">Entity-first. Compliance-ready.</h3><ul class="comp-list"><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Entity-level mapping — individuals, trusts, holdcos, all connected</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Single source of truth across every custodian</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Consolidated dashboards, ready in real time</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Built-in Canadian regulatory compliance workflows</li><li><span class="comp-icon comp-icon-yes" aria-hidden="true">&check;</span>Polished client reports generated automatically</li></ul></div>
+    </div>
+    <div class="comp-stats">
+      <div class="comp-stat" data-aos="fade-up" data-aos-delay="0"><span class="comp-stat-num" data-count="70" data-suffix="%">0%</span><span class="comp-stat-desc">of wealthy families lose their wealth by the second generation</span></div>
+      <div class="comp-stat" data-aos="fade-up" data-aos-delay="80"><span class="comp-stat-num" data-count="90" data-suffix="%">0%</span><span class="comp-stat-desc">lose it by the third generation</span></div>
+      <div class="comp-stat" data-aos="fade-up" data-aos-delay="160"><span class="comp-stat-num" data-count="42" data-suffix="%">0%</span><span class="comp-stat-desc">of family offices still run on spreadsheets</span></div>
+      <div class="comp-stat" data-aos="fade-up" data-aos-delay="240"><span class="comp-stat-num" data-prefix="$" data-count="3" data-suffix="T">$0T</span><span class="comp-stat-desc">in Canadian wealth transferring to the next generation</span></div>
     </div>
   </div>
 </section>
@@ -1167,6 +1177,42 @@ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.query
     else{running=false;}
   },{threshold:0});
   obs.observe(sect);
+})();
+
+/* ── Count-up animation for comparison stats ── */
+(function(){
+  var stats=document.querySelectorAll('.comp-stat-num[data-count]');
+  if(!stats.length)return;
+  var animated=false;
+  function countUp(el){
+    var target=parseFloat(el.getAttribute('data-count'));
+    var prefix=el.getAttribute('data-prefix')||'';
+    var suffix=el.getAttribute('data-suffix')||'';
+    var duration=1800;
+    var start=performance.now();
+    function easeOutExpo(t){return t===1?1:1-Math.pow(2,-10*t)}
+    function tick(now){
+      var elapsed=now-start;
+      var progress=Math.min(elapsed/duration,1);
+      var eased=easeOutExpo(progress);
+      var current=Math.round(eased*target);
+      if(target<10)current=(eased*target).toFixed(eased<1?1:0);
+      el.textContent=prefix+current+suffix;
+      if(progress<1)requestAnimationFrame(tick);
+      else el.textContent=prefix+target+suffix;
+    }
+    requestAnimationFrame(tick);
+  }
+  var observer=new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting&&!animated){
+      animated=true;
+      stats.forEach(function(el,i){
+        setTimeout(function(){countUp(el)},i*150);
+      });
+    }
+  },{threshold:.3});
+  var wrap=document.querySelector('.comp-stats');
+  if(wrap)observer.observe(wrap);
 })();
 </script>
 </body>
