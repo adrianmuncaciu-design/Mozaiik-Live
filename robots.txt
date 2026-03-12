@@ -1,14 +1,20 @@
 User-agent: *
 Allow: /
 
-Disallow: /index-teal-theme.html
-Disallow: /index-white-hero.html
-Disallow: /index-tree-hero.html
-Disallow: /index-constellation-v2.html
-Disallow: /index-ai-cards-v3.html
-Disallow: /index-navy-hovers.html
-Disallow: /mosaic-build.html
-Disallow: /og-template.html
+# Block old index drafts
+Disallow: /index-teal-theme
+Disallow: /index-white-hero
+Disallow: /index-tree-hero
+Disallow: /index-constellation-v2
+Disallow: /index-ai-cards-v3
+Disallow: /index-navy-hovers
+Disallow: /index-dark-saas-backup
+Disallow: /index-dark-saas
+Disallow: /index.backup.html
+Disallow: /mosaic-build
+Disallow: /og-template
+
+# Block build/dev files
 Disallow: /_gen_og.js
 Disallow: /_fix_theme.js
 Disallow: /_tree_anim.js

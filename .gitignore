@@ -2,3 +2,16 @@ node_modules/
 .claude/
 *.bak
 *.png.tmp
+
+# Old index drafts — should never be deployed
+index-ai-cards-v3.html
+index-constellation-v2.html
+index-dark-saas-backup.html
+index-dark-saas.html
+index-navy-hovers.html
+index-teal-theme.html
+index-tree-hero.html
+index-white-hero.html
+index.backup.html
+mosaic-build.html
+og-template.html

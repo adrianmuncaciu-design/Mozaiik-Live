@@ -132,3 +132,66 @@
   to = "/thank-you"
   status = 301
   force = true
+
+# ==========================================================
+# Redirects — Old index drafts → Homepage (clean up Google index)
+# ==========================================================
+[[redirects]]
+  from = "/index-ai-cards-v3*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index-constellation-v2*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index-dark-saas-backup*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index-dark-saas*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index-navy-hovers*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index-teal-theme*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index-tree-hero*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index-white-hero*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/mosaic-build*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/og-template*"
+  to = "/"
+  status = 301
+  force = true
