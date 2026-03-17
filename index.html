@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CZS7B8CC2Z"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CZS7B8CC2Z');</script>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZS7B8CC2Z"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-CZS7B8CC2Z");</script>
   <title>Mozaiik — The Operating System for Complex Family Wealth</title>
   <meta name="description" content="A single system for insight, governance, and compliance. Purpose-built for Canadian advisory firms and family offices managing complex wealth.">
   <meta name="keywords" content="wealth management, family office, entity management, Canadian wealth, CIRO, OSC, compliance, private wealth, holding companies, trusts, consolidated reporting">
@@ -30,9 +30,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="preload" href="https://fonts.gstatic.com/s/dmserifdisplay/v15/-nFnOHM81r4j6k0gjAW3mujVU2B2K_d709jy92k.woff2" as="font" type="font/woff2" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="dns-prefetch" href="https://unpkg.com">
+  <link rel="preconnect" href="https://prod.spline.design">
+  <link rel="dns-prefetch" href="https://prod.spline.design">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Plus+Jakarta+Sans:ital,wght@0,400..700;1,400..700&display=swap" as="style" onload="this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Plus+Jakarta+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"></noscript>
 
   <!-- JSON-LD Structured Data is in the body -->
 
@@ -48,7 +52,6 @@
   --text-dark:#0d1117;--text-mid:#4a5568;--text-light:#8896a8;
   --text-on-dark:#e8ecf2;--text-on-dark-mid:rgba(232,236,242,.65);--text-on-dark-dim:rgba(232,236,242,.28);
   --border:#dedad2;--border-dark:rgba(255,255,255,.07);
-  --serif:'DM Serif Display',Georgia,serif;
   --sans:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);--ease-bounce:cubic-bezier(.34,1.56,.64,1);
   --sp-1:8px;--sp-2:16px;--sp-3:24px;--sp-4:32px;--sp-5:40px;--sp-6:48px;--sp-7:56px;--sp-8:64px;
@@ -451,7 +454,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
     <div class="features-header"><div class="label gold" data-aos="slide-reveal">The Platform</div><h2 class="s-title dark" data-aos="blur-up" data-aos-delay="60">Everything in one place. <em>Finally.</em></h2></div>
     <div class="feature-rows">
       <div class="feature-row" data-aos="fade-up">
-        <div class="feature-row-img"><img src="images/entity.webp" alt="Entity structure visualization mapping ownership across trusts and holding companies" loading="lazy" width="560" height="350"></div>
+        <div class="feature-row-img"><img src="images/entity.webp" srcset="images/entity.webp 560w" sizes="(max-width:768px) 100vw, 560px" alt="Entity structure visualization mapping ownership across trusts and holding companies" loading="lazy" width="560" height="350"></div>
         <div class="feature-row-text">
           <div class="feature-label">Wealth Map</div>
           <h3>The Wealth Map</h3>
@@ -459,7 +462,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
         </div>
       </div>
       <div class="feature-row reverse" data-aos="fade-up" data-aos-delay="60">
-        <div class="feature-row-img"><img src="images/dashboard.webp" alt="Mozaiik platform dashboard showing consolidated family wealth overview" loading="lazy" width="560" height="350"></div>
+        <div class="feature-row-img"><img src="images/dashboard.webp" srcset="images/dashboard.webp 560w" sizes="(max-width:768px) 100vw, 560px" alt="Mozaiik platform dashboard showing consolidated family wealth overview" loading="lazy" width="560" height="350"></div>
         <div class="feature-row-text">
           <div class="feature-label">Dashboards</div>
           <h3>Consolidated Dashboards</h3>
@@ -467,7 +470,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
         </div>
       </div>
       <div class="feature-row" data-aos="fade-up" data-aos-delay="120">
-        <div class="feature-row-img"><img src="images/vault.webp" alt="Secure document vault organized by entity with trust agreements and records" loading="lazy" width="560" height="350"></div>
+        <div class="feature-row-img"><img src="images/vault.webp" srcset="images/vault.webp 560w" sizes="(max-width:768px) 100vw, 560px" alt="Secure document vault organized by entity with trust agreements and records" loading="lazy" width="560" height="350"></div>
         <div class="feature-row-text">
           <div class="feature-label">Document Vault</div>
           <h3>Secure Document Vault</h3>
@@ -882,7 +885,7 @@ document.documentElement.classList.add('js');
   }
 })();
 </script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 <script>
 AOS.init({duration:700,once:true,easing:'ease-out-cubic',offset:80});
 /* Trigger dashed line animation for HIW steps */
