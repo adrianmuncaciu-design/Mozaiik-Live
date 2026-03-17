@@ -1,197 +1,31 @@
-# ============================================================
-# Netlify Configuration — Mozaiik Live
-# ============================================================
-
-# ---------- Build & Pretty URLs ----------
 [build]
   publish = "."
+  command = ""
 
-[build.processing.html]
-  pretty_urls = true
-
-# ==========================================================
-# Security Headers (all pages)
-# ==========================================================
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Cache-Control = "public, max-age=0, stale-while-revalidate=86400"
 
-# ==========================================================
-# Cache Headers — Images
-# ==========================================================
 [[headers]]
   for = "/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=2592000"
 
-# ==========================================================
-# Cache Headers — Fonts (woff2)
-# ==========================================================
 [[headers]]
   for = "/*.woff2"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-[[headers]]
-  for = "/fonts/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# ==========================================================
-# Cache Headers — CSS
-# ==========================================================
-[[headers]]
-  for = "/*.css"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# ==========================================================
-# Cache Headers — JavaScript
-# ==========================================================
-[[headers]]
-  for = "/*.js"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# ==========================================================
-# Redirects — .html to clean URLs (301 permanent)
-# ==========================================================
-[[redirects]]
-  from = "/about.html"
-  to = "/about"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/contact.html"
-  to = "/contact"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/pricing.html"
-  to = "/pricing"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/blog.html"
-  to = "/blog"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/faq.html"
-  to = "/faq"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/manifesto.html"
-  to = "/manifesto"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/privacy.html"
-  to = "/privacy"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/terms.html"
-  to = "/terms"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/article-canadian-wealth-os.html"
-  to = "/article-canadian-wealth-os"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/article-entity-first-architecture.html"
-  to = "/article-entity-first-architecture"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/article-navigating-csa-osc-ciro.html"
-  to = "/article-navigating-csa-osc-ciro"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/thank-you.html"
-  to = "/thank-you"
-  status = 301
-  force = true
-
-# ==========================================================
-# Redirects — Old index drafts → Homepage (clean up Google index)
-# ==========================================================
-[[redirects]]
-  from = "/index-ai-cards-v3*"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/index-constellation-v2*"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/index-dark-saas-backup*"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/index-dark-saas*"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/index-navy-hovers*"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/index-teal-theme*"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/index-tree-hero*"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/index-white-hero*"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/mosaic-build*"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/og-template*"
-  to = "/"
-  status = 301
-  force = true
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = true
+  minify = true
+[build.processing.js]
+  bundle = true
+  minify = true
+[build.processing.html]
+  pretty_urls = true
+[build.processing.images]
+  compress = true

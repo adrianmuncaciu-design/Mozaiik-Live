@@ -81,6 +81,9 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .nav-toggle.active span:nth-child(3){top:19px;transform:rotate(-45deg)}
 
 /* ── Hero ── */
+.constellation-wrap{position:absolute;inset:0;pointer-events:auto}
+.constellation-wrap canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;animation:constellation-fade 1.5s .3s ease forwards}
+@keyframes constellation-fade{to{opacity:1}}
 .about-hero{padding:150px 0 80px;text-align:center;background:var(--navy);position:relative;overflow:hidden}
 .about-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 600px at 20% 50%,rgba(107,127,191,.12),transparent),radial-gradient(ellipse 500px 500px at 80% 20%,rgba(107,127,191,.08),transparent);pointer-events:none}
 .about-hero .container{max-width:720px;position:relative;z-index:1}
@@ -311,6 +314,7 @@ footer .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;g
 <main>
   <!-- Hero -->
   <section class="about-hero">
+    <div class="constellation-wrap" aria-hidden="true"><canvas id="constellationCanvas"></canvas></div>
     <div class="container">
       <span class="about-label" data-aos="fade-up">About Mozaiik</span>
       <h1 data-aos="fade-up" data-aos-delay="100">Built by an advisor, for <em>advisors.</em></h1>
@@ -683,5 +687,168 @@ document.querySelectorAll('.val-card').forEach(function(card){
 </script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({duration:600,once:true,easing:'ease-out-cubic',offset:80});</script>
+<script>
+/* ── Constellation Canvas (ported from React ConstellationCanvas) ── */
+(function(){
+  var canvas=document.getElementById('constellationCanvas');
+  if(!canvas)return;
+  var parent=canvas.parentElement;
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  var ctx=canvas.getContext('2d');
+  if(!ctx)return;
+  var dpr=Math.min(window.devicePixelRatio||1,2);
+  var isMobile=window.innerWidth<768;
+  var mouse={x:-9999,y:-9999};
+  var running=true,startTime=0;
+
+  var entityDefs=[
+    {label:'Family',sz:1.3,ct:'navy'},{label:'Trust',sz:1.2,ct:'gold'},
+    {label:'HoldCo',sz:1.1,ct:'slate'},{label:'Estate',sz:1.0,ct:'gold'},
+    {label:'Corp',sz:0.95,ct:'navy'},{label:'Portfolio',sz:0.9,ct:'gold'},
+    {label:'Real Estate',sz:0.9,ct:'gold'},{label:'Foundation',sz:0.85,ct:'navy'},
+    {label:'LP',sz:0.8,ct:'slate'},{label:'OpCo',sz:0.85,ct:'navy'},
+    {label:'Insurance',sz:0.8,ct:'slate'},{label:'Charitable',sz:0.75,ct:'slate'},
+    {label:'RRSP',sz:0.75,ct:'teal'},{label:'TFSA',sz:0.7,ct:'teal'},
+    {label:'RESP',sz:0.7,ct:'teal'}
+  ];
+  var colorMap={navy:[19,21,31],gold:[176,137,48],slate:[107,127,191],teal:[45,122,88]};
+  var intensity=0.7,safeZone=0.6;
+  var nodes=[];
+
+  function resize(){
+    var r=parent.getBoundingClientRect();
+    canvas.width=r.width*dpr;canvas.height=r.height*dpr;
+    canvas.style.width=r.width+'px';canvas.style.height=r.height+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  function initNodes(){
+    var W=canvas.width/dpr,H=canvas.height/dpr;
+    isMobile=W<500;
+    var count=isMobile?10:20;
+    nodes=[];
+    for(var i=0;i<count;i++){
+      var angle=Math.random()*Math.PI*2;
+      var speed=0.04+Math.random()*0.08;
+      var isEntity=i<entityDefs.length;
+      var ent=isEntity?entityDefs[i]:null;
+      var r=isEntity?3+ent.sz*4:2.5+Math.random()*2;
+      if(isMobile)r*=0.8;
+      var c;
+      if(isEntity){c=colorMap[ent.ct];}
+      else{var rn=Math.random();c=rn<0.15?colorMap.teal:rn<0.35?colorMap.gold:rn<0.55?colorMap.slate:colorMap.navy;}
+      var cols=isMobile?4:5,rows=isMobile?3:4;
+      var zi=i%(cols*rows),zc=zi%cols,zr=Math.floor(zi/cols);
+      var zw=W/cols,zh=H/rows;
+      var nx=zc*zw+Math.random()*zw,ny=zr*zh+Math.random()*zh;
+      nx=Math.max(55,Math.min(W-55,nx));
+      ny=Math.max(25,Math.min(H-25,ny));
+      var ct=isEntity?ent.ct:'navy';
+      nodes.push({x:nx,y:ny,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,r:r,c:c,ct:ct,
+        op:(isMobile?0.12+Math.random()*0.15:0.18+Math.random()*0.22)*intensity,
+        label:isEntity?ent.label:null,showLabel:isEntity&&!isMobile,phase:Math.random()*Math.PI*2});
+    }
+  }
+  resize();initNodes();
+  window.addEventListener('resize',function(){resize();initNodes();});
+
+  var maxDistSq_m=120*120,maxDistSq_d=160*160;
+
+  function draw(ts){
+    if(!startTime)startTime=ts;
+    var elapsed=ts-startTime;
+    if(!running){requestAnimationFrame(draw);return;}
+    var W=canvas.width/dpr,H=canvas.height/dpr;
+    var maxDist=isMobile?120:160;
+    var maxDistSq=isMobile?maxDistSq_m:maxDistSq_d;
+    var sz=safeZone;
+    var safeL=isMobile?W*0.08*sz:W*0.18*sz;
+    var safeR=isMobile?W*(1-0.08*sz):W*(1-0.18*sz);
+    var safeT=isMobile?H*0.18*sz:H*0.28*sz;
+    var safeB=isMobile?H*(1-0.25*sz):H*(1-0.32*sz);
+    ctx.clearRect(0,0,W,H);
+    var gf=Math.min(elapsed/1500,1);
+    var len=nodes.length;
+
+    for(var i=0;i<len;i++){
+      var n=nodes[i];
+      n.x+=n.vx;n.y+=n.vy;
+      if(n.x<50||n.x>W-50)n.vx*=-1;
+      if(n.y<20||n.y>H-20)n.vy*=-1;
+      n.x=Math.max(45,Math.min(W-45,n.x));
+      n.y=Math.max(15,Math.min(H-15,n.y));
+      var dx=n.x-mouse.x,dy=n.y-mouse.y;
+      var md=Math.sqrt(dx*dx+dy*dy);
+      if(md<120&&md>0){var force=(120-md)/120*0.15;n.vx+=dx/md*force;n.vy+=dy/md*force;}
+      var spd=Math.sqrt(n.vx*n.vx+n.vy*n.vy);
+      if(spd>0.18){n.vx*=0.94;n.vy*=0.94;}
+      if(sz>0){
+        var cx=W/2,cy=H/2,dcx=n.x-cx,dcy=n.y-cy;
+        var dc=Math.sqrt(dcx*dcx+dcy*dcy);
+        if(n.x>safeL&&n.x<safeR&&n.y>safeT&&n.y<safeB&&dc>0){n.vx+=dcx/dc*0.03;n.vy+=dcy/dc*0.03;}
+      }
+    }
+
+    for(var i=0;i<len;i++){
+      var a=nodes[i];
+      for(var j=i+1;j<len;j++){
+        var b=nodes[j];
+        var dx=a.x-b.x,dy=a.y-b.y;
+        var dSq=dx*dx+dy*dy;
+        if(dSq<maxDistSq){
+          var d=Math.sqrt(dSq);
+          var lineOp=(1-d/maxDist)*0.12*gf;
+          var mx=(a.x+b.x)*0.5,my=(a.y+b.y)*0.5;
+          if(sz>0&&mx>safeL&&mx<safeR&&my>safeT&&my<safeB)lineOp*=0.2;
+          if(lineOp<0.002)continue;
+          var lc=(a.ct==='gold'||b.ct==='gold')?colorMap.gold:(a.ct==='teal'||b.ct==='teal')?colorMap.teal:colorMap.navy;
+          var cpx=mx+(a.y-b.y)*0.08,cpy=my+(b.x-a.x)*0.08;
+          ctx.beginPath();
+          ctx.strokeStyle='rgba('+lc[0]+','+lc[1]+','+lc[2]+','+lineOp.toFixed(4)+')';
+          ctx.lineWidth=0.6;
+          ctx.moveTo(a.x,a.y);
+          ctx.quadraticCurveTo(cpx,cpy,b.x,b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    ctx.textAlign='center';
+    for(var i=0;i<len;i++){
+      var n=nodes[i];
+      var pulse=1+Math.sin(ts*0.001+n.phase)*0.15;
+      var op=n.op*pulse*gf;
+      if(sz>0&&n.x>safeL&&n.x<safeR&&n.y>safeT&&n.y<safeB)op*=0.15;
+      ctx.beginPath();
+      ctx.fillStyle='rgba('+n.c[0]+','+n.c[1]+','+n.c[2]+','+op.toFixed(3)+')';
+      ctx.arc(n.x,n.y,n.r*pulse,0,Math.PI*2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.strokeStyle='rgba('+n.c[0]+','+n.c[1]+','+n.c[2]+','+(op*0.4).toFixed(3)+')';
+      ctx.lineWidth=0.7;
+      ctx.arc(n.x,n.y,n.r*pulse+4,0,Math.PI*2);
+      ctx.stroke();
+      if(n.showLabel){
+        var lOp=op*0.85;
+        if(sz>0&&n.x>safeL&&n.x<safeR&&n.y>safeT&&n.y<safeB)lOp*=0.1;
+        var fs=n.r>5?12:11;
+        ctx.font='500 '+fs+'px Plus Jakarta Sans,system-ui,sans-serif';
+        ctx.fillStyle='rgba('+n.c[0]+','+n.c[1]+','+n.c[2]+','+lOp.toFixed(3)+')';
+        ctx.fillText(n.label,n.x,n.y-n.r*pulse-6);
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+
+  parent.addEventListener('mousemove',function(e){
+    var r=parent.getBoundingClientRect();
+    mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;
+  });
+  parent.addEventListener('mouseleave',function(){mouse.x=-9999;mouse.y=-9999;});
+
+  var obs=new IntersectionObserver(function(entries){running=entries[0].isIntersecting;},{threshold:0});
+  obs.observe(parent);
+})();
+</script>
 </body>
 </html>
