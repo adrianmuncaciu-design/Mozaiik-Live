@@ -15,3 +15,8 @@ index-white-hero.html
 index.backup.html
 mosaic-build.html
 og-template.html
+
+# Local Netlify folder
+.netlify
+
+.vercel
