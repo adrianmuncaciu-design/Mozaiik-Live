@@ -20,3 +20,16 @@ og-template.html
 .netlify
 
 .vercel
+
+# Internal working folders — not for deploy
+.theme-backup-*/
+_parked-pages/
+patch-all.py
+_update_theme.py
+_gen_og.js
+_tree_anim.js
+_fix_theme.js
+_contour_block.txt
+_ul
+_ul-Adrian
+index-before-editorial-redesign.html
