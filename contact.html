@@ -285,7 +285,7 @@ footer .container{grid-template-columns:1fr!important;text-align:center}
     </div>
 
     <div class="contact-form" id="contactFormWrap" data-aos="fade-up" data-aos-delay="100">
-      <form id="contactForm" name="contact" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" >
+      <form id="contactForm" name="contact" method="POST" action="/api/contact">
         <p class="hidden" style="display:none"><label>Don't fill this out: <input name="_gotcha" style="display:none"></label></p>
         <div class="form-row">
           <div class="form-group">
@@ -395,20 +395,72 @@ document.documentElement.classList.add('js');
   if(ca)ca.addEventListener('click',function(){localStorage.setItem('mozaiik_cookies','accepted');cb.classList.remove('show')});
   if(cd)cd.addEventListener('click',function(){localStorage.setItem('mozaiik_cookies','declined');cb.classList.remove('show')});
 
-  /* Contact form submit */
+  /* Contact form submit — POST to /api/contact with mailto fallback */
   var form=document.getElementById('contactForm');
   var success=document.getElementById('formSuccess');
   if(form){
     form.addEventListener('submit',function(e){
       e.preventDefault();
       var btn=form.querySelector('button[type="submit"] span');
+      var originalText=btn?btn.textContent:'Send Message';
       if(btn)btn.textContent='Sending...';
-      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
-      .then(function(res){
-        if(res.ok){form.style.display='none';success.style.display='block'}
-        else{if(btn)btn.textContent='Send Message';alert('Something went wrong. Please try again.')}
+
+      /* Build payload from form fields */
+      var fd=new FormData(form);
+      var data={};
+      fd.forEach(function(v,k){data[k]=v});
+
+      /* Basic client-side validation */
+      if(!data.firstName||!data.lastName||!data.email){
+        if(btn)btn.textContent=originalText;
+        alert('Please fill in your name and email.');
+        return;
+      }
+
+      var showSuccess=function(){
+        form.style.display='none';
+        success.style.display='block';
+      };
+
+      var fallbackToMailto=function(){
+        var subject=encodeURIComponent('Mozaiik pilot inquiry — '+(data.firmName||data.firstName+' '+data.lastName));
+        var body=encodeURIComponent(
+          'Name: '+data.firstName+' '+data.lastName+'\n'+
+          'Email: '+data.email+'\n'+
+          (data.firmName?'Firm: '+data.firmName+'\n':'')+
+          '\nMessage:\n'+(data.message||'(no message provided)')
+        );
+        window.location.href='mailto:adrian@mozaiik.com?subject='+subject+'&body='+body;
+        /* Show success after a short delay so user sees the feedback */
+        setTimeout(showSuccess,400);
+      };
+
+      /* Try the serverless API first */
+      fetch('/api/contact',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(data)
       })
-      .catch(function(){if(btn)btn.textContent='Send Message';alert('Something went wrong. Please try again.')});
+      .then(function(res){return res.json().then(function(j){return{status:res.status,body:j}})})
+      .then(function(result){
+        if(result.status===200&&result.body.ok){
+          /* Email sent via Resend */
+          showSuccess();
+        }else if(result.status===202&&result.body.fallback==='mailto'){
+          /* Backend not configured — open mail client */
+          fallbackToMailto();
+        }else if(result.status===400){
+          if(btn)btn.textContent=originalText;
+          alert(result.body.error||'Please check your form inputs.');
+        }else{
+          /* Any other failure → mailto fallback */
+          fallbackToMailto();
+        }
+      })
+      .catch(function(){
+        /* Network error or API 500 → mailto fallback */
+        fallbackToMailto();
+      });
     });
   }
 
