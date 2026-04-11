@@ -40,7 +40,7 @@ export default async function handler(req, res) {
     }
 
     const apiKey = process.env.RESEND_API_KEY;
-    const toEmail = process.env.CONTACT_TO_EMAIL || "adrian@mozaiik.com";
+    const toEmail = process.env.CONTACT_TO_EMAIL || "info@mozaiik.com";
     const fromEmail = process.env.CONTACT_FROM_EMAIL || "Mozaiik Contact <onboarding@resend.dev>";
 
     // If Resend is configured, send the email
