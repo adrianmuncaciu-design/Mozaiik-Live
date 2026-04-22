@@ -2,73 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mozaiik.com/</loc>
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://mozaiik.com/manifesto</loc>
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mozaiik.com/contact</loc>
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mozaiik.com/privacy</loc>
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://mozaiik.com/terms</loc>
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://mozaiik.com/faq</loc>
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mozaiik.com/pricing</loc>
-    <lastmod>2026-03-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://mozaiik.com/blog</loc>
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mozaiik.com/article-canadian-wealth-os</loc>
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://mozaiik.com/article-entity-first-architecture</loc>
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://mozaiik.com/article-navigating-csa-osc-ciro</loc>
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://mozaiik.com/article-ai-wont-replace-advisors</loc>
-    <lastmod>2026-03-12</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
